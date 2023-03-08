@@ -1,0 +1,469 @@
+NATO_decisions = {
+
+	leave_NATO = {
+
+		icon = GFX_decision_generic_leave_nato
+
+		available = {
+			has_idea = NATO_member
+		}
+
+		visible = {
+			has_idea = NATO_member
+		}
+
+		cost = 100
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision leave_NATO"
+			NATO_leave = yes
+		}
+
+		ai_will_do = {
+			factor = 0
+			#By default a country will leave if not Western
+			modifier = {
+				add = 1000
+				NOT = { has_government = democratic }
+				#Countries with special AI
+				NOT = { original_tag = TUR }
+				NOT = { original_tag = EST }
+				NOT = { original_tag = LAT }
+				NOT = { original_tag = LIT }
+				NOT = { original_tag = HUN }
+				NOT = { original_tag = NOR }
+				NOT = { original_tag = GER }
+				NOT = { original_tag = GRE }
+				NOT = { original_tag = ITA }
+				NOT = { original_tag = DEN }
+			}
+			#Turkey will stay in the NATO if Western or if led by AKP
+			modifier = {
+				add = 1000
+				original_tag = TUR
+				OR = {
+					has_government = nationalist
+					has_government = communism
+					has_government = fascism
+					AND = {
+						has_government = neutrality
+						NOT = { is_in_array = { ruling_party = 12 } }
+					}
+				}
+			}
+			#Baltic countries only leave if Emerging or Nationalistic
+			modifier = {
+				add = 1000
+				OR = {
+					original_tag = EST
+					original_tag = LAT
+					original_tag = LIT
+				}
+				OR = {
+					has_government = communism
+					has_government = fascism
+				}
+			}
+			#Leaves only if not Western or Non-Aligned
+			modifier = {
+				add = 1000
+				OR = {
+					original_tag = HUN
+					original_tag = NOR
+					original_tag = EST
+					original_tag = LAT
+					original_tag = LIT
+					original_tag = GER
+				}
+				NOT = { has_government = democratic }
+				NOT = { has_government = neutrality }
+			}
+			#Greece only leaves if not Western or Communist
+			modifier = {
+				add = 1000
+				OR = {
+					original_tag = GRE
+				}
+				NOT = { has_government = democratic }
+				NOT = { has_government = communism }
+			}
+			#Italy only leaves if not Western, Communist or Neutral
+			modifier = {
+				add = 1000
+				original_tag = ITA
+				NOT = { has_government = democratic }
+				NOT = { has_government = neutrality }
+			}
+			modifier = {
+				factor = 0
+				original_tag = ITA
+				OR = {
+					AND = {
+						has_government = nationalist
+						nationalist_right_wing_populists_are_in_power = yes
+						is_historical_focus_on = yes
+					}
+					AND = {
+						has_government = communism
+						is_historical_focus_on = yes
+					}
+				}
+			}
+			#Denmark only leaves if not Western or Nationalistic
+			modifier = {
+				add = 1000
+				OR = {
+					original_tag = DEN
+				}
+				NOT = { has_government = democratic }
+				NOT = { has_government = fascism }
+			}
+		}
+	}
+
+	denounce_Status_As_Major_Non_NATO_Ally = {
+
+		icon = GFX_decision_generic_leave_nato
+
+		available = {
+			has_idea = Major_Non_NATO_Ally
+		}
+
+		visible = {
+			has_idea = Major_Non_NATO_Ally
+		}
+
+		cost = 100
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision denounce_Status_As_Major_Non_NATO_Ally"
+			remove_ideas = Major_Non_NATO_Ally
+			clr_country_flag = Major_Non_NATO_Ally
+			remove_from_tech_sharing_group = Major_Non_NATO_Ally_Share
+
+			USA = {
+				add_opinion_modifier = { target = PREV modifier = left_alliance }
+			}
+
+			#news_event = { id = NATO.6 hours = 6 }
+
+			# Remove opinion modifiers.
+			every_other_country = {
+				limit = {
+					has_opinion_modifier = Major_Non_NATO_Ally
+				}
+
+				remove_opinion_modifier = { target = PREV modifier = Major_Non_NATO_Ally }
+				hidden_effect = {
+					PREV = { remove_opinion_modifier = { target = PREV modifier = Major_Non_NATO_Ally } }
+				}
+			}
+		}
+	}
+
+	become_NATO_aspirant = {
+
+		icon = GFX_decision_generic_join_nato
+
+		available = {
+			has_government = democratic
+		}
+
+		visible = {
+			is_subject = no
+			NOT = { has_idea = NATO_member }
+			NOT = { has_country_flag = NATO_Aspirant }
+		}
+
+		cost = 250
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision become_NATO_aspirant"
+			for_each_scope_loop = {
+				array = global.nato_members
+
+				country_event = NATO.7
+			}
+
+			set_country_flag = NATO_Aspirant
+		}
+
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				has_opinion = { target = USA value > 150 }
+			}
+		}
+	}
+
+	finish_NATO_membership_action_plan = {
+
+		icon = GFX_decision_generic_join_nato
+
+		available = {
+			is_in_faction = no
+			has_government = democratic
+			has_added_tension_amount < 5
+			custom_trigger_tooltip = {
+				tooltip = TT_NO_MILITARY_INTERNAL_FACTION
+				NOT = { has_idea = the_military }
+			}
+			custom_trigger_tooltip = {
+				tooltip = TT_AT_LEAST_SMALL_MILITARY_SPENDING
+				NOT = { has_idea = defence_00 }
+				NOT = { has_idea = defence_01 }
+			}
+			custom_trigger_tooltip = {
+				tooltip = TT_AT_LEAST_BASIC_POLICE
+				NOT = { has_idea = police_01 }
+			}
+			custom_trigger_tooltip = {
+				tooltip = TT_OKAY_CORRUPTION
+				NOT = {
+					has_idea = paralyzing_corruption
+					has_idea = crippling_corruption
+					has_idea = rampant_corruption
+					has_idea = unrestrained_corruption
+					has_idea = systematic_corruption
+				}
+			}
+		}
+
+		visible = {
+			NOT = { has_idea = NATO_member }
+			has_country_flag = NATO_Aspirant
+			NOT = { has_country_flag = NATO_Accession_Voting }
+		}
+
+		cost = 150
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision finish_NATO_membership_action_plan"
+			set_country_flag = NATO_Accession_Voting
+			add_to_array = {
+				global.NATO_Accession_Candidates = THIS
+			}
+		}
+
+		ai_will_do = {
+			factor = 10
+		}
+	}
+
+	ratify_country_accession = {
+
+		icon = GFX_decision_generic_join_nato
+
+		target_array = global.NATO_Accession_Candidates
+
+		target_trigger = {
+			FROM = { has_country_flag = NATO_Accession_Voting }
+		}
+
+		visible = {
+			has_idea = NATO_member
+			hidden_trigger = {
+				NOT = { has_country_flag = NATO_Ratified_@FROM }
+			}
+		}
+
+		cost = 50
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision ratify_country_accession target: [From.GetName]"
+			hidden_effect = {
+				set_country_flag = NATO_Ratified_@FROM
+			}
+		}
+
+		ai_will_do = {
+			factor = 1000
+			modifier = {
+				factor = 0
+				has_opinion = { target = FROM value < 50 }
+			}
+		}
+	}
+
+	join_NATO = {
+
+		icon = GFX_decision_generic_join_nato
+
+		visible = {
+			has_country_flag = NATO_Accession_Voting
+		}
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = TT_ALL_NATO_MEMBERS_RATIFIED
+
+				# Check if all members in nato has ratified the accenssion.
+				all_of_scopes = {
+					array = global.nato_members
+
+					has_country_flag = NATO_Ratified_@ROOT
+				}
+			}
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision join_NATO"
+
+			# Join NATO.
+			NATO_join = yes
+
+			# Remove the canditate stuff.
+			hidden_effect = {
+				clr_country_flag = NATO_Accession_Voting
+				remove_from_array = {
+					global.NATO_Accession_Candidates = THIS
+				}
+				clr_country_flag = NATO_Aspirant
+
+				for_each_scope_loop = {
+					array = global.nato_members
+
+					clr_country_flag = NATO_Ratified_@ROOT
+				}
+
+				if = {
+					limit = { has_idea = Major_Non_NATO_Ally }
+					remove_ideas = Major_Non_NATO_Ally
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 10
+		}
+	}
+
+	show_non_ratified_countries = {
+
+		icon = GFX_decision_generic_join_nato
+
+		visible = {
+			has_country_flag = NATO_Accession_Voting
+		}
+
+		available = {
+			hidden_trigger = {
+				always = no
+			}
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision show_non_ratified_countries"
+			NATO_show_non_ratified_countries = yes
+		}
+	}
+
+	# call_nato_to_arms = {
+
+		# icon = GFX_decision_generic_join_nato
+
+		# visible = {
+			# has_defensive_war = yes
+			# has_idea = NATO_member
+			# NOT = { has_global_flag = NATO_called_to_arms }
+		# }
+
+		# available = {
+			# has_idea = NATO_member
+			# has_defensive_war = yes
+			# custom_trigger_tooltip = {
+				# tooltip = TT_ATTACKER_CONTROLS_OUR_STATES
+				# any_enemy_country = {
+					# has_offensive_war_with = ROOT
+					# any_state = {
+						# is_controlled_by = PREV
+						# is_owned_by = ROOT
+					# }
+				# }
+			# }
+		# }
+
+		# fire_only_once = yes
+
+		# complete_effect = {
+			# log = "[GetDateText]: [Root.GetName]: Decision call_nato_to_arms"
+			# create_faction = NATO
+			# set_global_flag = NATO_called_to_arms
+			# set_country_flag = Leader_of_NATO
+			# every_other_country = {
+				# limit = {
+					# has_idea = NATO_member
+					# NOT = { has_war_with = ROOT }		#Just in case someone starts a war between NATO countries
+					# is_subject = no
+					# is_in_faction = no
+				# }
+				# country_event = NATO.3
+			# }
+			# hidden_effect = {
+				# random_country = {
+					# limit = {
+						# has_offensive_war_with = ROOT
+						# any_state = {
+							# is_controlled_by = PREV
+							# is_owned_by = ROOT
+						# }
+					# }
+					# set_country_flag = Attacked_NATO
+				# }
+			# }
+		# }
+
+		# ai_will_do = {
+			# factor = 10
+		# }
+	# }
+
+	nato_enhance_forward_presence_brigade = {
+		icon = infiltrate_state
+		allowed = {
+			original_tag = USA
+		}
+		visible = {
+			original_tag = USA
+			USA = { has_idea = NATO_member }
+			SOV = { controls_state = 669 }
+		}
+		available = {
+			original_tag = USA
+			POL = { has_idea = NATO_member }
+		}
+		fire_only_once = yes
+		cost = 100
+		days_remove = 80
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision nato_enhance_forward_presence_brigade"
+			country_event = { id = USA_FOCUS.2 days = 1 }
+		}
+	}
+
+	nato_deply_turkish_brigade = {
+		icon = infiltrate_state
+		allowed = {
+			original_tag = USA
+		}
+		visible = {
+			original_tag = USA
+			USA = { has_idea = NATO_member }
+			SOV = { controls_state = 669 }
+		}
+		available = {
+			original_tag = USA
+			TUR = { has_idea = NATO_member }
+		}
+		fire_only_once = yes
+		cost = 100
+		days_remove = 80
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision nato_enhance_forward_presence_brigade"
+			country_event = { id = USA_FOCUS.4 days = 1 }
+		}
+	}
+}

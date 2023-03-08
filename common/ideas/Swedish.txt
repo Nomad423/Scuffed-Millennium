@@ -1,0 +1,40 @@
+ideas = {
+
+	country = {
+
+		SWE_lucrative_dlc_policy = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea SWE_lucrative_dlc_policy" }
+
+			allowed = {
+				always = no
+			}
+
+			picture = foreign_capital
+
+			modifier = {
+				consumer_goods_factor = -0.03
+			}
+
+		}
+		SWE_idea_overhalling_our_university_system = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea SWE_idea_overhalling_our_university_system" }
+			
+			picture = research_bonus
+
+			modifier = {
+				research_speed_factor = 0.05
+			}
+		}
+		SWE_idea_overhalling_our_university_system1 = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea SWE_idea_overhalling_our_university_system1" }
+
+			picture = research_bonus
+
+			modifier = {
+				research_speed_factor = 0.1
+				stability_factor = 0.05
+			}
+		}
+	}
+
+}

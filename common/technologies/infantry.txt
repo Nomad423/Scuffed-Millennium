@@ -1,0 +1,2222 @@
+#Written by Hiddengearz
+##Expanded by Bird
+technologies = {
+	#cool, basically variables
+
+	#X axis
+	@1965 = 0
+	@1970 = 2
+	@1975 = 4
+	@1980 = 6
+	@1985 = 8
+	@1990 = 10
+	@1995 = 12
+	@2000 = 14
+	@2005 = 16
+	@2010 = 18
+	@2015 = 20
+	@2020 = 22
+	@2025 = 24
+	@2030 = 26
+	@2035 = 28
+	#@1944 = 16
+	#@1945 = 18
+	#@1946 = 20
+	#Y Axis
+	@row1 = -2
+	@row2 = 0
+	@row3 = 2
+	@row4 = 4
+	@row5 = 6
+	@row6 = 8
+	@row7 = 10
+
+	###Infantry Weapons###
+
+	#1965
+	infantry_weapons = {
+		on_research_complete = { log = "[GetDateText]: [Root.GetName]: add tech infantry_weapons" }
+
+		enable_equipments = {
+			infantry_weapons
+		}
+		enable_subunits = {
+			Militia_Bat
+			L_Inf_Bat
+			L_Air_Inf_Bat
+			L_Recce_Comp
+			infantry
+			Special_Forces ##Still enabled here. Spec Ops tree improves stats of the special forces
+			combat_service_support_company
+		}
+
+		path = {
+			leads_to_tech = infantry_weapons1
+			research_cost_coeff = 1
+		}
+
+		research_cost = 1
+		start_year = 1965
+		folder = {
+			name = infantry_folder
+			position = { x = @row1 y = @1965 }
+		}
+
+		categories = {
+			Cat_INF
+			Cat_INF_WEP
+		}
+
+		ai_will_do = {
+			factor = 50
+		}
+	}
+	#1975
+	infantry_weapons1 = {
+		on_research_complete = { log = "[GetDateText]: [Root.GetName]: add tech infantry_weapons1" }
+
+		enable_equipments = {
+			infantry_weapons1
+		}
+
+		path = {
+			leads_to_tech = infantry_weapons2
+			research_cost_coeff = 1
+		}
+
+		research_cost = 1.1
+		start_year = 1975
+		folder = {
+			name = infantry_folder
+			position = { x = @row1 y = @1975 }
+		}
+
+		categories = {
+			Cat_INF
+			Cat_INF_WEP
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#1985
+	infantry_weapons2 = {
+		on_research_complete = { log = "[GetDateText]: [Root.GetName]: add tech infantry_weapons2" }
+
+		enable_equipments = {
+			infantry_weapons2
+		}
+
+		path = {
+			leads_to_tech = infantry_weapons3
+			research_cost_coeff = 1
+		}
+
+		research_cost = 1.2
+		start_year = 1985
+		folder = {
+			name = infantry_folder
+			position = { x = @row1 y = @1985 }
+		}
+
+		categories = {
+			Cat_INF
+			Cat_INF_WEP
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#1995
+	infantry_weapons3 = {
+		on_research_complete = { log = "[GetDateText]: [Root.GetName]: add tech infantry_weapons3" }
+
+		enable_equipments = {
+			infantry_weapons3
+		}
+
+		path = {
+			leads_to_tech = infantry_weapons4
+			research_cost_coeff = 1
+		}
+
+		research_cost = 1.3
+		start_year = 1995
+		folder = {
+			name = infantry_folder
+			position = { x = @row1 y = @1995 }
+		}
+
+		categories = {
+			Cat_INF
+			Cat_INF_WEP
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#2005
+	infantry_weapons4 = {
+		on_research_complete = { log = "[GetDateText]: [Root.GetName]: add tech infantry_weapons4" }
+
+		enable_equipments = {
+			infantry_weapons4
+		}
+
+		path = {
+			leads_to_tech = infantry_weapons5
+			research_cost_coeff = 1
+		}
+
+		research_cost = 1.4
+		start_year = 2005
+		folder = {
+			name = infantry_folder
+			position = { x = @row1 y = @2005 }
+		}
+
+		categories = {
+			Cat_INF
+			Cat_INF_WEP
+		}
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0.5
+				date < 2005.01.01
+			}
+			modifier = {
+				factor = 0.2
+				date < 2002.01.01
+			}
+		}
+	}
+	#2015
+	infantry_weapons5 = {
+		on_research_complete = { log = "[GetDateText]: [Root.GetName]: add tech infantry_weapons5" }
+
+		enable_equipments = {
+			infantry_weapons5
+		}
+
+		path = {
+			leads_to_tech = infantry_weapons6
+			research_cost_coeff = 1
+		}
+
+		research_cost = 1.5
+		start_year = 2015
+		folder = {
+			name = infantry_folder
+			position = { x = @row1 y = @2015 }
+		}
+
+		categories = {
+			Cat_INF
+			Cat_INF_WEP
+		}
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0.5
+				date < 2015.01.01
+			}
+			modifier = {
+				factor = 0.2
+				date < 2010.01.01
+			}
+		}
+	}
+	#2025
+	infantry_weapons6 = {
+		on_research_complete = { log = "[GetDateText]: [Root.GetName]: add tech infantry_weapons6" }
+
+		enable_equipments = {
+			infantry_weapons6
+		}
+
+		path = {
+			leads_to_tech = infantry_weapons7
+			research_cost_coeff = 1
+		}
+
+		research_cost = 1.6
+		start_year = 2025
+		folder = {
+			name = infantry_folder
+			position = { x = @row1 y = @2025 }
+		}
+
+		categories = {
+			Cat_INF
+			Cat_INF_WEP
+		}
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0.5
+				date < 2025.01.01
+			}
+			modifier = {
+				factor = 0.2
+				date < 2020.01.01
+			}
+		}
+	}
+	#2035
+	infantry_weapons7 = {
+		on_research_complete = { log = "[GetDateText]: [Root.GetName]: add tech infantry_weapons7" }
+
+		enable_equipments = {
+			infantry_weapons7
+		}
+
+		research_cost = 1.7
+		start_year = 2035
+		folder = {
+			name = infantry_folder
+			position = { x = @row1 y = @2035 }
+		}
+
+		categories = {
+			Cat_INF
+			Cat_INF_WEP
+		}
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0.5
+				date < 2035.01.01
+			}
+			modifier = {
+				factor = 0.2
+				date < 2030.01.01
+			}
+		}
+	}
+
+	###Combat Engineer Equipment
+
+	#1965
+	combat_eng_equipment = {
+		on_research_complete = { log = "[GetDateText]: [Root.GetName]: add tech combat_eng_equipment" }
+		enable_subunits = {
+			L_Inf_Bat
+			L_Engi_Comp
+		}
+
+		research_cost = 1.5
+		start_year = 1965
+
+		xp_research_type = army
+		xp_boost_cost = 50
+		xp_research_bonus = 1.00
+
+		folder = {
+			name = infantry_folder
+			position = { x = @row4 y = @1965 }
+		}
+
+		categories = {
+			Cat_INF
+			Cat_ENG_EQP
+		}
+
+		ai_will_do = {
+			factor = 5
+		}
+	}
+
+	###Night Vision###
+
+	#1965
+	night_vision_1 = {
+		on_research_complete = { log = "[GetDateText]: [Root.GetName]: add tech night_vision_1" }
+
+		land_night_attack = 0.1
+
+		path = {
+			leads_to_tech = night_vision_2
+			research_cost_coeff = 1
+		}
+
+		research_cost = 2
+		start_year = 1965
+
+		xp_research_type = army
+		xp_boost_cost = 50
+		xp_research_bonus = 1.00
+
+		folder = {
+			name = infantry_folder
+			position = { x = @row2 y = @1965 }
+		}
+
+		categories = {
+			Cat_INF
+			Cat_NVG
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+	}
+	#1975
+	night_vision_2 = {
+		on_research_complete = { log = "[GetDateText]: [Root.GetName]: add tech night_vision_2" }
+
+		land_night_attack = 0.2
+
+		path = {
+			leads_to_tech = night_vision_3
+			research_cost_coeff = 1
+		}
+
+		research_cost = 2.1
+		start_year = 1975
+
+		xp_research_type = army
+		xp_boost_cost = 50
+		xp_research_bonus = 1.00
+
+		folder = {
+			name = infantry_folder
+			position = { x = @row2 y = @1975 }
+		}
+
+		categories = {
+			Cat_INF
+			Cat_NVG
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+	}
+	#1985
+	night_vision_3 = {
+		on_research_complete = { log = "[GetDateText]: [Root.GetName]: add tech night_vision_3" }
+
+		land_night_attack = 0.2
+
+		path = {
+			leads_to_tech = night_vision_4
+			research_cost_coeff = 1
+		}
+
+		research_cost = 2.2
+		start_year = 1985
+
+		xp_research_type = army
+		xp_boost_cost = 50
+		xp_research_bonus = 1.00
+
+		folder = {
+			name = infantry_folder
+			position = { x = @row2 y = @1985 }
+		}
+
+		categories = {
+			Cat_INF
+			Cat_NVG
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+	}
+	#2015
+	night_vision_4 = {
+		on_research_complete = { log = "[GetDateText]: [Root.GetName]: add tech night_vision_4" }
+
+		land_night_attack = 0.1
+
+		research_cost = 2.3
+		start_year = 2015
+
+		xp_research_type = army
+		xp_boost_cost = 50
+		xp_research_bonus = 1.00
+
+		folder = {
+			name = infantry_folder
+			position = { x = @row2 y = @2015 }
+		}
+
+		categories = {
+			Cat_INF
+			Cat_NVG
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+	###Command & Control Equipment###
+
+	#1975
+	command_control_equipment = {
+		on_research_complete = { log = "[GetDateText]: [Root.GetName]: add tech command_control_equipment" }
+
+		enable_equipments = {
+			command_control_equipment
+		}
+
+		path = {
+			leads_to_tech = command_control_equipment1
+			research_cost_coeff = 1
+		}
+
+		research_cost = 1.3
+		start_year = 1975
+		folder = {
+			name = infantry_folder
+			position = { x = @row3 y = @1975 }
+		}
+
+		categories = {
+			Cat_INF
+			Cat_CnC
+		}
+
+		ai_will_do = {
+			factor = 3
+		}
+	}
+	#1985
+	command_control_equipment1 = {
+		on_research_complete = { log = "[GetDateText]: [Root.GetName]: add tech command_control_equipment1" }
+
+		enable_equipments = {
+			command_control_equipment1
+		}
+
+		path = {
+			leads_to_tech = command_control_equipment2
+			research_cost_coeff = 1
+		}
+
+		research_cost = 1.4
+		start_year = 1985
+		folder = {
+			name = infantry_folder
+			position = { x = @row3 y = @1985 }
+		}
+
+		categories = {
+			Cat_INF
+			Cat_CnC
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#1995
+	command_control_equipment2 = {
+		on_research_complete = { log = "[GetDateText]: [Root.GetName]: add tech command_control_equipment2" }
+
+		enable_equipments = {
+			command_control_equipment2
+		}
+
+		path = {
+			leads_to_tech = command_control_equipment3
+			research_cost_coeff = 1
+		}
+
+		research_cost = 1.5
+		start_year = 1995
+		folder = {
+			name = infantry_folder
+			position = { x = @row3 y = @1995 }
+		}
+
+		categories = {
+			Cat_INF
+			Cat_CnC
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#2005
+	command_control_equipment3 = {
+		on_research_complete = { log = "[GetDateText]: [Root.GetName]: add tech command_control_equipment3" }
+
+		enable_equipments = {
+			command_control_equipment3
+		}
+
+		path = {
+			leads_to_tech = command_control_equipment4
+			research_cost_coeff = 1
+		}
+
+		research_cost = 1.6
+		start_year = 2005
+		folder = {
+			name = infantry_folder
+			position = { x = @row3 y = @2005 }
+		}
+
+		categories = {
+			Cat_INF
+			Cat_CnC
+		}
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0.5
+				date < 2005.01.01
+			}
+			modifier = {
+				factor = 0.2
+				date < 2002.01.01
+			}
+		}
+	}
+	#2015
+	command_control_equipment4 = {
+		on_research_complete = { log = "[GetDateText]: [Root.GetName]: add tech command_control_equipment4" }
+
+		enable_equipments = {
+			command_control_equipment4
+		}
+
+		path = {
+			leads_to_tech = command_control_equipment5
+			research_cost_coeff = 1
+		}
+
+		research_cost = 1.7
+		start_year = 2015
+		folder = {
+			name = infantry_folder
+			position = { x = @row3 y = @2015 }
+		}
+
+		categories = {
+			Cat_INF
+			Cat_CnC
+		}
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0.5
+				date < 2015.01.01
+			}
+			modifier = {
+				factor = 0.2
+				date < 2010.01.01
+			}
+		}
+	}
+	#2025
+	command_control_equipment5 = {
+		on_research_complete = { log = "[GetDateText]: [Root.GetName]: add tech command_control_equipment5" }
+
+		enable_equipments = {
+			command_control_equipment5
+		}
+
+		path = {
+			leads_to_tech = command_control_equipment6
+			research_cost_coeff = 1
+		}
+
+		research_cost = 1.8
+		start_year = 2025
+		folder = {
+			name = infantry_folder
+			position = { x = @row3 y = @2025 }
+		}
+
+		categories = {
+			Cat_INF
+			Cat_CnC
+		}
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0.5
+				date < 2025.01.01
+			}
+			modifier = {
+				factor = 0.2
+				date < 2020.01.01
+			}
+		}
+	}
+	#2035
+	command_control_equipment6 = {
+		on_research_complete = { log = "[GetDateText]: [Root.GetName]: add tech command_control_equipment6" }
+
+		enable_equipments = {
+			command_control_equipment6
+		}
+
+		research_cost = 1.9
+		start_year = 2035
+		folder = {
+			name = infantry_folder
+			position = { x = @row3 y = @2035 }
+		}
+
+		categories = {
+			Cat_INF
+			Cat_CnC
+		}
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0.5
+				date < 2035.01.01
+			}
+			modifier = {
+				factor = 0.2
+				date < 2030.01.01
+			}
+		}
+	}
+
+	###Drones###
+
+	#1985
+	land_Drone_equipment = {
+		on_research_complete = { log = "[GetDateText]: [Root.GetName]: add tech land_Drone_equipment" }
+
+		#custom_effect_tooltip = tank_art_upgrade
+		L_Recce_Comp = {
+			recon = 0.33
+			need = {
+				command_control_equipment = 2
+			}
+		}
+		Mot_Recce_Comp = {
+			recon = 0.33
+			need = {
+				command_control_equipment = 2
+			}
+		}
+		Mech_Recce_Comp = {
+			recon = 0.33
+			need = {
+				command_control_equipment = 2
+			}
+		}
+		Arm_Recce_Comp = {
+			recon = 0.33
+			need = {
+				command_control_equipment = 2
+			}
+		}
+		armor_Recce_Comp = {
+			recon = 0.33
+			need = {
+				command_control_equipment = 2
+			}
+		}
+
+		path = {
+			leads_to_tech = land_Drone_equipment1
+			research_cost_coeff = 1
+		}
+
+		research_cost = 1.5
+		start_year = 1985
+
+		xp_research_type = army
+		xp_boost_cost = 50
+		xp_research_bonus = 1.00
+
+		folder = {
+			name = infantry_folder
+			position = { x = @row4 y = @1985 }
+		}
+
+		categories = {
+			Cat_INF
+			Cat_L_DRONE
+		}
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 2
+				check_variable = { gdp_per_capita > 14.999 }
+			}
+		}
+	}
+	#1995
+	land_Drone_equipment1 = {
+		on_research_complete = { log = "[GetDateText]: [Root.GetName]: add tech land_Drone_equipment1" }
+
+		L_Recce_Comp = {
+			recon = 1
+			need = {
+				command_control_equipment = 2
+			}
+		}
+		Mot_Recce_Comp = {
+			recon = 1
+			need = {
+				command_control_equipment = 2
+			}
+		}
+		Mech_Recce_Comp = {
+			recon = 1
+			need = {
+				command_control_equipment = 2
+			}
+		}
+		Arm_Recce_Comp = {
+			recon = 1
+			need = {
+				command_control_equipment = 2
+			}
+		}
+		armor_Recce_Comp = {
+			recon = 1
+			need = {
+				command_control_equipment = 2
+			}
+		}
+
+		path = {
+			leads_to_tech = land_Drone_equipment2
+			research_cost_coeff = 1
+		}
+
+		research_cost = 1.6
+		start_year = 1995
+
+		xp_research_type = army
+		xp_boost_cost = 50
+		xp_research_bonus = 1.00
+
+		folder = {
+			name = infantry_folder
+			position = { x = @row4 y = @1995 }
+		}
+
+		categories = {
+			Cat_INF
+			Cat_L_DRONE
+		}
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 2
+				check_variable = { gdp_per_capita > 14.999 }
+				check_variable = { gdp_per_capita > 14.999 }
+			}
+		}
+	}
+	#2005
+	land_Drone_equipment2 = {
+		on_research_complete = { log = "[GetDateText]: [Root.GetName]: add tech land_Drone_equipment2" }
+
+		L_Recce_Comp = {
+			recon = 1
+			need = {
+				command_control_equipment = 2
+			}
+		}
+		Mot_Recce_Comp = {
+			recon = 1
+			need = {
+				command_control_equipment = 2
+			}
+		}
+		Mech_Recce_Comp = {
+			recon = 1
+			need = {
+				command_control_equipment = 2
+			}
+		}
+		Arm_Recce_Comp = {
+			recon = 1
+			need = {
+				command_control_equipment = 2
+			}
+		}
+		armor_Recce_Comp = {
+			recon = 1
+			need = {
+				command_control_equipment = 2
+			}
+		}
+
+		path = {
+			leads_to_tech = land_Drone_equipment3
+			research_cost_coeff = 1
+		}
+
+		research_cost = 1.7
+		start_year = 2005
+
+		xp_research_type = army
+		xp_boost_cost = 50
+		xp_research_bonus = 1.00
+
+		folder = {
+			name = infantry_folder
+			position = { x = @row4 y = @2005 }
+		}
+
+		categories = {
+			Cat_INF
+			Cat_L_DRONE
+		}
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0.5
+				date < 2005.01.01
+			}
+			modifier = {
+				factor = 0.2
+				date < 2002.01.01
+			}
+			modifier = {
+				factor = 2
+				check_variable = { gdp_per_capita > 14.999 }
+			}
+		}
+	}
+	#2015
+	land_Drone_equipment3 = {
+		on_research_complete = { log = "[GetDateText]: [Root.GetName]: add tech land_Drone_equipment3" }
+
+		enable_equipment_modules = {
+			tank_drones
+		}
+
+		L_Recce_Comp = {
+			recon = 1
+			need = {
+				command_control_equipment = 2
+			}
+		}
+		Mot_Recce_Comp = {
+			recon = 1
+			need = {
+				command_control_equipment = 2
+			}
+		}
+		Mech_Recce_Comp = {
+			recon = 1
+			need = {
+				command_control_equipment = 2
+			}
+		}
+		Arm_Recce_Comp = {
+			recon = 1
+			need = {
+				command_control_equipment = 2
+			}
+		}
+		armor_Recce_Comp = {
+			recon = 1
+			need = {
+				command_control_equipment = 2
+			}
+		}
+
+		path = {
+			leads_to_tech = land_Drone_equipment4
+			research_cost_coeff = 1
+		}
+
+		research_cost = 1.8
+		start_year = 2015
+
+		xp_research_type = army
+		xp_boost_cost = 50
+		xp_research_bonus = 1.00
+
+		folder = {
+			name = infantry_folder
+			position = { x = @row4 y = @2015 }
+		}
+
+		categories = {
+			Cat_INF
+			Cat_L_DRONE
+		}
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0.5
+				date < 2015.01.01
+			}
+			modifier = {
+				factor = 0.2
+				date < 2010.01.01
+			}
+			modifier = {
+				factor = 2
+				check_variable = { gdp_per_capita > 14.999 }
+			}
+		}
+	}
+	#2025
+	land_Drone_equipment4 = {
+		on_research_complete = { log = "[GetDateText]: [Root.GetName]: add tech land_Drone_equipment4" }
+
+		enable_equipment_modules = {
+			tank_drones_2
+		}
+
+		L_Recce_Comp = {
+			recon = 1
+			need = {
+				command_control_equipment = 2
+			}
+		}
+		Mot_Recce_Comp = {
+			recon = 1
+			need = {
+				command_control_equipment = 2
+			}
+		}
+		Mech_Recce_Comp = {
+			recon = 1
+			need = {
+				command_control_equipment = 2
+			}
+		}
+		Arm_Recce_Comp = {
+			recon = 1
+			need = {
+				command_control_equipment = 2
+			}
+		}
+		armor_Recce_Comp = {
+			recon = 1
+			need = {
+				command_control_equipment = 2
+			}
+		}
+
+		path = {
+			leads_to_tech = land_Drone_equipment5
+			research_cost_coeff = 1
+		}
+
+		research_cost = 1.9
+		start_year = 2025
+
+		xp_research_type = army
+		xp_boost_cost = 50
+		xp_research_bonus = 1.00
+
+		folder = {
+			name = infantry_folder
+			position = { x = @row4 y = @2025 }
+		}
+
+		categories = {
+			Cat_INF
+			Cat_L_DRONE
+		}
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0.5
+				date < 2025.01.01
+			}
+			modifier = {
+				factor = 0.2
+				date < 2020.01.01
+			}
+			modifier = {
+				factor = 2
+				check_variable = { gdp_per_capita > 14.999 }
+			}
+		}
+	}
+	#2035
+	land_Drone_equipment5 = {
+		on_research_complete = { log = "[GetDateText]: [Root.GetName]: add tech land_Drone_equipment5" }
+
+		L_Recce_Comp = {
+			recon = 1
+			need = {
+				command_control_equipment = 2
+			}
+		}
+		Mot_Recce_Comp = {
+			recon = 1
+			need = {
+				command_control_equipment = 2
+			}
+		}
+		Mech_Recce_Comp = {
+			recon = 1
+			need = {
+				command_control_equipment = 2
+			}
+		}
+		Arm_Recce_Comp = {
+			recon = 1
+			need = {
+				command_control_equipment = 2
+			}
+		}
+		armor_Recce_Comp = {
+			recon = 1
+			need = {
+				command_control_equipment = 2
+			}
+		}
+
+
+		research_cost = 2
+		start_year = 2035
+		folder = {
+			name = infantry_folder
+			position = { x = @row4 y = @2035 }
+		}
+
+		categories = {
+			Cat_INF
+			Cat_L_DRONE
+		}
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0.5
+				date < 2035.01.01
+			}
+			modifier = {
+				factor = 0.2
+				date < 2030.01.01
+			}
+			modifier = {
+				factor = 2
+				check_variable = { gdp_per_capita > 14.999 }
+			}
+		}
+	}
+
+	body_armor_1980 = { #kevlar
+		on_research_complete = {
+			log = "[GetDateText]: [Root.GetName]: add tech body_armor_1980"
+		}
+
+		category_militia = {
+			max_strength = 1.2
+		}
+		category_light_infantry = {
+			max_strength = 2
+		}
+		category_apc = {
+			max_strength = 1.75
+		}
+		category_IFV = {
+			max_strength = 1.5
+		}
+
+		path = {
+			leads_to_tech = body_armor_2000
+			research_cost_coeff = 1
+		}
+
+		research_cost = 2
+		start_year = 1980
+
+		xp_research_type = army
+		xp_boost_cost = 50
+		xp_research_bonus = 1.00
+
+		folder = {
+			name = infantry_folder
+			position = { x = @row5 y = @1980 }
+		}
+
+		categories = {
+			Cat_INF
+		}
+
+		ai_will_do = {
+			factor = 10
+		}
+	}
+	body_armor_2000 = { #kevlar with ceramic ballistic plates
+		on_research_complete = {
+			log = "[GetDateText]: [Root.GetName]: add tech body_armor_2000"
+		}
+
+		category_militia = {
+			max_strength = 1.2
+		}
+		category_light_infantry = {
+			max_strength = 2
+		}
+		category_apc = {
+			max_strength = 1.75
+		}
+		category_IFV = {
+			max_strength = 1.5
+		}
+
+		path = {
+			leads_to_tech = body_armor_2010
+			research_cost_coeff = 1
+		}
+
+		research_cost = 2
+		start_year = 2000
+
+		xp_research_type = army
+		xp_boost_cost = 50
+		xp_research_bonus = 1.00
+
+		folder = {
+			name = infantry_folder
+			position = { x = @row5 y = @2000 }
+		}
+
+		categories = {
+			Cat_INF
+		}
+
+		ai_will_do = {
+			factor = 10
+		}
+	}
+	body_armor_2010 = { #improved outer tactical vest
+		on_research_complete = {
+			log = "[GetDateText]: [Root.GetName]: add tech body_armor_2010"
+		}
+
+		category_militia = {
+			max_strength = 1.2
+		}
+		category_light_infantry = {
+			max_strength = 2
+		}
+		category_apc = {
+			max_strength = 1.75
+		}
+		category_IFV = {
+			max_strength = 1.5
+		}
+
+		path = {
+			leads_to_tech = body_armor_2030
+			research_cost_coeff = 1
+		}
+
+		research_cost = 2
+		start_year = 2010
+
+		xp_research_type = army
+		xp_boost_cost = 50
+		xp_research_bonus = 1.00
+
+		folder = {
+			name = infantry_folder
+			position = { x = @row5 y = @2010 }
+		}
+
+		categories = {
+			Cat_INF
+		}
+
+		ai_will_do = {
+			factor = 10
+			modifier = {
+				factor = 0.5
+				date < 2010.01.01
+			}
+			modifier = {
+				factor = 0.2
+				date < 2005.01.01
+			}
+		}
+	}
+	body_armor_2030 = {
+		on_research_complete = {
+			log = "[GetDateText]: [Root.GetName]: add tech body_armor_2030"
+		}
+
+		category_militia = {
+			max_strength = 1.2
+		}
+		category_light_infantry = {
+			max_strength = 2
+		}
+		category_apc = {
+			max_strength = 1.75
+		}
+		category_IFV = {
+			max_strength = 1.5
+		}
+
+		research_cost = 2
+		start_year = 2030
+
+		xp_research_type = army
+		xp_boost_cost = 50
+		xp_research_bonus = 1.00
+
+		folder = {
+			name = infantry_folder
+			position = { x = @row5 y = @2030 }
+		}
+
+		categories = {
+			Cat_INF
+		}
+
+		ai_will_do = {
+			factor = 10
+			modifier = {
+				factor = 0.5
+				date < 2030.01.01
+			}
+			modifier = {
+				factor = 0.2
+				date < 2020.01.01
+			}
+		}
+	}
+
+	camouflage = {
+		on_research_complete = { log = "[GetDateText]: [Root.GetName]: add tech camouflage" }
+
+		enemy_army_bonus_air_superiority_factor = -0.075
+
+		path = {
+			leads_to_tech = camouflage2
+			research_cost_coeff = 1
+		}
+
+		research_cost = 2
+		start_year = 1965
+
+		xp_research_type = army
+		xp_boost_cost = 50
+		xp_research_bonus = 1.00
+
+		folder = {
+			name = infantry_folder
+			position = { x = @row6 y = @1970 }
+		}
+
+		categories = {
+			Cat_INF
+		}
+
+		ai_will_do = {
+			factor = 10
+		}
+	}
+	camouflage2 = {
+		on_research_complete = { log = "[GetDateText]: [Root.GetName]: add tech camouflage2" }
+
+		enemy_army_bonus_air_superiority_factor = -0.075
+
+		path = {
+			leads_to_tech = camouflage3
+			research_cost_coeff = 1
+		}
+
+		research_cost = 2
+		start_year = 1980
+
+		xp_research_type = army
+		xp_boost_cost = 50
+		xp_research_bonus = 1.00
+
+		folder = {
+			name = infantry_folder
+			position = { x = @row6 y = @1980 }
+		}
+
+		categories = {
+			Cat_INF
+		}
+
+		ai_will_do = {
+			factor = 10
+		}
+	}
+	camouflage3 = {
+		on_research_complete = { log = "[GetDateText]: [Root.GetName]: add tech camouflage3" }
+
+		enemy_army_bonus_air_superiority_factor = -0.075
+
+		path = {
+			leads_to_tech = camouflage4
+			research_cost_coeff = 1
+		}
+
+		research_cost = 2
+		start_year = 2000
+
+		xp_research_type = army
+		xp_boost_cost = 50
+		xp_research_bonus = 1.00
+
+		folder = {
+			name = infantry_folder
+			position = { x = @row6 y = @2000 }
+		}
+
+		categories = {
+			Cat_INF
+		}
+
+		ai_will_do = {
+			factor = 10
+		}
+	}
+	camouflage4 = {
+		on_research_complete = { log = "[GetDateText]: [Root.GetName]: add tech camouflage4" }
+
+		enemy_army_bonus_air_superiority_factor = -0.075
+
+		path = {
+			leads_to_tech = camouflage5
+			research_cost_coeff = 1
+		}
+
+		research_cost = 2
+		start_year = 2020
+
+		xp_research_type = army
+		xp_boost_cost = 50
+		xp_research_bonus = 1.00
+
+		folder = {
+			name = infantry_folder
+			position = { x = @row6 y = @2020 }
+		}
+
+		categories = {
+			Cat_INF
+		}
+
+		ai_will_do = {
+			factor = 10
+			modifier = {
+				factor = 0.5
+				date < 2020.01.01
+			}
+			modifier = {
+				factor = 0.2
+				date < 2015.01.01
+			}
+		}
+	}
+	camouflage5 = {
+		on_research_complete = { log = "[GetDateText]: [Root.GetName]: add tech camouflage5" }
+
+		enemy_army_bonus_air_superiority_factor = -0.075
+
+		research_cost = 2
+		start_year = 2035
+
+		xp_research_type = army
+		xp_boost_cost = 50
+		xp_research_bonus = 1.00
+
+		folder = {
+			name = infantry_folder
+			position = { x = @row6 y = @2035 }
+		}
+
+		categories = {
+			Cat_INF
+		}
+
+		ai_will_do = {
+			factor = 10
+			modifier = {
+				factor = 0.5
+				date < 2035.01.01
+			}
+			modifier = {
+				factor = 0.2
+				date < 2025.01.01
+			}
+		}
+	}
+
+
+	HEZBOLLAH_BOOST = {
+		on_research_complete = { log = "[GetDateText]: [Root.GetName]: add tech HEZBOLLAH_BOOST" }
+
+		research_cost = 1
+
+		# only from focus!!! #####
+		allow = {
+			always = no
+		}
+
+		ai_focus_aggressive_factor = 0.50
+
+		armor_Comp = {
+			default_morale = 0.1
+			max_organisation = 10
+		}
+		L_Engi_Comp = {
+			default_morale = 0.1
+			max_organisation = 20
+		}
+		L_Recce_Comp = {
+			default_morale = 0.1
+			max_organisation = 30
+		}
+		SP_Arty_Battery = {
+			default_morale = 0.1
+			max_organisation = 20
+		}
+		Arty_Battery = {
+			default_morale = 0.1
+			max_organisation = 20
+		}
+		Mech_Recce_Comp = {
+			default_morale = 0.1
+			max_organisation = 30
+		}
+		Mot_Recce_Comp = {
+			default_morale = 0.1
+			max_organisation = 30
+		}
+		H_Engi_Comp = {
+			default_morale = 0.1
+			max_organisation = 20
+		}
+		SP_AA_Battery = {
+			default_morale = 0.1
+			max_organisation = 20
+		}
+
+	}
+
+	ISIS_JIHAD = {
+		on_research_complete = { log = "[GetDateText]: [Root.GetName]: add tech ISIS_JIHAD" }
+
+		research_cost = 1
+
+		# only from focus!!! #####
+		allow = {
+			always = no
+		}
+
+		ai_focus_defense_factor = 0.50
+		#ai_focus_aggressive_factor = -0.95
+
+		L_Recce_Comp = {
+			default_morale = 0.3
+			max_organisation = 15
+			desert = {
+				attack = 0.20
+				defence = 0.5
+				movement = 0.4
+			}
+			urban = {
+				attack = 0.20
+				defence = 0.2
+				movement = 0.4
+			}
+		}
+		H_Engi_Comp = {
+			default_morale = 0.3
+			max_organisation = 15
+			desert = {
+				attack = 0.20
+				defence = 0.5
+				movement = 0.4
+			}
+			urban = {
+				attack = 0.20
+				defence = 0.2
+				movement = 0.4
+			}
+		}
+		Mot_Recce_Comp = {
+			default_morale = 0.3
+			max_organisation = 15
+			desert = {
+				attack = 0.20
+				defence = 0.5
+				movement = 0.4
+			}
+			urban = {
+				attack = 0.20
+				defence = 0.2
+				movement = 0.4
+			}
+		}
+		L_Engi_Comp = {
+			default_morale = 0.3
+			max_organisation = 15
+			desert = {
+				attack = 0.20
+				defence = 0.5
+				movement = 0.4
+			}
+			urban = {
+				attack = 0.20
+				defence = 0.2
+				movement = 0.4
+			}
+		}
+		SP_Arty_Battery = {
+			default_morale = 0.1
+			max_organisation = 10
+			desert = {
+				attack = 0.20
+				defence = 0.5
+				movement = 0.4
+			}
+			urban = {
+				attack = 0.20
+				defence = 0.2
+				movement = 0.4
+			}
+		}
+		Arty_Battery = {
+			default_morale = 0.1
+			max_organisation = 10
+			desert = {
+				attack = 0.20
+				defence = 0.5
+				movement = 0.4
+			}
+			urban = {
+				attack = 0.20
+				defence = 0.2
+				movement = 0.4
+			}
+		}
+
+		Militia_Bat = {
+			desert = {
+				attack = 0.20
+				defence = 0.5
+				movement = 0.4
+			}
+			urban = {
+				attack = 0.20
+				defence = 0.2
+				movement = 0.4
+			}
+			default_morale = 0.45
+			max_organisation = 40
+		}
+		Mot_Militia_Bat = {
+			desert = {
+				attack = 0.20
+				defence = 0.5
+				movement = 0.4
+			}
+			urban = {
+				attack = 0.20
+				defence = 0.2
+				movement = 0.4
+			}
+			default_morale = 0.45
+			max_organisation = 40
+		}
+		Mot_Inf_Bat = {
+			desert = {
+				attack = 0.20
+				defence = 0.5
+				movement = 0.4
+			}
+			urban = {
+				attack = 0.20
+				defence = 0.2
+				movement = 0.4
+			}
+			default_morale = 0.45
+			max_organisation = 40
+		}
+		Mech_Inf_Bat = {
+			desert = {
+				attack = 0.20
+				defence = 0.5
+				movement = 0.4
+			}
+			urban = {
+				attack = 0.20
+				defence = 0.2
+				movement = 0.4
+			}
+			default_morale = 0.45
+			max_organisation = 10
+		}
+		armor_Bat = {
+			desert = {
+				attack = 0.2
+				defence = 0.4
+				movement = 0.4
+			}
+			urban = {
+				attack = 0.2
+				defence = 0.1
+				movement = 0.4
+			}
+			default_morale = 0.45
+			max_organisation = 10
+		}
+		Special_Forces = {
+			desert = {
+				attack = 0.20
+				defence = 0.5
+				movement = 0.4
+			}
+			urban = {
+				attack = 0.20
+				defence = 0.2
+				movement = 0.4
+			}
+			default_morale = 0.45
+			max_organisation = 40
+		}
+
+	}
+
+	ISIS_JIHAD_HUMAN = {
+		on_research_complete = { log = "[GetDateText]: [Root.GetName]: add tech ISIS_JIHAD_HUMAN" }
+
+		research_cost = 1
+
+		# only from focus!!! #####
+		allow = {
+			always = no
+		}
+
+		L_Recce_Comp = {
+			default_morale = 0.2
+			max_organisation = 30
+		}
+		Mot_Recce_Comp = {
+			default_morale = 0.2
+			max_organisation = 30
+		}
+		L_Engi_Comp = {
+			default_morale = 0.2
+			max_organisation = 30
+		}
+
+		Militia_Bat = {
+			desert = {
+				defence = 0.5
+				movement = 0.1
+			}
+			urban = {
+				attack = 0.10
+			}
+			default_morale = 0.35
+			max_organisation = 30
+		}
+		Mot_Militia_Bat = {
+			desert = {
+				defence = 0.5
+				movement = 0.1
+			}
+			urban = {
+				attack = 0.10
+			}
+			default_morale = 0.35
+			max_organisation = 30
+		}
+		Mot_Inf_Bat = {
+			desert = {
+				defence = 0.5
+				movement = 0.1
+			}
+			urban = {
+				attack = 0.10
+			}
+			default_morale = 0.35
+			max_organisation = 30
+		}
+		Mech_Inf_Bat = {
+			desert = {
+				defence = 0.5
+				movement = 0.1
+			}
+			urban = {
+				attack = 0.10
+			}
+			default_morale = 0.35
+			max_organisation = 30
+		}
+		armor_Bat = {
+			desert = {
+				defence = 0.5
+				movement = 0.1
+			}
+			urban = {
+				attack = 0.10
+			}
+			default_morale = 0.35
+			max_organisation = 20
+		}
+		Special_Forces = {
+			desert = {
+				defence = 0.5
+				movement = 0.1
+			}
+			urban = {
+				attack = 0.10
+				movement = 0.1
+			}
+			default_morale = 0.35
+			max_organisation = 30
+		}
+	}
+
+	##Extra infantry tech
+	##Support Weapons --Buffs Infantry
+	support_weapons = {
+		on_research_complete = { log = "[GetDateText]: [Root.GetName]: add tech support_weapons" }
+		category_non_militia = {
+			defense = 0.05
+			breakthrough = 0.05
+		}
+		path = {
+			leads_to_tech = squad_automatic_weapon
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = tandem_charge_warheads
+			research_cost_coeff = 1
+		}
+
+		research_cost = 1.5
+		start_year = 1965
+
+		xp_research_type = army
+		xp_boost_cost = 50
+		xp_research_bonus = 1.00
+
+		folder = {
+			name = infantry_folder
+			position = { x = 0 y =  @1965 }
+		}
+
+		categories = {
+			Cat_INF
+			Cat_SUPPORT_WEAPONS
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	squad_automatic_weapon = {
+		on_research_complete = { log = "[GetDateText]: [Root.GetName]: add tech squad_automatic_weapon" }
+		category_non_militia = {
+			defense = 0.05
+			breakthrough = 0.05
+		}
+
+		path = {
+			leads_to_tech = support_weapons2
+			research_cost_coeff = 1
+		}
+
+		research_cost = 1.5
+		start_year = 1975
+
+		xp_research_type = army
+		xp_boost_cost = 50
+		xp_research_bonus = 1.00
+
+		folder = {
+			name = infantry_folder
+			position = { x = 1 y = @1975 }
+		}
+
+		categories = {
+			Cat_INF
+			Cat_SUPPORT_WEAPONS
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	tandem_charge_warheads = {
+		on_research_complete = { log = "[GetDateText]: [Root.GetName]: add tech tandem_charge_warheads" }
+		category_non_militia = {
+			hard_attack = 0.02
+			ap_attack = 0.05
+		}
+
+		path = {
+			leads_to_tech = support_weapons2
+			research_cost_coeff = 1
+		}
+
+		research_cost = 1.5
+		start_year = 1975
+
+		xp_research_type = army
+		xp_boost_cost = 50
+		xp_research_bonus = 1.00
+
+		folder = {
+			name = infantry_folder
+			position = { x = -1 y = @1975 }
+		}
+
+		categories = {
+			Cat_INF
+			Cat_SUPPORT_WEAPONS
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	support_weapons2 = {
+		on_research_complete = { log = "[GetDateText]: [Root.GetName]: add tech support_weapons2" }
+		category_non_militia = {
+			defense = 0.05
+			breakthrough = 0.05
+		}
+
+		path = {
+			leads_to_tech = support_weapons3
+			research_cost_coeff = 1
+		}
+
+		research_cost = 1.5
+		start_year = 1985
+
+		xp_research_type = army
+		xp_boost_cost = 50
+		xp_research_bonus = 1.00
+
+		folder = {
+			name = infantry_folder
+			position = { x = 0 y = @1985 }
+		}
+
+		categories = {
+			Cat_INF
+			Cat_SUPPORT_WEAPONS
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	support_weapons3 = {
+		on_research_complete = { log = "[GetDateText]: [Root.GetName]: add tech support_weapons3" }
+		category_non_militia = {
+			defense = 0.05
+			hard_attack = 0.05
+		}
+
+		path = {
+			leads_to_tech = support_weapons4
+			research_cost_coeff = 1
+		}
+
+		research_cost = 1.5
+		start_year = 1995
+
+		xp_research_type = army
+		xp_boost_cost = 50
+		xp_research_bonus = 1.00
+
+		folder = {
+			name = infantry_folder
+			position = { x = 0 y = @1995 }
+		}
+
+		categories = {
+			Cat_INF
+			Cat_SUPPORT_WEAPONS
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	support_weapons4 = {
+		on_research_complete = { log = "[GetDateText]: [Root.GetName]: add tech support_weapons4" }
+		category_non_militia = {
+			soft_attack = 0.05
+			breakthrough = 0.05
+		}
+
+		path = {
+			leads_to_tech = support_weapons5
+			research_cost_coeff = 1
+		}
+
+		research_cost = 1.5
+		start_year = 2005
+
+		xp_research_type = army
+		xp_boost_cost = 50
+		xp_research_bonus = 1.00
+
+		folder = {
+			name = infantry_folder
+			position = { x = 0 y = @2005 }
+		}
+
+		categories = {
+			Cat_INF
+			Cat_SUPPORT_WEAPONS
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	support_weapons5 = {
+		on_research_complete = { log = "[GetDateText]: [Root.GetName]: add tech support_weapons5" }
+		category_non_militia = {
+			defense = 0.05
+			anti_air_attack = 0.02
+		}
+
+		research_cost = 1.5
+		start_year = 2015
+		folder = {
+			name = infantry_folder
+			position = { x = 0 y = @2015 }
+		}
+
+		categories = {
+			Cat_INF
+			Cat_SUPPORT_WEAPONS
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	##Special Forces
+	special_forces = {
+		on_research_complete = { log = "[GetDateText]: [Root.GetName]: add tech special_forces" }
+		special_forces_cap = 0.05
+		path = {
+			leads_to_tech = special_forces2
+			research_cost_coeff = 1
+		}
+
+		research_cost = 3
+		start_year = 1965
+
+		xp_research_type = army
+		xp_boost_cost = 100
+		xp_research_bonus = 1.00
+
+		folder = {
+			name = infantry_folder
+			position = { x = 0 y = @1965 }
+		}
+
+		categories = {
+			Cat_INF
+			Cat_SPECIAL_FORCES
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	special_forces2 = {
+		on_research_complete = { log = "[GetDateText]: [Root.GetName]: add tech special_force2" }
+		category_special_forces = {
+			soft_attack = 0.05
+		}
+		path = {
+			leads_to_tech = special_forces3
+			research_cost_coeff = 1
+		}
+
+		research_cost = 3
+		start_year = 1975
+
+		xp_research_type = army
+		xp_boost_cost = 100
+		xp_research_bonus = 1.00
+
+		folder = {
+			name = infantry_folder
+			position = { x = 0 y = @1975}
+		}
+
+		categories = {
+			Cat_INF
+			Cat_SPECIAL_FORCES
+		}
+	}
+
+	special_forces3 = {
+		on_research_complete = { log = "[GetDateText]: [Root.GetName]: add tech special_forces3" }
+		category_special_forces = {
+			max_organisation = 10
+		}
+		special_forces_training_time_factor = 0.1
+		path = {
+			leads_to_tech = special_forces4
+			research_cost_coeff = 1
+		}
+
+		research_cost = 2.0
+		start_year = 1985
+
+		xp_research_type = army
+		xp_boost_cost = 100
+		xp_research_bonus = 1.00
+
+		folder = {
+			name = infantry_folder
+			position = { x = 0 y = @1985 }
+		}
+
+		categories = {
+			Cat_INF
+			Cat_SPECIAL_FORCES
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	special_forces4 = {
+		on_research_complete = { log = "[GetDateText]: [Root.GetName]: add tech special_forces4" }
+		category_special_forces = {
+			hard_attack = 0.05
+		}
+
+		path = {
+			leads_to_tech = special_forces5
+			research_cost_coeff = 1
+		}
+
+		research_cost = 3
+		start_year = 1995
+
+		xp_research_type = army
+		xp_boost_cost = 100
+		xp_research_bonus = 1.00
+
+		folder = {
+			name = infantry_folder
+			position = { x = 0 y = @1995 }
+		}
+
+		categories = {
+			Cat_INF
+			Cat_SPECIAL_FORCES
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	special_forces5 = {
+		on_research_complete = { log = "[GetDateText]: [Root.GetName]: add tech special_forces5" }
+		category_special_forces = {
+			max_organisation = 5
+		}
+		special_forces_training_time_factor = -0.05
+
+		path = {
+			leads_to_tech = special_forces6
+			research_cost_coeff = 1
+		}
+
+		research_cost = 3
+		start_year = 2005
+
+		xp_research_type = army
+		xp_boost_cost = 100
+		xp_research_bonus = 1.00
+
+		folder = {
+			name = infantry_folder
+			position = { x = 0 y = @2005 }
+		}
+
+		categories = {
+			Cat_INF
+			Cat_SPECIAL_FORCES
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	special_forces6 = {
+		on_research_complete = { log = "[GetDateText]: [Root.GetName]: add tech special_forces6" }
+		category_special_forces = {
+			soft_attack = 0.05
+			hard_attack = 0.05
+			max_organisation = 5
+		}
+
+		research_cost = 5
+		start_year = 2030
+
+		xp_research_type = army
+		xp_boost_cost = 100
+		xp_research_bonus = 1.00
+
+		folder = {
+			name = infantry_folder
+			position = { x = 0 y = @2030 }
+		}
+
+		categories = {
+			Cat_INF
+			Cat_SPECIAL_FORCES
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}

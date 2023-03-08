@@ -1,0 +1,313 @@
+ideas = {
+
+	country = {
+		SOV_outdated_army_idea = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea SOV_outdated_army_idea" }
+			picture = volunteer_defenders
+			allowed = { original_tag = SOV }
+			allowed_civil_war = { always = yes }
+
+			modifier = {
+				army_attack_factor = -0.10
+				army_defence_factor = -0.10
+				industrial_capacity_factory = -0.25
+			}
+		}
+		russian_legacy = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea russian_legacy" }
+			allowed = { original_tag = SOV }
+			allowed_civil_war = { always = yes }
+			picture = SOV_russian_legacy
+
+			modifier = {
+				drift_defence_factor = 0.50
+				democratic_drift = -0.05
+			}
+		}
+		SOV_corrupt_oligarchy = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea SOV_corrupt_oligarchy" }
+			picture = high_society
+			allowed = { original_tag = SOV }
+			allowed_civil_war = { always = yes }
+
+			modifier = {
+				political_power_factor = -0.1
+				industrial_capacity_factory = -0.1
+				corruption_cost_factor = 0.50
+			}
+		}
+
+		SOV_idea_greased_palms_make_light_work = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea idea_SOV_putinism" }
+			picture = local_self_management
+			allowed = { original_tag = SOV }
+			allowed_civil_war = { always = yes }
+
+			modifier = {
+				health_cost_multiplier_modifier = -0.10
+				social_cost_multiplier_modifier = -0.10
+			}
+		}
+
+		idea_SOV_oligarchic_republic = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea idea_SOV_oligarchic_republic" }
+			picture = high_society
+			allowed = { original_tag = SOV }
+			allowed_civil_war = { always = yes }
+
+			modifier = {
+				political_power_factor = -0.20
+				industrial_capacity_factory = 0.15
+				production_speed_buildings_factor = 0.15
+				tax_gain_multiplier_modifier = -0.05
+				foreign_influence_defense_modifier = 0.10
+			}
+		}
+
+		idea_SOV_putinism = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea idea_SOV_putinism" }
+			picture = victors_of_ww1
+			allowed = { original_tag = SOV }
+			allowed_civil_war = { always = yes }
+
+			modifier = {
+				political_power_factor = 0.25
+				communism_drift = 0.03
+			}
+		}
+		SOV_aggresive_foriegn_policy_putin_idea = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea SOV_aggresive_foriegn_policy_putin_idea" }
+			picture = army_of_aggression
+			allowed = { original_tag = SOV }
+			allowed_civil_war = { always = yes }
+
+			modifier = {
+				justify_war_goal_time = -0.5
+				generate_wargoal_tension = -0.25
+			}
+		}
+		SOV_cheap_foreign_labor_idea = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea SOV_cheap_foreign_labor_idea" }
+			picture = consumer_goods
+			allowed = { original_tag = SOV }
+			allowed_civil_war = { always = yes }
+
+			modifier = {
+				production_speed_buildings_factor = 0.10
+				industrial_capacity_factory = 0.10
+				monthly_population = 0.1
+				global_building_slots_factor = 0.10
+			}
+		}
+
+		SOV_russian_ceasar_idea = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea SOV_russian_ceasar_idea" }
+			picture = fascism2
+			allowed = { original_tag = SOV }
+			allowed_civil_war = { always = yes }
+
+			modifier = {
+				political_power_factor = 0.20
+				drift_defence_factor = 0.25
+				army_attack_factor = 0.10
+				nationalist_drift = 0.01
+				war_support_weekly = 0.001
+			}
+		}
+
+		SOV_the_new_tsar_idea = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea SOV_the_new_tsar_idea" }
+			picture = monarchy
+			allowed = { original_tag = SOV }
+			allowed_civil_war = { always = yes }
+
+			modifier = {
+				political_power_factor = 0.15
+				stability_weekly = 0.001
+				drift_defence_factor = 0.25
+				army_defence_factor = 0.10
+				nationalist_drift = 0.01
+			}
+		}
+
+		SOV_russian_militarism_idea = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea SOV_russian_militarism_idea" }
+			picture = manpower_bonus
+			allowed = { always = no }
+			allowed_civil_war = {
+				OR = {
+					has_government = democratic
+					has_government = fascism
+					has_government = nationalist
+				}
+			}
+
+			modifier = {
+				production_factory_efficiency_gain_factor = 0.05
+				industrial_capacity_factory = 0.15
+				conversion_cost_civ_to_mil_factor = -0.30
+				conscription_factor = 0.25
+				justify_war_goal_time = -0.5
+				generate_wargoal_tension = -0.25
+			}
+		}
+
+		SOV_zyunganovs_five_year_plans_idea = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea SOV_zyunganovs_five_year_plans_idea" }
+			picture = communism
+			allowed = { always = no }
+			allowed_civil_war = { has_government = communism }
+
+			modifier = {
+				consumer_goods_factor = -0.05
+				production_speed_buildings_factor = 0.25
+				industrial_capacity_factory = 0.15
+				global_building_slots_factor = 0.1
+			}
+		}
+		SOV_idea_the_new_red_army = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea SOV_idea_the_new_red_army" }
+			picture = communism2
+			allowed = { always = no }
+			allowed_civil_war = { has_government = communism }
+
+			modifier = {
+				justify_war_goal_time = -0.25
+				army_attack_factor = 0.15
+				conscription_factor = 0.10
+				army_org_factor = 0.15
+				army_defence_factor = 0.15
+			}
+		}
+		SOV_rise_of_the_new_ussr_idea = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea SOV_rise_of_the_new_ussr_idea" }
+			picture = communism4
+			allowed = { always = no }
+			allowed_civil_war = { has_government = communism }
+
+			modifier = {
+				war_support_weekly = 0.001
+				drift_defence_factor = 0.25
+				conscription_factor = 0.15
+				army_org_factor = 0.15
+				army_defence_factor = 0.15
+			}
+		}
+		SOV_russian_communism_idea = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea SOV_rise_of_the_new_ussr_idea" }
+			picture = communism2
+			allowed = { always = no }
+			allowed_civil_war = { has_government = communism }
+
+			modifier = {
+				communism_drift = 0.05
+				communism_acceptance = 50
+			}
+		}
+		SOV_studies_abroad_idea = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea SOV_studies_abroad_idea" }
+			picture = communism2
+			allowed = { always = no }
+			allowed_civil_war = { has_government = communism }
+
+			modifier = {
+				research_speed_factor = 0.10
+				education_cost_multiplier_modifier = -0.20
+			}
+		}
+
+		SOV_idea_army_of_the_republic = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea SOV_idea_army_of_the_republic" }
+			allowed = { always = no }
+			picture = communism2
+			modifier = {
+				war_support_factor = 0.10
+				conscription_factor = 0.10
+				army_org_factor = 0.10
+				army_defence_factor = 0.15
+			}
+		}
+
+		SOV_armored_production_idea = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea SOV_armored_production_idea" }
+			allowed_civil_war = { always = yes }
+			picture = motorized_focus
+
+			modifier = {
+				industrial_capacity_factory = 0.10
+			}
+			equipment_bonus = {
+				mbt_hull = {
+					armor_value = 0.10
+					reliability = 0.10
+					instant = yes
+					build_cost_ic = -0.05
+				}
+				Rec_tank_Equipment = {
+					armor_value = 0.10
+					reliability = 0.10
+					build_cost_ic = -0.05
+					instant = yes
+				}
+				APC_Equipment = {
+					armor_value = 0.10
+					reliability = 0.10
+					build_cost_ic = -0.05
+					instant = yes
+				}
+				IFV_Equipment = {
+					armor_value = 0.10
+					reliability = 0.10
+					build_cost_ic = -0.05
+					instant = yes
+				}
+				util_vehicle_equipment = {
+					armor_value = 0.10
+					reliability = 0.10
+					build_cost_ic = -0.05
+					instant = yes
+				}
+			}
+		}
+		SOV_idea_reforming_education = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea SOV_idea_reforming_education" }
+			picture = international_treaty
+
+			modifier = {
+				education_cost_multiplier_modifier = -0.05
+				research_speed_factor = 0.05
+				stability_factor = 0.05
+			}
+		}
+		SOV_idea_expanding_military_research = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea SOV_idea_expanding_military_research" }
+			picture = soviet_german_friendship
+
+			modifier = {
+				education_cost_multiplier_modifier = -0.05
+				research_speed_factor = 0.05
+				industrial_capacity_factory = 0.05
+			}
+		}
+		SOV_idea_communist_education = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea SOV_idea_communist_education" }
+			picture = communism5
+
+			modifier = {
+				education_cost_multiplier_modifier = -0.05
+				research_speed_factor = 0.05
+			 	production_speed_buildings_factor = 0.05
+			}
+
+		}
+		SOV_idea_investing_in_universities = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea SOV_idea_investing_in_universities" }
+			picture = research_bonus
+
+			modifier = {
+				education_cost_multiplier_modifier = -0.10
+				research_speed_factor = 0.1
+			}
+		}
+	}
+}

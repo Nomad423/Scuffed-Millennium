@@ -1,0 +1,47 @@
+
+state = {
+	id = 181
+	name = "STATE_181"
+	resources = {
+		oil = 36
+		aluminium = 19
+		steel = 3
+	}
+
+	history = {
+		owner = QAT
+		victory_points = {
+			3738 5 
+		}
+		victory_points = {
+			8051 3 
+		}
+		buildings = {
+			infrastructure = 2
+			internet_station = 2
+			offices = 1
+			air_base = 10
+			8051 = {
+				naval_base = 10
+
+			}
+
+		}
+		add_core_of = QAT
+		2017.1.1 = {
+			add_manpower = 1785757
+			buildings = {
+				infrastructure = 3
+				internet_station = 4
+				industrial_complex = 2
+			}
+		}
+	}
+
+	provinces = {
+		8051 3728 3738 
+	}
+	manpower = 590957
+	buildings_max_level_factor = 1.000
+	state_category = state_01
+}

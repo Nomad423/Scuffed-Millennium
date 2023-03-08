@@ -1,0 +1,352 @@
+﻿capital = 128
+2000.1.1 = {
+	set_country_flag = dynamic_flag
+	set_country_flag = dynamic_rebel_flag
+
+	if = {
+		limit = { has_dlc = "No Step Back" }
+
+		set_oob = "BOS_2000_nsb"
+	}
+	if = {
+		limit = { NOT = { has_dlc = "No Step Back" } }
+
+		set_oob = "BOS_2000_nonnsb"
+	}
+
+	set_cosmetic_tag = BOS
+	set_convoys = 5
+
+	add_ideas = {
+
+        #GDP
+
+        #Economic Cycle
+        stable_growth
+        #Corruption
+        unrestrained_corruption
+        #Faction 1
+        small_medium_business_owners
+        #Faction 2
+        international_bankers
+        #Faction 3
+        the_ulema
+
+        #Bureacracy
+        bureau_03
+        #Military Spending
+        defence_06
+        #Internal Security
+        police_03
+        #Education budget
+        edu_03
+        #Health budget
+        health_05
+        #Social spending
+        social_03
+
+        #Trade Law
+        semi_consumption_economy
+        #Conscription Law
+        volunteer_army
+        #Women in the military
+        volunteer_women
+        #Foreign Intervention Law
+
+        #Officer Training
+        officer_military_school
+
+        #Other
+		sunni
+		multi_ethnic_state_idea
+
+	}
+
+	set_technology = {
+		integrated_transportation_system = 1
+		post_conventional_rail = 1
+		early_freight_locomotive = 1
+
+		legacy_doctrines = 1
+		armoured_mass_assault = 1
+		night_vision_1 = 1
+
+		#For templates
+		infantry_weapons = 1
+		support_weapons = 1
+		special_forces = 1
+		combat_eng_equipment = 1
+		command_control_equipment = 1
+		Anti_tank_0 = 1
+		Heavy_Anti_tank_0 = 1
+		artillery_0 = 1
+		SP_arty_0 = 1
+		Anti_Air_0 = 1
+		Early_APC = 1
+		APC_1 = 1
+		util_vehicle_0 = 1
+		IFV_1 = 1
+		Rec_tank_0 = 1
+
+		body_armor_1980 = 1
+
+		basic_computing = 1
+		integrated_circuit = 1
+		computing1 = 1
+		decryption1 = 1
+		encryption1 = 1
+		radar = 1
+		internet1 = 1 	#1G
+		internet2 = 1 	#2G
+		gprs = 1
+		fuel_silos = 1
+	}
+
+	if = {
+		limit = { has_dlc = "No Step Back" }
+
+		set_technology = {
+			mbt_tech = 1
+		}
+	}
+	if = {
+		limit = { NOT = { has_dlc = "No Step Back" } }
+
+		set_technology = {
+			MBT_1 = 1
+		}
+	}
+
+	#Influence system
+	init_influence = yes
+	set_variable = { domestic_influence_amount = 80 }
+	add_to_array = { influence_array = SER.id }
+	add_to_array = { influence_array_val = 45 }
+	add_to_array = { influence_array = CRO.id }
+	add_to_array = { influence_array_val = 35 }
+	add_to_array = { influence_array = ITA.id }
+	add_to_array = { influence_array_val = 6 }
+	add_to_array = { influence_array = GER.id }
+	add_to_array = { influence_array_val = 3 }
+	add_to_array = { influence_array = USA.id }
+	add_to_array = { influence_array_val = 10 }
+	startup_influence = yes
+
+	### Economy
+	set_variable = { var = debt value = 3 }
+	set_variable = { var = int_investments value = 0.7 }
+	set_variable = { var = treasury value = 1 }
+	set_variable = { var = corporate_tax_rate value = 10 }
+	set_variable = { var = population_tax_rate value = 10 }
+
+
+	set_popularities = {
+		democratic = 57.0
+		communism = 3.0
+		fascism = 0.0
+		neutrality = 32.0
+		nationalist = 8.0
+	}
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1998.09.12"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+
+	### Election Threshold
+	set_variable = { election_threshold = 0.03 }
+
+	start_politics_input = yes
+
+	### Party Popularities
+	set_variable = { party_pop_array^0 = 0 } #Western_Autocracy
+	set_variable = { party_pop_array^1 = 0.3 } #conservatism
+	set_variable = { party_pop_array^2 = 0 } #liberalism
+	set_variable = { party_pop_array^3 = 0.27 } #socialism
+	set_variable = { party_pop_array^4 = 0.03 } #Communist-State
+	set_variable = { party_pop_array^5 = 0 } #anarchist_communism
+	set_variable = { party_pop_array^6 = 0 } #Conservative
+	set_variable = { party_pop_array^7 = 0 } #Autocracy
+	set_variable = { party_pop_array^8 = 0 } #Mod_Vilayat_e_Faqih
+	set_variable = { party_pop_array^9 = 0 } #Vilayat_e_Faqih
+	set_variable = { party_pop_array^10 = 0 } #Kingdom
+	set_variable = { party_pop_array^11 = 0 } #Caliphate
+	set_variable = { party_pop_array^12 = 0 } #Neutral_Muslim_Brotherhood
+	set_variable = { party_pop_array^13 = 0 } #Neutral_Autocracy
+	set_variable = { party_pop_array^14 = 0.11 } #Neutral_conservatism
+	set_variable = { party_pop_array^15 = 0 } #oligarchism
+	set_variable = { party_pop_array^16 = 0.05 } #Neutral_Libertarian
+	set_variable = { party_pop_array^17 = 0 } #Neutral_green
+	set_variable = { party_pop_array^18 = 0.16 } #neutral_Social
+	set_variable = { party_pop_array^19 = 0 } #Neutral_Communism
+	set_variable = { party_pop_array^20 = 0.08 } #Nat_Populism
+	set_variable = { party_pop_array^21 = 0 } #Nat_Fascism
+	set_variable = { party_pop_array^22 = 0 } #Nat_Autocracy
+	set_variable = { party_pop_array^23 = 0 } #Monarchist
+
+	### Ruling Party
+	add_to_array = { ruling_party = 1 }
+
+	startup_politics = yes
+
+	create_country_leader = {
+		name = "Alija Izetbegović"
+		picture = "alija_izetbegovic.dds"
+		ideology = conservatism
+		traits = {
+			western_conservatism
+		}
+	}
+
+	recruit_character = BOS_novica_simic
+	recruit_character = BOS_cvjetko_savic
+	recruit_character = BOS_novak_dukic
+	recruit_character = BOS_miladin_milojcic
+	recruit_character = BOS_anto_jelec
+	recruit_character = BOS_senad_masovic
+	recruit_character = BOS_air_chief
+	recruit_character = BOS_gojko_knezevic
+	recruit_character = BOS_ivica_jerkic
+	recruit_character = BOS_marko_stojcic
+
+}
+
+2017.1.1 = {
+	if = {
+		limit = { has_dlc = "No Step Back" }
+
+		set_oob = "BOS_2017_nsb"
+	}
+	if = {
+		limit = { NOT = { has_dlc = "No Step Back" } }
+
+		set_oob = "BOS_2017_nonnsb"
+	}
+
+	set_convoys = 5
+
+	set_variable = { small_medium_business_owners_opinion = 60 }
+	set_variable = { international_bankers_opinion = 60 }
+
+	set_country_flag = NATO_Aspirant
+
+	#Nat focus
+
+	set_technology = {
+		microprocessors = 1
+		computing2 = 1
+		decryption2 = 1
+		encryption2 = 1
+		computing3 = 1
+		decryption3 = 1
+		encryption3 = 1
+		computing4 = 1
+		decryption4 = 1
+		encryption4 = 1
+		neural_networks_revival = 1
+		data_mining = 1
+		industrial_electrospun_polymeric_nanofibers = 1
+		stereolitography = 1
+		DNA_fingerprinting = 1
+		modern_gmo = 1
+		gene_therapy = 1
+		wifi = 1
+		internet3 = 1	#3G
+		edge = 1
+		umts = 1
+		hsupa = 1
+		internet4 = 1	#4G
+		lte = 1
+
+		construction1 = 1
+		excavation1 = 1
+	}
+
+	add_ideas = {
+		unrestrained_corruption
+
+		sunni
+		stable_growth
+		defence_01
+		edu_03
+		health_05
+		social_03
+		bureau_03
+		police_03
+		volunteer_army
+		volunteer_women
+		small_medium_business_owners
+		international_bankers
+		the_ulema
+		multi_ethnic_state_idea
+	}
+
+	### Economy
+	set_variable = { var = debt value = 27 }
+	set_variable = { var = int_investments value = 0.9 }
+	set_variable = { var = treasury value = 5 }
+	set_variable = { var = corporate_tax_rate value = 10 }
+	set_variable = { var = population_tax_rate value = 10 }
+
+
+	set_popularities = {
+		democratic = 47.5
+		communism = 0.5
+		fascism = 0.0
+		neutrality = 49.8
+		nationalist = 2.2
+	}
+	set_politics = {
+		ruling_party = democratic
+		last_election = "2014.10.12"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+
+	start_politics_input = yes
+
+	### Party Popularities
+	set_variable = { party_pop_array^0 = 0 } #Western_Autocracy
+	set_variable = { party_pop_array^1 = 0.345 } #conservatism
+	set_variable = { party_pop_array^2 = 0.02 } #liberalism
+	set_variable = { party_pop_array^3 = 0.11 } #socialism
+	set_variable = { party_pop_array^4 = 0.005 } #Communist-State
+	set_variable = { party_pop_array^5 = 0 } #anarchist_communism
+	set_variable = { party_pop_array^6 = 0 } #Conservative
+	set_variable = { party_pop_array^7 = 0 } #Autocracy
+	set_variable = { party_pop_array^8 = 0 } #Mod_Vilayat_e_Faqih
+	set_variable = { party_pop_array^9 = 0 } #Vilayat_e_Faqih
+	set_variable = { party_pop_array^10 = 0 } #Kingdom
+	set_variable = { party_pop_array^11 = 0 } #Caliphate
+	set_variable = { party_pop_array^12 = 0 } #Neutral_Muslim_Brotherhood
+	set_variable = { party_pop_array^13 = 0 } #Neutral_Autocracy
+	set_variable = { party_pop_array^14 = 0.07 } #Neutral_conservatism
+	set_variable = { party_pop_array^15 = 0 } #oligarchism
+	set_variable = { party_pop_array^16 = 0.07 } #Neutral_Libertarian
+	set_variable = { party_pop_array^17 = 0.05 } #Neutral_green
+	set_variable = { party_pop_array^18 = 0.308 } #neutral_Social
+	set_variable = { party_pop_array^19 = 0 } #Neutral_Communism
+	set_variable = { party_pop_array^20 = 0.02 } #Nat_Populism
+	set_variable = { party_pop_array^21 = 0.002 } #Nat_Fascism
+	set_variable = { party_pop_array^22 = 0 } #Nat_Autocracy
+	set_variable = { party_pop_array^23 = 0 } #Monarchist
+
+	### Ruling Party
+	add_to_array = { ruling_party = 1 }
+
+	startup_politics = yes
+
+	create_country_leader = {
+		name = "Bakir Izetbegović"
+		picture = "bakir_izetbegovic.dds"
+		ideology = conservatism
+		traits = {
+			western_conservatism
+		}
+	}
+
+	retire_character = BOS_novica_simic
+	retire_character = BOS_cvjetko_savic
+	retire_character = BOS_novak_dukic
+}

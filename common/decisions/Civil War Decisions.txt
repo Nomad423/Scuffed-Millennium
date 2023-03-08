@@ -1,0 +1,131 @@
+Civil_war_decisions = {
+
+	confiscate_civilian_vehicles = {
+		cost = 50
+
+		days_remove = 15
+		days_re_enable = 30
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove confiscate_civilian_vehicles"
+			add_equipment_to_stockpile = {
+				type = util_vehicle_0
+				amount = 100
+			}
+			set_temp_variable = { treasury_change = -0.1 }
+			modify_treasury_effect = yes
+		}
+
+		ai_will_do = {
+			factor = 10
+			modifier = {
+				factor = 2
+				has_equipment = {
+					util_vehicle_equipment < 100
+				}
+			}
+		}
+	}
+
+	smuggle_small_arms = {
+		cost = 50
+
+		days_remove = 15
+		days_re_enable = 30
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove smuggle_small_arms"
+			add_equipment_to_stockpile = {
+				type = infantry_weapons
+				amount = 700
+				producer = SOV
+			}
+			set_temp_variable = { treasury_change = -0.1 }
+			modify_treasury_effect = yes
+		}
+
+		ai_will_do = {
+			factor = 10
+			modifier = {
+				factor = 2
+				has_equipment = {
+					Inf_equipment < 1000
+				}
+			}
+		}
+	}
+
+	smuggle_heavy_weapons = {
+		cost = 50
+
+		days_remove = 15
+		days_re_enable = 30
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove smuggle_heavy_weapons"
+			add_equipment_to_stockpile = {
+				type = Anti_Air_0
+				amount = 75
+				producer = SOV
+			}
+			add_equipment_to_stockpile = {
+				type = Anti_tank_0
+				amount = 75
+				producer = SOV
+			}
+			set_temp_variable = { treasury_change = -0.2 }
+			modify_treasury_effect = yes
+		}
+
+		ai_will_do = {
+			factor = 10
+			modifier = {
+				factor = 1.5			#Small arms and truck are prioritised
+				OR = {
+					has_equipment = {
+						AA_Equipment < 100
+					}
+					has_equipment = {
+						L_AT_Equipment < 100
+					}
+				}
+			}
+		}
+	}
+
+	buy_fuel_from_black_market = {
+		cost = 50
+
+		days_remove = 15
+		days_re_enable = 30
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove buy_fuel_from_black_market"
+			add_fuel = 1000
+			set_temp_variable = { treasury_change = -0.5 }
+			modify_treasury_effect = yes
+		}
+
+		ai_will_do = {
+			factor = 10
+			modifier = {
+				factor = 1.5
+				has_fuel < 50
+			}
+		}
+	}
+
+	force_conscript_children = {
+		available = {
+			NOT = { has_country_flag = Conscripting_Child_Soldiers }
+		}
+		cost = 200
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision force_conscript_children"
+			add_ideas = child_soldiers
+			set_country_flag = Conscripting_Child_Soldiers
+			set_variable = { var = child_soldiers value = 300 }
+			set_variable = { var = child_soldiers_recruitment value = 10 }
+		}
+	}
+}

@@ -1,0 +1,38 @@
+
+state = {
+	id = 914
+	name = "STATE_914"
+
+	resources = {
+		oil = 13
+	}
+
+	history = {
+		owner = COL
+		victory_points = {
+			5026 3
+		}
+		victory_points = {
+			1887 1
+		}
+		buildings = {
+			infrastructure = 1
+			internet_station = 0
+
+		}
+		add_core_of = COL
+		2017.1.1 = {
+			add_manpower = 333326
+			buildings = {
+				internet_station = 1
+			}
+		}
+	}
+
+	provinces = {
+		1887 5026 10518 10553 10571 10584 10637 11455 11457 11578
+	}
+	manpower = 1360680
+	buildings_max_level_factor = 1.000
+	state_category = state_02
+}

@@ -1,0 +1,38 @@
+
+state = {
+	id = 228
+	name = "STATE_228"
+
+	history = {
+		owner = ERI
+		victory_points = {
+			70 1 
+		}
+		victory_points = {
+			5091 1 
+		}
+		buildings = {
+			infrastructure = 0
+			internet_station = 0
+			70 = {
+				naval_base = 2
+
+			}
+
+		}
+		add_core_of = ERI
+		2017.1.1 = {
+			buildings = {
+				internet_station = 0
+			}
+			add_manpower = 543501
+		}
+	}
+
+	provinces = {
+		5047 5091 8043 12766 70 13794 13793 13792 13791
+	}
+	manpower = 752026
+	buildings_max_level_factor = 1.000
+	state_category = state_01
+}

@@ -1,0 +1,42 @@
+
+state = {
+	id = 209
+	name = "STATE_209"
+
+	history = {
+		owner = PAL
+		add_core_of = PAL
+		add_claim_by = ISR
+		victory_points = {
+			13207 2 
+		}
+		buildings = {
+			infrastructure = 0
+			internet_station = 0
+			13207 = {
+				naval_base = 1
+
+			}
+			
+
+		}
+		2017.1.1 = {
+			owner = HAM
+			add_core_of = HAM
+			add_manpower = 587166
+			buildings = {
+				internet_station = 0
+				13207 = {
+					bunker = 3
+				}
+			}
+		}
+	}
+
+	provinces = {
+		13207 
+	}
+	manpower = 1523386
+	buildings_max_level_factor = 1.000
+	state_category = state_03
+}

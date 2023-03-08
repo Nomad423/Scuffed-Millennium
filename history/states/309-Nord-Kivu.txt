@@ -1,0 +1,60 @@
+
+state = {
+	id = 309
+	name = "STATE_309"
+	
+	resources = {
+		tungsten = 13
+	}
+
+	history = {
+		owner = DRC
+		RWA = {
+			set_province_controller = 1181
+			set_province_controller = 13515
+			set_province_controller = 13516
+		}
+		UGA = {
+			set_province_controller = 13519
+		}
+		victory_points = {
+			13515 5 
+		}
+		victory_points = {
+			13518 2 
+		}
+		buildings = {
+			infrastructure = 0
+			internet_station = 0
+			air_base = 1
+
+		}
+		add_core_of = DRC
+		add_core_of = RCD
+		add_core_of = MLC
+		add_claim_by = RWA
+		2017.1.1 = {
+			buildings = {
+				internet_station = 0
+			}
+			owner = DRC
+			remove_core_of = RCD
+			remove_core_of = MLC
+			remove_claim_by = RWA
+			add_manpower = 1953064
+			DRC = {
+				set_province_controller = 1181
+				set_province_controller = 13515
+				set_province_controller = 13516
+				set_province_controller = 13519
+			}
+		}
+	}
+
+	provinces = {
+		1181 12783 6417 13515 13516 13517 13518 13519 13520
+	}
+	manpower = 2741248
+	buildings_max_level_factor = 1.000
+	state_category = state_04
+}

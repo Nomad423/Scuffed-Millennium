@@ -1,0 +1,34 @@
+state = {
+	id = 867
+	name = "STATE_867"
+	manpower = 71242
+	state_category = state_00
+	
+	history = {
+		owner = DMI
+		victory_points = { 7123 1 } #Roseau
+		
+		buildings = {
+			infrastructure = 2
+			internet_station = 1
+			air_base = 1
+			
+			7123 = {
+				naval_base = 1
+			}
+
+		}
+		add_core_of = DMI
+		2017.1.1 = {
+			buildings = {
+				internet_station = 3
+			}
+			add_manpower = 2301
+		}
+	}
+
+	provinces = {
+		  7123
+		
+		}
+}

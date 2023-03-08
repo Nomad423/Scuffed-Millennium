@@ -1,0 +1,54 @@
+state = {
+	id = 15
+	name = "STATE_15"
+	manpower = 5049453
+	state_category = state_05
+
+	resources = {
+		steel  = 25.000
+	}
+
+	history = {
+		owner = ENG
+		victory_points = {
+			6489 5
+		}
+		victory_points = {
+			9458 3
+		}
+		victory_points = {
+			11446 3
+		}
+		victory_points = {
+			3422 2
+		}
+		buildings = {
+			infrastructure = 3
+			internet_station = 2
+			arms_factory = 4
+			dockyard = 2
+			industrial_complex = 3
+			offices = 3
+			air_base = 10
+			anti_air_building = 2
+			3501 = {
+				naval_base = 6
+			}
+			9458 = {
+				naval_base = 10
+			}
+		}
+		add_core_of = ENG
+		2017.1.1 = {
+			add_manpower = 607924
+			buildings = {
+				internet_station = 4
+				anti_air_building = 5
+			}
+		}
+	}
+
+	provinces = {
+		3422 3501 6103 6351 6489 9458 9484 11446
+	}
+}

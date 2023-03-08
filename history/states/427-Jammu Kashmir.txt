@@ -1,0 +1,38 @@
+state = {
+	id = 427
+	name = "STATE_427"
+	manpower = 11074575
+	state_category = state_09
+
+	history = {
+		owner = RAJ
+		victory_points = {
+			9068 5 
+		}
+		victory_points = {
+			12754 5 
+		}
+		buildings = {
+			infrastructure = 0
+			internet_station = 0
+			industrial_complex = 1
+			air_base = 2
+		}
+		add_core_of = RAJ
+		add_core_of = PAK
+		2017.1.1 = {
+			add_manpower = 2000000
+			add_manpower = 1270447
+			add_core_of = TTP
+			buildings = {
+				internet_station = 0
+				offices = 1
+			}
+		}
+
+	}
+
+	provinces = {
+		2041 8005 10905 12754 9068 13296
+	}
+}

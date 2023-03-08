@@ -1,0 +1,54 @@
+
+state = {
+	id = 890
+	name = "STATE_890"
+
+	resources = {
+		aluminium = 13
+	}
+
+	history = {
+		owner = BRA
+		victory_points = {
+			6843 5
+		}
+		victory_points = {
+			2150 1
+		}
+		victory_points = {
+			12913 3
+		}
+		victory_points = {
+			12947 1
+		}
+		victory_points = {
+			5220 1
+		}
+		buildings = {
+			infrastructure = 1
+			internet_station = 0
+			industrial_complex = 3
+			synthetic_refinery = 2
+			air_base = 2
+			6843 = {
+				naval_base = 2
+
+			}
+
+		}
+		add_core_of = BRA
+		2017.1.1 = {
+			add_manpower = 1199525
+			buildings = {
+				internet_station = 3
+			}
+		}
+	}
+
+	provinces = {
+		2150 5220 12913 12933 12947 3898 4195 6609 6843 6914 6931
+	}
+	manpower = 5651475
+	buildings_max_level_factor = 1.000
+	state_category = state_06
+}

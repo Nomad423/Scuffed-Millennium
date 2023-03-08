@@ -1,0 +1,38 @@
+state = {
+	id = 815
+	name = "STATE_815"
+	manpower = 3900640
+	state_category = state_05
+
+	history = {
+		owner = USA
+		victory_points = { 1440 5 } #San Juan
+		victory_points = { 4155 1 } #Christiansted
+		victory_points = { 13327 1 } #Ponce
+		victory_points = { 13329 1 } #Charlotte Amalie
+		
+		buildings = {
+			infrastructure = 2
+			internet_station = 2
+			air_base = 2
+			fuel_silo = 1
+			1440 = {
+				naval_base = 2
+			}
+			4155 = {
+				naval_base = 1
+			}
+		}
+		2017.1.1 = {
+			#add_manpower = -334428
+			add_manpower = 14187
+			buildings = {
+				internet_station = 4
+			}
+		}
+	}
+
+	provinces = {
+		1440 4155 13327 13328 13329
+	}
+}

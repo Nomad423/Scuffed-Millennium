@@ -1,0 +1,137 @@
+﻿division_template = {
+	name = "UNITA Division"
+
+	regiments = {
+		Militia_Bat = { x = 0 y = 0 }
+		Militia_Bat = { x = 0 y = 1 }
+		Militia_Bat = { x = 0 y = 2 }
+		Militia_Bat = { x = 1 y = 0 }
+		Militia_Bat = { x = 1 y = 1 }
+		Militia_Bat = { x = 1 y = 2 }
+	}
+
+}
+
+#Around 65k
+units = {
+	division = {
+		name = "1st UNITA Division"
+		location = 13363
+		division_template = "UNITA Division"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.01
+	}
+	division = {
+		name = "2nd UNITA Division"
+		location = 9426
+		division_template = "UNITA Division"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.01
+	}
+	division = {
+		name = "3rd UNITA Division"
+		location = 13369
+		division_template = "UNITA Division"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.01
+	}
+	division = {
+		name = "4th UNITA Division"
+		location = 10966
+		division_template = "UNITA Division"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.01
+	}
+	division = {
+		name = "5th UNITA Division"
+		location = 10966
+		division_template = "UNITA Division"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.01
+	}
+	division = {
+		name = "6th UNITA Division"
+		location = 8138
+		division_template = "UNITA Division"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.01
+	}
+	division = {
+		name = "7th UNITA Division"
+		location = 13371
+		division_template = "UNITA Division"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.01
+	}
+	division = {
+		name = "8th UNITA Division"
+		location = 13378
+		division_template = "UNITA Division"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.01
+	}
+	division = {
+		name = "9th UNITA Division"
+		location = 1552
+		division_template = "UNITA Division"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.01
+	}
+	division = {
+		name = "10th UNITA Division"
+		location = 9447
+		division_template = "UNITA Division"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.01
+	}
+	division = {
+		name = "11th UNITA Division"
+		location = 8248
+		division_template = "UNITA Division"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.01
+	}
+	division = {
+		name = "12th UNITA Division"
+		location = 9529
+		division_template = "UNITA Division"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.01
+	}
+	division = {
+		name = "13th UNITA Division"
+		location = 13350
+		division_template = "UNITA Division"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.01
+	}
+	division = {
+		name = "14th UNITA Division"
+		location = 13344
+		division_template = "UNITA Division"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.01
+	}
+}
+instant_effect = {
+
+	add_equipment_to_stockpile = {
+		type = infantry_weapons			#AKs
+		amount = 21000
+		producer = SOV
+	}
+
+	add_equipment_to_stockpile = {
+		type = Anti_tank_0			#Malyutka
+		amount = 250
+		producer = SOV
+	}
+
+	add_equipment_to_stockpile = {
+		type = Anti_Air_0			#SA-7
+		amount = 250
+		producer = SOV
+	}
+
+
+}

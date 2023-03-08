@@ -1,0 +1,99 @@
+# Improved by KyCb(rockon)
+
+ai_default_no_build_units = {
+	allowed = {
+		disabled_ai_for_units = yes
+	}
+	enable = {
+		NOT = {
+			has_country_flag = ai_yes_unit_build
+			has_country_flag = AI_is_threatened
+		}
+	}
+	abort = {
+		OR = {
+			has_country_flag = ai_yes_unit_build
+			has_country_flag = AI_is_threatened
+			has_war = yes
+		}
+	}
+	
+	ai_strategy = { type = role_ratio id = L_Inf value = -500 }
+	ai_strategy = { type = role_ratio id = infantry value = -500 }
+	ai_strategy = { type = role_ratio id = garrison value = -500 }
+	ai_strategy = { type = role_ratio id = apc_mechanized value = -500 }
+	ai_strategy = { type = role_ratio id = ifv_mechanized value = -500 }
+	ai_strategy = { type = role_ratio id = armor value = -500 }
+	ai_strategy = { type = role_ratio id = marines value = -500 }
+	ai_strategy = { type = role_ratio id = mot_marines value = -500 }
+	ai_strategy = { type = role_ratio id = meh_marines value = -500 }
+	ai_strategy = { type = role_ratio id = Air_helicopters value = -500 }
+	ai_strategy = { type = role_ratio id = Air_mech value = -500 }
+	ai_strategy = { type = role_ratio id = Air_arm value = -500 }
+	ai_strategy = { type = role_ratio id = Special_Forces value = -500 }
+}
+ai_build_units = {
+	allowed = {
+		disabled_ai_for_units = yes
+	}
+	enable = {
+		OR = {
+			has_war = yes
+			has_country_flag = ai_yes_unit_build
+			has_country_flag = AI_is_threatened
+		}
+	}
+	abort = {
+		OR = {
+			NOT = { has_country_flag = ai_yes_unit_build }
+			NOT = { has_country_flag = AI_is_threatened }
+		}
+	}
+
+	ai_strategy = { type = role_ratio id = L_Inf value = 500 }
+	ai_strategy = { type = role_ratio id = infantry value = 500 }
+	ai_strategy = { type = role_ratio id = garrison value = 500 }
+	ai_strategy = { type = role_ratio id = apc_mechanized value = 500 }
+	ai_strategy = { type = role_ratio id = ifv_mechanized value = 500 }
+	ai_strategy = { type = role_ratio id = armor value = 500 }
+	ai_strategy = { type = role_ratio id = marines value = 500 }
+	ai_strategy = { type = role_ratio id = mot_marines value = 500 }
+	ai_strategy = { type = role_ratio id = meh_marines value = 500 }
+	ai_strategy = { type = role_ratio id = Air_helicopters value = 500 }
+	ai_strategy = { type = role_ratio id = Air_mech value = 500 }
+	ai_strategy = { type = role_ratio id = Air_arm value = 500 }
+	ai_strategy = { type = role_ratio id = Special_Forces value = 500 }
+	ai_strategy = { type = build_army id = garrison value = 100 }
+	ai_strategy = { type = build_army id = Militia value = 100 }
+	ai_strategy = { type = build_army id = L_Inf value = 100 }
+	ai_strategy = { type = build_army id = infantry value = 100 }
+	ai_strategy = { type = build_army id = apc_mechanized value = 100 }
+	ai_strategy = { type = build_army id = ifv_mechanized value = 100 }
+	ai_strategy = { type = build_army id = armor value = 100 }
+	ai_strategy = { type = build_army id = marines value = 100 }
+	ai_strategy = { type = build_army id = mot_marines value = 100 }
+	ai_strategy = { type = build_army id = meh_marines value = 100 }
+	ai_strategy = { type = build_army id = Air_helicopters value = 100 }
+	ai_strategy = { type = build_army id = Air_mech value = 100 }
+	ai_strategy = { type = build_army id = Air_arm value = 100 }
+	ai_strategy = { type = build_army id = Special_Forces value = 100 }
+}
+MD_spare_unit_factor = {
+	allowed = {
+		disabled_ai_for_units = yes
+	}
+	enable = { always = yes }
+
+	ai_strategy = { type = spare_unit_factor value = 30 }
+}
+
+#Front against Russia
+MD_nato_defend_against_russia = {
+	enable = {
+		has_idea = NATO_member
+		has_war_with = SOV
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = { type = front_unit_request tag = "SOV" value = 50 }
+}

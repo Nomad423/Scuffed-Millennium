@@ -1,0 +1,42 @@
+
+state = {
+	id = 497
+	name = "STATE_497"
+
+	resources = {
+		tungsten = 7
+	}
+
+	history = {
+		owner = WAA
+		victory_points = {
+			138 6
+		}
+
+		victory_points = {
+			4210 1
+		}
+
+		buildings = {
+			infrastructure = 1
+			internet_station = 0
+
+		}
+		add_core_of = WAA
+		add_core_of = BRM
+
+		2017.1.1 = {
+			buildings = {
+				internet_station = 0
+			}
+			add_manpower = 185399
+		}
+	}
+
+	provinces = {
+		4210 138 140 14046
+	}
+	manpower = 792306
+	buildings_max_level_factor = 1.000
+	state_category = state_03
+}

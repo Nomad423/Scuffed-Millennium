@@ -1,0 +1,574 @@
+# Scripted effects for NATO
+NATO_join = {
+	for_each_scope_loop = {
+		array = global.nato_members
+
+		# Mutual opinion boost.
+		add_opinion_modifier = { target = PREV modifier = NATO_member_modifier }
+		reverse_add_opinion_modifier = { target = PREV modifier = NATO_member_modifier }
+
+		# Add military access.
+		diplomatic_relation = {
+			country = PREV
+			relation = military_access
+			active = yes
+		}
+		PREV = {
+			diplomatic_relation = {
+				country = PREV
+				relation = military_access
+				active = yes
+			}
+		}
+	}
+
+	add_to_array = { global.nato_members = THIS }
+	add_ideas = { NATO_member }
+	add_to_tech_sharing_group = NATO_Tech_Share
+	random_country = {
+		limit = {
+			has_idea = NATO_member
+			is_faction_leader = yes 
+		}
+		add_to_faction = ROOT
+	}
+
+	custom_effect_tooltip = NATO_join_tt
+
+	hidden_effect = { news_event = { id = NATO.8 hours = 6 } }
+}
+
+NATO_leave = {
+	remove_from_array = { global.nato_members = THIS }
+	remove_ideas = NATO_member
+	remove_from_tech_sharing_group = NATO_Tech_Share
+	leave_faction = yes
+
+	for_each_scope_loop = {
+		array = global.nato_members
+
+		# Nato members are mad you left.
+		add_opinion_modifier = { target = PREV modifier = left_nato }
+
+		# Remove nato opinion boost.
+		remove_opinion_modifier = { target = PREV modifier = NATO_member_modifier }
+		PREV = { remove_opinion_modifier = { target = PREV modifier = NATO_member_modifier } }
+
+		# Remove military access.
+		diplomatic_relation = {
+			country = PREV
+			relation = military_access
+			active = no
+		}
+		PREV = {
+			diplomatic_relation = {
+				country = PREV
+				relation = military_access
+				active = no
+			}
+		}
+	}
+
+	custom_effect_tooltip = NATO_leave_tt
+
+	hidden_effect = { news_event = { id = NATO.6 hours = 6 } }
+}
+
+NATO_show_non_ratified_countries = {
+	if = {
+		limit = {
+			ABK = {
+				has_idea = NATO_member
+				NOT = { has_country_flag = NATO_Ratified_@ROOT }
+			}
+		}
+		ABK_GetNameWithFlag = yes
+	}
+	if = {
+		limit = {
+			ALB = {
+				has_idea = NATO_member
+				NOT = { has_country_flag = NATO_Ratified_@ROOT }
+			}
+		}
+		ALB_GetNameWithFlag = yes
+	}
+	if = {
+		limit = {
+			ARM = {
+				has_idea = NATO_member
+				NOT = { has_country_flag = NATO_Ratified_@ROOT }
+			}
+		}
+		ARM_GetNameWithFlag = yes
+	}
+	if = {
+		limit = {
+			AUS = {
+				has_idea = NATO_member
+				NOT = { has_country_flag = NATO_Ratified_@ROOT }
+			}
+		}
+		AUS_GetNameWithFlag = yes
+	}
+	if = {
+		limit = {
+			AZE = {
+				has_idea = NATO_member
+				NOT = { has_country_flag = NATO_Ratified_@ROOT }
+			}
+		}
+		AZE_GetNameWithFlag = yes
+	}
+	if = {
+		limit = {
+			BLR = {
+				has_idea = NATO_member
+				NOT = { has_country_flag = NATO_Ratified_@ROOT }
+			}
+		}
+		BLR_GetNameWithFlag = yes
+	}
+	if = {
+		limit = {
+			BEL = {
+				has_idea = NATO_member
+				NOT = { has_country_flag = NATO_Ratified_@ROOT }
+			}
+		}
+		BEL_GetNameWithFlag = yes
+	}
+	if = {
+		limit = {
+			BOS = {
+				has_idea = NATO_member
+				NOT = { has_country_flag = NATO_Ratified_@ROOT }
+			}
+		}
+		BOS_GetNameWithFlag = yes
+	}
+	if = {
+		limit = {
+			BUL = {
+				has_idea = NATO_member
+				NOT = { has_country_flag = NATO_Ratified_@ROOT }
+			}
+		}
+		BUL_GetNameWithFlag = yes
+	}
+	if = {
+		limit = {
+			CAN = {
+				has_idea = NATO_member
+				NOT = { has_country_flag = NATO_Ratified_@ROOT }
+			}
+		}
+		CAN_GetNameWithFlag = yes
+	}
+	if = {
+		limit = {
+			CAT = {
+				has_idea = NATO_member
+				NOT = { has_country_flag = NATO_Ratified_@ROOT }
+			}
+		}
+		CAT_GetNameWithFlag = yes
+	}
+	if = {
+		limit = {
+			CRO = {
+				has_idea = NATO_member
+				NOT = { has_country_flag = NATO_Ratified_@ROOT }
+			}
+		}
+		CRO_GetNameWithFlag = yes
+	}
+	if = {
+		limit = {
+			CYP = {
+				has_idea = NATO_member
+				NOT = { has_country_flag = NATO_Ratified_@ROOT }
+			}
+		}
+		CYP_GetNameWithFlag = yes
+	}
+	if = {
+		limit = {
+			CZE = {
+				has_idea = NATO_member
+				NOT = { has_country_flag = NATO_Ratified_@ROOT }
+			}
+		}
+		CZE_GetNameWithFlag = yes
+	}
+	if = {
+		limit = {
+			DEN = {
+				has_idea = NATO_member
+				NOT = { has_country_flag = NATO_Ratified_@ROOT }
+			}
+		}
+		DEN_GetNameWithFlag = yes
+	}
+	if = {
+		limit = {
+			EST = {
+				has_idea = NATO_member
+				NOT = { has_country_flag = NATO_Ratified_@ROOT }
+			}
+		}
+		EST_GetNameWithFlag = yes
+	}
+	if = {
+		limit = {
+			FIN = {
+				has_idea = NATO_member
+				NOT = { has_country_flag = NATO_Ratified_@ROOT }
+			}
+		}
+		FIN_GetNameWithFlag = yes
+	}
+	if = {
+		limit = {
+			FRA = {
+				has_idea = NATO_member
+				NOT = { has_country_flag = NATO_Ratified_@ROOT }
+			}
+		}
+		FRA_GetNameWithFlag = yes
+	}
+	if = {
+		limit = {
+			GER = {
+				has_idea = NATO_member
+				NOT = { has_country_flag = NATO_Ratified_@ROOT }
+			}
+		}
+		GER_GetNameWithFlag = yes
+	}
+	if = {
+		limit = {
+			GEO = {
+				has_idea = NATO_member
+				NOT = { has_country_flag = NATO_Ratified_@ROOT }
+			}
+		}
+		GEO_GetNameWithFlag = yes
+	}
+	if = {
+		limit = {
+			GRE = {
+				has_idea = NATO_member
+				NOT = { has_country_flag = NATO_Ratified_@ROOT }
+			}
+		}
+		GRE_GetNameWithFlag = yes
+	}
+	if = {
+		limit = {
+			HUN = {
+				has_idea = NATO_member
+				NOT = { has_country_flag = NATO_Ratified_@ROOT }
+			}
+		}
+		HUN_GetNameWithFlag = yes
+	}
+	if = {
+		limit = {
+			ICE = {
+				has_idea = NATO_member
+				NOT = { has_country_flag = NATO_Ratified_@ROOT }
+			}
+		}
+		ICE_GetNameWithFlag = yes
+	}
+	if = {
+		limit = {
+			IRE = {
+				has_idea = NATO_member
+				NOT = { has_country_flag = NATO_Ratified_@ROOT }
+			}
+		}
+		IRE_GetNameWithFlag = yes
+	}
+	if = {
+		limit = {
+			ITA = {
+				has_idea = NATO_member
+				NOT = { has_country_flag = NATO_Ratified_@ROOT }
+			}
+		}
+		ITA_GetNameWithFlag = yes
+	}
+	if = {
+		limit = {
+			KOS = {
+				has_idea = NATO_member
+				NOT = { has_country_flag = NATO_Ratified_@ROOT }
+			}
+		}
+		KOS_GetNameWithFlag = yes
+	}
+	if = {
+		limit = {
+			LAT = {
+				has_idea = NATO_member
+				NOT = { has_country_flag = NATO_Ratified_@ROOT }
+			}
+		}
+		LAT_GetNameWithFlag = yes
+	}
+	if = {
+		limit = {
+			LIT = {
+				has_idea = NATO_member
+				NOT = { has_country_flag = NATO_Ratified_@ROOT }
+			}
+		}
+		LIT_GetNameWithFlag = yes
+	}
+	if = {
+		limit = {
+			LUX = {
+				has_idea = NATO_member
+				NOT = { has_country_flag = NATO_Ratified_@ROOT }
+			}
+		}
+		LUX_GetNameWithFlag = yes
+	}
+	if = {
+		limit = {
+			FYR = {
+				has_idea = NATO_member
+				NOT = { has_country_flag = NATO_Ratified_@ROOT }
+			}
+		}
+		FYR_GetNameWithFlag = yes
+	}
+	if = {
+		limit = {
+			MLT = {
+				has_idea = NATO_member
+				NOT = { has_country_flag = NATO_Ratified_@ROOT }
+			}
+		}
+		MLT_GetNameWithFlag = yes
+	}
+	if = {
+		limit = {
+			MLV = {
+				has_idea = NATO_member
+				NOT = { has_country_flag = NATO_Ratified_@ROOT }
+			}
+		}
+		MLV_GetNameWithFlag = yes
+	}
+	if = {
+		limit = {
+			MNT = {
+				has_idea = NATO_member
+				NOT = { has_country_flag = NATO_Ratified_@ROOT }
+			}
+		}
+		MNT_GetNameWithFlag = yes
+	}
+	if = {
+		limit = {
+			HOL = {
+				has_idea = NATO_member
+				NOT = { has_country_flag = NATO_Ratified_@ROOT }
+			}
+		}
+		HOL_GetNameWithFlag = yes
+	}
+	if = {
+		limit = {
+			NCY = {
+				has_idea = NATO_member
+				NOT = { has_country_flag = NATO_Ratified_@ROOT }
+			}
+		}
+		NCY_GetNameWithFlag = yes
+	}
+	if = {
+		limit = {
+			NOR = {
+				has_idea = NATO_member
+				NOT = { has_country_flag = NATO_Ratified_@ROOT }
+			}
+		}
+		NOR_GetNameWithFlag = yes
+	}
+	if = {
+		limit = {
+			NOV = {
+				has_idea = NATO_member
+				NOT = { has_country_flag = NATO_Ratified_@ROOT }
+			}
+		}
+		NOV_GetNameWithFlag = yes
+	}
+	if = {
+		limit = {
+			POL = {
+				has_idea = NATO_member
+				NOT = { has_country_flag = NATO_Ratified_@ROOT }
+			}
+		}
+		POL_GetNameWithFlag = yes
+	}
+	if = {
+		limit = {
+			POR = {
+				has_idea = NATO_member
+				NOT = { has_country_flag = NATO_Ratified_@ROOT }
+			}
+		}
+		POR_GetNameWithFlag = yes
+	}
+	if = {
+		limit = {
+			ROM = {
+				has_idea = NATO_member
+				NOT = { has_country_flag = NATO_Ratified_@ROOT }
+			}
+		}
+		ROM_GetNameWithFlag = yes
+	}
+	if = {
+		limit = {
+			SOV = {
+				has_idea = NATO_member
+				NOT = { has_country_flag = NATO_Ratified_@ROOT }
+			}
+		}
+		SOV_GetNameWithFlag = yes
+	}
+	if = {
+		limit = {
+			SCO = {
+				has_idea = NATO_member
+				NOT = { has_country_flag = NATO_Ratified_@ROOT }
+			}
+		}
+		SCO_GetNameWithFlag = yes
+	}
+	if = {
+		limit = {
+			SER = {
+				has_idea = NATO_member
+				NOT = { has_country_flag = NATO_Ratified_@ROOT }
+			}
+		}
+		SER_GetNameWithFlag = yes
+	}
+	if = {
+		limit = {
+			SLO = {
+				has_idea = NATO_member
+				NOT = { has_country_flag = NATO_Ratified_@ROOT }
+			}
+		}
+		SLO_GetNameWithFlag = yes
+	}
+	if = {
+		limit = {
+			SLV = {
+				has_idea = NATO_member
+				NOT = { has_country_flag = NATO_Ratified_@ROOT }
+			}
+		}
+		SLV_GetNameWithFlag = yes
+	}
+	if = {
+		limit = {
+			SOO = {
+				has_idea = NATO_member
+				NOT = { has_country_flag = NATO_Ratified_@ROOT }
+			}
+		}
+		SOO_GetNameWithFlag = yes
+	}
+	if = {
+		limit = {
+			SPR = {
+				has_idea = NATO_member
+				NOT = { has_country_flag = NATO_Ratified_@ROOT }
+			}
+		}
+		SPR_GetNameWithFlag = yes
+	}
+	if = {
+		limit = {
+			SWE = {
+				has_idea = NATO_member
+				NOT = { has_country_flag = NATO_Ratified_@ROOT }
+			}
+		}
+		SWE_GetNameWithFlag = yes
+	}
+	if = {
+		limit = {
+			SWI = {
+				has_idea = NATO_member
+				NOT = { has_country_flag = NATO_Ratified_@ROOT }
+			}
+		}
+		SWI_GetNameWithFlag = yes
+	}
+	if = {
+		limit = {
+			PMR = {
+				has_idea = NATO_member
+				NOT = { has_country_flag = NATO_Ratified_@ROOT }
+			}
+		}
+		PMR_GetNameWithFlag = yes
+	}
+	if = {
+		limit = {
+			TUR = {
+				has_idea = NATO_member
+				NOT = { has_country_flag = NATO_Ratified_@ROOT }
+			}
+		}
+		TUR_GetNameWithFlag = yes
+	}
+	if = {
+		limit = {
+			UKR = {
+				has_idea = NATO_member
+				NOT = { has_country_flag = NATO_Ratified_@ROOT }
+			}
+		}
+		UKR_GetNameWithFlag = yes
+	}
+	if = {
+		limit = {
+			ENG = {
+				has_idea = NATO_member
+				NOT = { has_country_flag = NATO_Ratified_@ROOT }
+			}
+		}
+		ENG_GetNameWithFlag = yes
+	}
+	if = {
+		limit = {
+			USA = {
+				has_idea = NATO_member
+				NOT = { has_country_flag = NATO_Ratified_@ROOT }
+			}
+		}
+		USA_GetNameWithFlag = yes
+	}
+	if = {
+		limit = {
+			WAS = {
+				has_idea = NATO_member
+				NOT = { has_country_flag = NATO_Ratified_@ROOT }
+			}
+		}
+		WAS_GetNameWithFlag = yes
+
+	}
+}

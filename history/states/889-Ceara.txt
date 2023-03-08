@@ -1,0 +1,43 @@
+state = {
+	id = 889
+	name = "STATE_889"
+	manpower = 7430661
+	state_category = state_07
+
+	history = {
+		owner = BRA
+		victory_points = { 5107 10 } #Fortaleza
+		victory_points = { 2164 3 } #Juazeiro
+		victory_points = { 2132 1 } #Sobral
+		victory_points = { 2178 1 } #Crateús
+		victory_points = { 8179 1 } #Quixadá
+
+		buildings = {
+			infrastructure = 1
+			internet_station = 1
+			industrial_complex = 2
+			offices = 1
+			synthetic_refinery = 2
+			air_base = 4
+
+			5107 = {
+				naval_base = 2
+			}
+
+		}
+		add_core_of = BRA
+		2017.1.1 = {
+			#add_manpower = 2000000
+			#add_manpower = 357433
+			add_manpower = 1412339
+			buildings = {
+				internet_station = 3
+			}
+		}
+	}
+
+	provinces = {
+		  10939 8179 2164 2178 5107 2132
+
+		}
+}

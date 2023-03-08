@@ -1,0 +1,36 @@
+
+state = {
+	id = 362
+	name = "STATE_362"
+
+	history = {
+		owner = SEN
+		victory_points = {
+			12834 4 
+		}
+		buildings = {
+			infrastructure = 1
+			internet_station = 0
+			12834 = {
+				naval_base = 2
+
+			}
+
+		}
+		add_core_of = SEN
+		add_core_of = CSM
+		2017.1.1 = {
+			buildings = {
+				internet_station = 1
+			}
+			add_manpower = 879623
+		}
+	}
+
+	provinces = {
+		12834 6729 
+	}
+	manpower = 1193324
+	buildings_max_level_factor = 1.000
+	state_category = state_02
+}

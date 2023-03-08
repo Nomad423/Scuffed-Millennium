@@ -1,0 +1,391 @@
+﻿capital = 372
+2000.1.1 = {
+	if = {
+		limit = { has_dlc = "No Step Back" }
+
+		set_oob = "SHA_2000_nsb"
+	}
+	if = {
+		limit = { NOT = { has_dlc = "No Step Back" } }
+
+		set_oob = "SHA_2000_nonnsb"
+	}
+	set_convoys = 20
+	set_cosmetic_tag = SHA
+	add_ideas = {
+		#pop_050
+		unrestrained_corruption
+
+		sufi_islam
+		Lacks_International_Recognition
+		defence_09
+		edu_02
+		health_01
+		social_01
+		bureau_04
+		AU_member
+		police_03
+		volunteer_army
+		volunteer_women
+		the_ulema
+		small_medium_business_owners
+		farmers
+		#hybrid
+		officer_basic_training
+	}
+
+	set_variable = { var = int_investments value = 0 }
+	set_variable = { var = treasury value = 3 }
+	set_variable = { var = corporate_tax_rate value = 20 }
+	set_variable = { var = population_tax_rate value = 20 }
+
+	#Statehood system
+	add_to_array = {
+		global.Unrecognised_States = THIS
+	}
+
+	MOR = { set_country_flag = original_owner_@FROM }
+
+	MAD = { set_country_flag = Recognised_@FROM }
+	BUR = { set_country_flag = Recognised_@FROM }
+	ALG = { set_country_flag = Recognised_@FROM }
+	AGL = { set_country_flag = Recognised_@FROM }
+	MOZ = { set_country_flag = Recognised_@FROM }
+	NKO = { set_country_flag = Recognised_@FROM }
+	RWA = { set_country_flag = Recognised_@FROM }
+	SEY = { set_country_flag = Recognised_@FROM }
+	PAN = { set_country_flag = Recognised_@FROM }
+	TNZ = { set_country_flag = Recognised_@FROM }
+	ETH = { set_country_flag = Recognised_@FROM }
+	VIE = { set_country_flag = Recognised_@FROM }
+	CBD = { set_country_flag = Recognised_@FROM }
+	LAO = { set_country_flag = Recognised_@FROM }
+	AFG = { set_country_flag = Recognised_@FROM }
+	VER = { set_country_flag = Recognised_@FROM }
+	GRA = { set_country_flag = Recognised_@FROM }
+	GAH = { set_country_flag = Recognised_@FROM }
+	GUY = { set_country_flag = Recognised_@FROM }
+	DMI = { set_country_flag = Recognised_@FROM }
+	JAM = { set_country_flag = Recognised_@FROM }
+	NIC = { set_country_flag = Recognised_@FROM }
+	UGA = { set_country_flag = Recognised_@FROM }
+	MEX = { set_country_flag = Recognised_@FROM }
+	LES = { set_country_flag = Recognised_@FROM }
+	ZAM = { set_country_flag = Recognised_@FROM }
+	CUB = { set_country_flag = Recognised_@FROM }
+	PER = { set_country_flag = Recognised_@FROM }
+	SIE = { set_country_flag = Recognised_@FROM }
+	SYR = { set_country_flag = Recognised_@FROM }
+	LIB = { set_country_flag = Recognised_@FROM }
+	BOT = { set_country_flag = Recognised_@FROM }
+	ZIM = { set_country_flag = Recognised_@FROM }
+	CHA = { set_country_flag = Recognised_@FROM }
+	MAL = { set_country_flag = Recognised_@FROM }
+	COS = { set_country_flag = Recognised_@FROM }
+	PAP = { set_country_flag = Recognised_@FROM }
+	MRT = { set_country_flag = Recognised_@FROM }
+	VEN = { set_country_flag = Recognised_@FROM }
+	SUR = { set_country_flag = Recognised_@FROM }
+	BOL = { set_country_flag = Recognised_@FROM }
+	ECU = { set_country_flag = Recognised_@FROM }
+	MAU = { set_country_flag = Recognised_@FROM }
+	NIG = { set_country_flag = Recognised_@FROM }
+	SER = { set_country_flag = Recognised_@FROM }
+	COL = { set_country_flag = Recognised_@FROM }
+	RAJ = { set_country_flag = Recognised_@FROM }
+	DOM = { set_country_flag = Recognised_@FROM }
+	BLZ = { set_country_flag = Recognised_@FROM }
+	STK = { set_country_flag = Recognised_@FROM }
+	ALB = { set_country_flag = Recognised_@FROM }
+	BAR = { set_country_flag = Recognised_@FROM }
+	HON = { set_country_flag = Recognised_@FROM }
+	NAM = { set_country_flag = Recognised_@FROM }
+	MLW = { set_country_flag = Recognised_@FROM }
+	add_to_variable = {
+		var = SHA.Granted_Recognition
+		value = 55
+	}
+
+	#Influence system
+	init_influence = yes
+	set_variable = { domestic_influence_amount = 75 }
+	add_to_array = { influence_array = ALG.id }
+	add_to_array = { influence_array_val = 100 }
+	add_to_array = { influence_array = MAU.id }
+	add_to_array = { influence_array_val = 2 }
+	add_to_array = { influence_array = LBA.id }
+	add_to_array = { influence_array_val = 45 }
+	add_to_array = { influence_array = CUB.id }
+	add_to_array = { influence_array_val = 15 }
+	startup_influence = yes
+
+	# Starting tech
+	set_technology = {
+		legacy_doctrines = 1
+		infantry_mass_assault = 1
+		#For templates
+		infantry_weapons = 1
+		command_control_equipment = 1
+		Anti_tank_0 = 1
+		Heavy_Anti_tank_0 = 1
+		artillery_0 = 1
+		SP_arty_0 = 1
+		Anti_Air_0 = 1
+		Early_APC = 1
+		APC_1 = 1
+		IFV_1 = 1
+		util_vehicle_0 = 1
+		Rec_tank_0 = 1
+
+		basic_computing = 1
+		integrated_circuit = 1
+		computing1 = 1
+		decryption1 = 1
+		encryption1 = 1
+
+		radar = 1
+		internet1 = 1 	#1G
+		fuel_silos = 1
+	}
+	if = {
+		limit = { has_dlc = "No Step Back" }
+
+		set_technology = {
+			mbt_tech = 1
+		}
+	}
+	if = {
+		limit = { NOT = { has_dlc = "No Step Back" } }
+
+		set_technology = {
+			MBT_1 = 1
+		}
+	}
+
+	set_popularities = {
+		democratic = 0.0
+		communism = 100.0
+		fascism = 0.0
+		neutrality = 0.0
+		nationalist = 0.0
+	}
+	set_politics = {
+		ruling_party = communism
+		last_election = "2000.1.1"
+		election_frequency = 60
+		elections_allowed = no
+	}
+
+	start_politics_input = yes
+
+	### Party Popularities
+	set_variable = { party_pop_array^0 = 0 } #Western_Autocracy
+	set_variable = { party_pop_array^1 = 0 } #conservatism
+	set_variable = { party_pop_array^2 = 0 } #liberalism
+	set_variable = { party_pop_array^3 = 0 } #socialism
+	set_variable = { party_pop_array^4 = 0 } #Communist-State
+	set_variable = { party_pop_array^5 = 0 } #anarchist_communism
+	set_variable = { party_pop_array^6 = 0 } #Conservative
+	set_variable = { party_pop_array^7 = 1.0 } #Autocracy
+	set_variable = { party_pop_array^8 = 0 } #Mod_Vilayat_e_Faqih
+	set_variable = { party_pop_array^9 = 0 } #Vilayat_e_Faqih
+	set_variable = { party_pop_array^10 = 0 } #Kingdom
+	set_variable = { party_pop_array^11 = 0 } #Caliphate
+	set_variable = { party_pop_array^12 = 0 } #Neutral_Muslim_Brotherhood
+	set_variable = { party_pop_array^13 = 0 } #Neutral_Autocracy
+	set_variable = { party_pop_array^14 = 0 } #Neutral_conservatism
+	set_variable = { party_pop_array^15 = 0 } #oligarchism
+	set_variable = { party_pop_array^16 = 0 } #Neutral_Libertarian
+	set_variable = { party_pop_array^17 = 0 } #Neutral_green
+	set_variable = { party_pop_array^18 = 0 } #neutral_Social
+	set_variable = { party_pop_array^19 = 0 } #Neutral_Communism
+	set_variable = { party_pop_array^20 = 0 } #Nat_Populism
+	set_variable = { party_pop_array^21 = 0 } #Nat_Fascism
+	set_variable = { party_pop_array^22 = 0 } #Nat_Autocracy
+	set_variable = { party_pop_array^23 = 0 } #Monarchist
+
+	### Ruling Party
+	add_to_array = { ruling_party = 7 }
+
+	startup_politics = yes
+
+	### Banned Parties & Balance
+	set_partyall_banned = yes
+	add_political_power = 300
+
+	create_country_leader = {
+		name = "Mohamed Abdelaziz"
+		picture = "Mohamed_Abdelaziz.dds"
+		ideology = Autocracy
+		traits = {
+			emerging_Autocracy
+		}
+	}
+
+	recruit_character = SHA_air_chief
+}
+
+2017.1.1 = {
+	capital = 372
+	if = {
+		limit = { has_dlc = "No Step Back" }
+
+		set_oob = "SHA_2017_nsb"
+	}
+	if = {
+		limit = { NOT = { has_dlc = "No Step Back" } }
+
+		set_oob = "SHA_2017_nonnsb"
+	}
+	set_convoys = 20
+
+	add_manpower = 5000
+
+	add_ideas = {
+		#pop_050
+		unrestrained_corruption
+
+		sufi_islam
+		defence_09
+		edu_02
+		health_01
+		social_01
+		bureau_04
+		police_03
+		volunteer_army
+		volunteer_women
+		the_ulema
+		small_medium_business_owners
+		farmers
+		#hybrid
+	}
+	#set_country_flag =
+	set_technology = { ##Taken from Morocco
+		microprocessors = 1
+		computing2 = 1
+		decryption2 = 1
+		encryption2 = 1
+		computing3 = 1
+		decryption3 = 1
+		encryption3 = 1
+		computing4 = 1
+		decryption4 = 1
+		encryption4 = 1
+		neural_networks_revival = 1
+		data_mining = 1
+		industrial_electrospun_polymeric_nanofibers = 1
+		stereolitography = 1
+		DNA_fingerprinting = 1
+		modern_gmo = 1
+		gene_therapy = 1
+
+		internet2 = 1 	#2G
+		gprs = 1
+		wifi = 1
+		internet3 = 1	#3G
+	}
+
+	MAD = { clr_country_flag = Recognised_@FROM }
+	BUR = { clr_country_flag = Recognised_@FROM }
+	CBD = { clr_country_flag = Recognised_@FROM }
+	AFG = { clr_country_flag = Recognised_@FROM }
+	GRA = { clr_country_flag = Recognised_@FROM }
+	DMI = { clr_country_flag = Recognised_@FROM }
+	CHA = { clr_country_flag = Recognised_@FROM }
+	COS = { clr_country_flag = Recognised_@FROM }
+	PAP = { clr_country_flag = Recognised_@FROM }
+	SUR = { clr_country_flag = Recognised_@FROM }
+	SER = { clr_country_flag = Recognised_@FROM }
+	COL = { clr_country_flag = Recognised_@FROM }
+	RAJ = { clr_country_flag = Recognised_@FROM }
+	DOM = { clr_country_flag = Recognised_@FROM }
+	STK = { clr_country_flag = Recognised_@FROM }
+	BAR = { clr_country_flag = Recognised_@FROM }
+
+	LIB = { set_country_flag = Recognised_@FROM }
+	ELS = { set_country_flag = Recognised_@FROM }
+	TIM = { set_country_flag = Recognised_@FROM }
+	SAF = { set_country_flag = Recognised_@FROM }
+	KEN = { set_country_flag = Recognised_@FROM }
+	URG = { set_country_flag = Recognised_@FROM }
+	SSU = { set_country_flag = Recognised_@FROM }
+
+	subtract_from_variable = {
+		var = SHA.Granted_Recognition
+		value = 9
+	}
+
+	#Influence system
+	init_influence = yes
+	add_to_array = { influence_array = ALG.id }
+	add_to_array = { influence_array_val = 56.5 }
+	add_to_array = { influence_array = CUB.id }
+	add_to_array = { influence_array_val = 7 }
+	add_to_array = { influence_array = MAU.id }
+	add_to_array = { influence_array_val = 1 }
+	add_to_array = { influence_array = LBA.id }
+	add_to_array = { influence_array_val = 0.5 }
+	startup_influence = yes
+
+	#Nat focus
+
+
+	add_opinion_modifier = { target = MOR modifier = SHA_MOR_Occupation }
+	add_opinion_modifier = { target = ALG modifier = SHA_Support_Our_Independence }
+
+	set_popularities = {
+		democratic = 0.0
+		communism = 100.0
+		fascism = 0.0
+		neutrality = 0.0
+		nationalist = 0.0
+	}
+	set_politics = {
+		ruling_party = communism
+		last_election = "2014.4.17"
+		election_frequency = 60
+		elections_allowed = no
+	}
+
+	start_politics_input = yes
+
+	### Party Popularities
+	set_variable = { party_pop_array^0 = 0 } #Western_Autocracy
+	set_variable = { party_pop_array^1 = 0 } #conservatism
+	set_variable = { party_pop_array^2 = 0 } #liberalism
+	set_variable = { party_pop_array^3 = 0 } #socialism
+	set_variable = { party_pop_array^4 = 0 } #Communist-State
+	set_variable = { party_pop_array^5 = 0 } #anarchist_communism
+	set_variable = { party_pop_array^6 = 0 } #Conservative
+	set_variable = { party_pop_array^7 = 1.0 } #Autocracy
+	set_variable = { party_pop_array^8 = 0 } #Mod_Vilayat_e_Faqih
+	set_variable = { party_pop_array^9 = 0 } #Vilayat_e_Faqih
+	set_variable = { party_pop_array^10 = 0 } #Kingdom
+	set_variable = { party_pop_array^11 = 0 } #Caliphate
+	set_variable = { party_pop_array^12 = 0 } #Neutral_Muslim_Brotherhood
+	set_variable = { party_pop_array^13 = 0 } #Neutral_Autocracy
+	set_variable = { party_pop_array^14 = 0 } #Neutral_conservatism
+	set_variable = { party_pop_array^15 = 0 } #oligarchism
+	set_variable = { party_pop_array^16 = 0 } #Neutral_Libertarian
+	set_variable = { party_pop_array^17 = 0 } #Neutral_green
+	set_variable = { party_pop_array^18 = 0 } #neutral_Social
+	set_variable = { party_pop_array^19 = 0 } #Neutral_Communism
+	set_variable = { party_pop_array^20 = 0 } #Nat_Populism
+	set_variable = { party_pop_array^21 = 0 } #Nat_Fascism
+	set_variable = { party_pop_array^22 = 0 } #Nat_Autocracy
+	set_variable = { party_pop_array^23 = 0 } #Monarchist
+
+	### Ruling Party
+	add_to_array = { ruling_party = 7 }
+
+	startup_politics = yes
+
+	create_country_leader = {
+		name = "Brahim Ghali"
+		picture = "SHA_Ibrahim_Ghali.dds"
+		ideology = Autocracy
+		traits = {
+			emerging_Autocracy
+		}
+	}
+}

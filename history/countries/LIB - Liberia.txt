@@ -1,0 +1,280 @@
+﻿capital = 355
+2000.1.1 = {
+	set_country_flag = dynamic_flag
+	set_country_flag = dynamic_rebel_flag
+	oob = "LIB_2000"
+	set_convoys = 10
+	set_cosmetic_tag = LIB
+	add_ideas = {
+		#pop_050
+		crippling_corruption
+
+		pluralist
+		stable_growth
+		ecowas_member_state
+		defence_09
+		edu_01
+		health_02
+		social_01
+		bureau_03
+		police_01
+		AU_member
+		volunteer_army
+		volunteer_women
+		international_bankers
+		maritime_industry
+		industrial_conglomerates
+		child_soldiers
+		#hybrid
+		#tax_cost_17
+		multi_ethnic_state_idea
+		officer_basic_training
+	}
+
+	#Influence system
+	init_influence = yes
+	set_variable = { domestic_influence_amount = 80 }
+	add_to_array = { influence_array = USA.id }
+	add_to_array = { influence_array_val = 75 }
+	add_to_array = { influence_array = CHI.id }
+	add_to_array = { influence_array_val = 45 }
+	add_to_array = { influence_array = RAJ.id }
+	add_to_array = { influence_array_val = 40 }
+	startup_influence = yes
+
+	set_variable = { var = debt value = 29 }
+	set_variable = { var = treasury value = 3 }
+	set_variable = { var = corporate_tax_rate value = 20 }
+	set_variable = { var = population_tax_rate value = 25 }
+	set_variable = { var = int_investments value = 0 }
+
+
+	set_country_flag = Conscripting_Child_Soldiers
+	set_variable = { var = child_soldiers value = 10000 }
+	set_variable = { var = child_soldiers_recruitment value = 10 }
+
+	puppet = AFR
+
+	# Starting tech
+	set_technology = {
+		integrated_transportation_system = 1
+		post_conventional_rail = 1
+		early_freight_locomotive = 1
+
+		legacy_doctrines = 1
+		infantry_mass_assault = 1
+		#For templates
+		infantry_weapons = 1
+		combat_eng_equipment = 1
+		command_control_equipment = 1
+		Anti_tank_0 = 1
+		Anti_Air_0 = 1
+		Heavy_Anti_tank_0 = 1
+		util_vehicle_0 = 1
+
+		basic_computing = 1
+		integrated_circuit = 1
+		computing1 = 1
+		decryption1 = 1
+		encryption1 = 1
+		radar = 1
+		fuel_silos = 1
+	}
+
+	#Nat focus
+
+
+	set_popularities = {
+		democratic = 15.2
+		communism = 5.1
+		fascism = 0.0
+		neutrality = 5.3
+		nationalist = 74.4
+	}
+	set_politics = {
+		ruling_party = nationalist
+		last_election = "1997.7.19"
+		election_frequency = 72
+		elections_allowed = no
+	}
+
+	start_politics_input = yes
+
+	### Party Popularities
+	set_variable = { party_pop_array^0 = 0 } #Western_Autocracy
+	set_variable = { party_pop_array^1 = 0 } #conservatism
+	set_variable = { party_pop_array^2 = 0.152 } #liberalism
+	set_variable = { party_pop_array^3 = 0 } #socialism
+	set_variable = { party_pop_array^4 = 0 } #Communist-State
+	set_variable = { party_pop_array^5 = 0.051 } #anarchist_communism
+	set_variable = { party_pop_array^6 = 0 } #Conservative
+	set_variable = { party_pop_array^7 = 0 } #Autocracy
+	set_variable = { party_pop_array^8 = 0 } #Mod_Vilayat_e_Faqih
+	set_variable = { party_pop_array^9 = 0 } #Vilayat_e_Faqih
+	set_variable = { party_pop_array^10 = 0 } #Kingdom
+	set_variable = { party_pop_array^11 = 0 } #Caliphate
+	set_variable = { party_pop_array^12 = 0 } #Neutral_Muslim_Brotherhood
+	set_variable = { party_pop_array^13 = 0.053 } #Neutral_Autocracy
+	set_variable = { party_pop_array^14 = 0 } #Neutral_conservatism
+	set_variable = { party_pop_array^15 = 0 } #oligarchism
+	set_variable = { party_pop_array^16 = 0 } #Neutral_Libertarian
+	set_variable = { party_pop_array^17 = 0 } #Neutral_green
+	set_variable = { party_pop_array^18 = 0 } #neutral_Social
+	set_variable = { party_pop_array^19 = 0 } #Neutral_Communism
+	set_variable = { party_pop_array^20 = 0.797 } #Nat_Populism
+	set_variable = { party_pop_array^21 = 0 } #Nat_Fascism
+	set_variable = { party_pop_array^22 = 0.744 } #Nat_Autocracy
+	set_variable = { party_pop_array^23 = 0 } #Monarchist
+
+	### Ruling Party
+	add_to_array = { ruling_party = 22 }
+
+	startup_politics = yes
+
+	create_country_leader = {
+		name = "Charles Taylor"
+		picture = "charles_taylor.dds"
+		ideology = Nat_Autocracy
+		traits = {
+			nationalist_Nat_Autocracy
+		}
+	}
+
+	set_variable = { term_limit = 2 }
+	set_variable = { current_term = 1 }
+
+	recruit_character = LIB_daniel_dee_ziankahn
+	recruit_character = LIB_davidson_forleh
+	recruit_character = LIB_prince_charles_johnson_iii
+	recruit_character = LIB_mcdervin_smith
+	recruit_character = LIB_teophilus_a_dana_jr
+	recruit_character = LIB_sheriff_boima
+
+	set_variable = { literacy_rate = 0.396 }
+}
+
+2016.1.1 = {
+	end_puppet = AFR
+	set_global_flag = Liberia_Civil_War_Over
+	remove_ideas = child_soldiers
+	clr_country_flag = Conscripting_Child_Soldiers
+}
+
+2017.1.1 = {
+
+	capital = 356
+	oob = "LIB_2017"
+
+	# Starting tech
+	set_technology = {
+		legacy_doctrines = 1
+		infantry_mass_assault = 1
+		#For templates
+		infantry_weapons = 1
+		combat_eng_equipment = 1
+		command_control_equipment = 1
+		Anti_tank_0 = 1
+		Anti_Air_0 = 1
+
+		internet1 = 1
+	}
+
+	add_ideas = {
+		#pop_050
+		crippling_corruption
+
+		pluralist
+		stable_growth
+		defence_01
+		edu_01
+		health_02
+		social_01
+		bureau_03
+		police_01
+		volunteer_army
+		volunteer_women
+		international_bankers
+		maritime_industry
+		industrial_conglomerates
+		#hybrid
+		#tax_cost_18
+		multi_ethnic_state_idea
+	}
+
+	set_variable = { international_bankers_opinion = 60 }
+	set_variable = { maritime_industry_opinion = 60 }
+	set_variable = { industrial_conglomerates_opinion = 60 }
+
+	set_variable = { var = debt value = 4 }
+	set_variable = { var = treasury value = 1 }
+	set_variable = { var = int_investments value = 0 }
+	set_variable = { var = corporate_tax_rate value = 20 }
+	set_variable = { var = population_tax_rate value = 25 }
+
+	#Nat focus
+
+
+	set_convoys = 10
+
+	set_popularities = {
+		democratic = 66.5
+		communism = 7.6
+		fascism = 0.0
+		neutrality = 10.2
+		nationalist = 15.7
+	}
+	set_politics = {
+		ruling_party = democratic
+		last_election = "2011.10.11"
+		election_frequency = 72
+		elections_allowed = yes
+	}
+
+	start_politics_input = yes
+
+	### Party Popularities
+	set_variable = { party_pop_array^0 = 0.301 } #Western_Autocracy
+	set_variable = { party_pop_array^1 = 0 } #conservatism
+	set_variable = { party_pop_array^2 = 0.364 } #liberalism
+	set_variable = { party_pop_array^3 = 0 } #socialism
+	set_variable = { party_pop_array^4 = 0 } #Communist-State
+	set_variable = { party_pop_array^5 = 0.076 } #anarchist_communism
+	set_variable = { party_pop_array^6 = 0 } #Conservative
+	set_variable = { party_pop_array^7 = 0 } #Autocracy
+	set_variable = { party_pop_array^8 = 0 } #Mod_Vilayat_e_Faqih
+	set_variable = { party_pop_array^9 = 0 } #Vilayat_e_Faqih
+	set_variable = { party_pop_array^10 = 0 } #Kingdom
+	set_variable = { party_pop_array^11 = 0 } #Caliphate
+	set_variable = { party_pop_array^12 = 0 } #Neutral_Muslim_Brotherhood
+	set_variable = { party_pop_array^13 = 0 } #Neutral_Autocracy
+	set_variable = { party_pop_array^14 = 0 } #Neutral_conservatism
+	set_variable = { party_pop_array^15 = 0 } #oligarchism
+	set_variable = { party_pop_array^16 = 0 } #Neutral_Libertarian
+	set_variable = { party_pop_array^17 = 0 } #Neutral_green
+	set_variable = { party_pop_array^18 = 0.102 } #neutral_Social
+	set_variable = { party_pop_array^19 = 0 } #Neutral_Communism
+	set_variable = { party_pop_array^20 = 0 } #Nat_Populism
+	set_variable = { party_pop_array^21 = 0 } #Nat_Fascism
+	set_variable = { party_pop_array^22 = 0.157 } #Nat_Autocracy
+	set_variable = { party_pop_array^23 = 0 } #Monarchist
+
+	### Ruling Party
+	add_to_array = { ruling_party = 2 }
+
+	startup_politics = yes
+
+	create_country_leader = {
+		name = "Ellen Johnson Sirleaf"
+		picture = "Ellen_Johnson_Sirleaf.dds"
+		ideology = liberalism
+		traits = {
+			western_liberalism
+		}
+	}
+
+	retire_character = LIB_davidson_forleh
+	retire_character = LIB_teophilus_a_dana_jr
+
+	set_variable = { current_term = 2 }
+
+}

@@ -1,0 +1,38 @@
+
+state = {
+	id = 71
+	name = "STATE_71"
+	resources = {
+		steel = 10.000
+		aluminium = 7.000
+	}
+
+	history = {
+		owner = FRA
+		victory_points = {
+			12132 3 
+		}
+		buildings = {
+			infrastructure = 2
+			internet_station = 1
+			12132 = {
+				naval_base = 1
+
+			}
+
+		}
+		2017.1.1 = {
+			buildings = {
+				internet_station = 3
+			}
+			add_manpower = 23137
+		}
+	}
+
+	provinces = {
+		4231 4268 12132 
+	}
+	manpower = 249863
+	buildings_max_level_factor = 1.000
+	state_category = state_00
+}

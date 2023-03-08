@@ -1,0 +1,35 @@
+
+state = {
+	id = 104
+	name = "STATE_104"
+	manpower = 27300
+	
+	state_category = state_00
+	
+	history =
+	{
+		owner = FIN
+		victory_points = { 9228 1 } #Mariehamn
+		buildings = {
+			infrastructure = 3
+			internet_station = 2
+			9228 = {
+				naval_base = 1
+			}
+		}
+		set_demilitarized_zone = yes
+		
+		add_core_of = FIN
+		2017.1.1 = {
+			buildings = {
+				internet_station = 4
+			}
+			add_manpower = 1683
+			set_demilitarized_zone = yes
+		}
+	}
+	
+	provinces = {
+		9228
+	}
+}

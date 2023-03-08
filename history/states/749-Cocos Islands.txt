@@ -1,0 +1,35 @@
+state = {
+	id = 749
+	name = "STATE_749"
+	manpower = 459
+	state_category = state_inhospitable
+
+	history = {
+		owner = AST
+		victory_points = { 13002 1 } #Bantam
+		
+		
+		
+		buildings = {
+			infrastructure = 2
+			internet_station = 2
+			
+			13002 = {
+				naval_base = 1
+			}
+
+		}
+		add_core_of = AST
+		2017.1.1 = {
+			buildings = {
+				internet_station = 4
+			}
+			add_manpower = 141
+		}
+	}
+
+	provinces = {
+		13002 14406
+		
+		}
+}

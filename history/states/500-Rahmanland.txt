@@ -1,0 +1,39 @@
+
+state = {
+	id = 500
+	name = "STATE_500"
+	
+	resources = {
+		oil = 2
+	}
+
+	history = {
+		owner = BRM
+		victory_points = {
+			12090 5 
+		}
+		
+		buildings = {
+			infrastructure = 0
+			internet_station = 0
+			air_base = 1
+			12090 = {
+				naval_base = 2
+			}
+
+		}
+		2017.1.1 = {
+			buildings = {
+				internet_station = 0
+			}
+			add_manpower = 275002
+		}
+	}
+
+	provinces = {
+		1014 12090 
+	}
+	manpower = 1176407
+	buildings_max_level_factor = 1.000
+	state_category = state_02
+}

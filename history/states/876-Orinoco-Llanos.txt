@@ -1,0 +1,46 @@
+
+state = {
+	id = 876
+	name = "STATE_876"
+
+	resources = {
+		steel = 4
+		aluminium = 8
+	}
+
+	history = {
+		owner = VEN
+		victory_points = {
+			10879 5
+		}
+		victory_points = {
+			10736 3
+		}
+		victory_points = {
+			10767 1
+		}
+		victory_points = {
+			12121 3
+		}
+		buildings = {
+			infrastructure = 1
+			internet_station = 1
+			air_base = 4
+
+		}
+		add_core_of = VEN
+		2017.1.1 = {
+			buildings = {
+				internet_station = 0
+			}
+			add_manpower = 511112
+		}
+	}
+
+	provinces = {
+		10736 10767 10849 10879 12115 12121 12135 12219 12222 14072 14073 14074
+	}
+	manpower = 1545411
+	buildings_max_level_factor = 1.000
+	state_category = state_03
+}

@@ -1,0 +1,34 @@
+state = {
+	id = 270
+	name = "STATE_270"
+	manpower = 1187000
+	state_category = state_02
+
+	history = {
+		owner = MRT
+		victory_points = { 13018 3 } #Port Louis
+		
+		buildings = {
+			infrastructure = 2
+			internet_station = 1
+			air_base = 3
+			
+			13018 = {
+				naval_base = 2
+			}
+
+		}
+		add_core_of = MRT
+		2017.1.1 = {
+			buildings = {
+				internet_station = 3
+			}
+			add_manpower = 75132
+		}
+	}
+
+	provinces = {
+		 13018
+		
+		}
+}

@@ -1,0 +1,42 @@
+
+state = {
+	id = 849
+	name = "STATE_849"
+
+	resources = {
+		steel = 15
+	}
+	history = {
+		owner = NIC
+		victory_points = {
+			12738 5
+		}
+		victory_points = {
+			10728 3
+		}
+		buildings = {
+			infrastructure = 1
+			internet_station = 0
+			air_base = 2
+			12738 = {
+				naval_base = 1
+
+			}
+
+		}
+		add_core_of = NIC
+		2017.1.1 = {
+			buildings = {
+				internet_station = 2
+			}
+			add_manpower = 951554
+		}
+	}
+
+	provinces = {
+		10728 12738 9800 13139 13178 14418 14419
+	}
+	manpower = 3970546
+	buildings_max_level_factor = 1.000
+	state_category = state_05
+}

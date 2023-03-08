@@ -1,0 +1,29 @@
+state = {
+	id = 812
+	name = "STATE_812"
+	manpower = 4463
+	state_category = state_military_base
+
+	history = {
+		owner = ENG
+		buildings = {
+			infrastructure = 3
+			internet_station = 2
+			air_base = 5
+			11128 = {
+				naval_base = 4
+			}
+		}
+		add_core_of = CYP
+		add_core_of = NCY
+		2017.1.1 = {
+			buildings = {
+				internet_station = 4
+			}
+			add_manpower = 537
+		}
+	}
+	provinces = {
+		11128
+	}
+}

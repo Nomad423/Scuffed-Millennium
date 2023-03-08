@@ -1,0 +1,317 @@
+﻿add_namespace = Sudan
+add_namespace = SudanNews
+
+### Sudan civil war cleanup events ###
+
+#Give the winner SUD cosmetic tag
+country_event = {
+	id = Sudan.0
+
+	hidden = yes
+
+	trigger = {
+		has_start_date > 2016.1.1
+		OR = {
+			AND = {
+				tag = SUD
+				NOT = {
+					country_exists = SRF
+				}
+			}
+			AND = {
+				tag = SRF
+				NOT = {
+					country_exists = SUD
+				}
+			}
+		}
+		NOT = { has_global_flag = Sudan_Civil_War_Over }
+	}
+
+	mean_time_to_happen = {
+		days = 2
+	}
+
+	immediate = {
+		#Civil war is over
+		set_global_flag = Sudan_Civil_War_Over
+		#Clear core status (normal states
+		220 = {
+			remove_core_of = SUD
+			remove_core_of = SRF
+		}
+		221 = {
+			remove_core_of = SUD
+			remove_core_of = SRF
+		}
+		222 = {
+			remove_core_of = SUD
+			remove_core_of = SRF
+		}
+		223 = {
+			remove_core_of = SUD
+			remove_core_of = SRF
+		}
+		576 = {
+			remove_core_of = SUD
+			remove_core_of = SRF
+		}
+		#Make the winner Sudan
+		if = {
+			limit = {
+				tag = SRF
+			}
+			set_cosmetic_tag = SUD
+			set_country_flag = dynamic_flag
+			set_country_flag = dynamic_rebel_flag
+			remove_ideas = Non_State_Actor
+		}
+		add_state_core = 220
+		add_state_core = 221
+		add_state_core = 222
+		add_state_core = 223
+		add_state_core = 576
+		set_capital = { state = 221 }
+
+		#Special States
+		##Kafia Kingi (held by Sudan, core of South Sudan)
+		if = {
+			limit = {
+				923 = {
+					OR = {
+						is_core_of = SUD
+						is_core_of = SRF
+					}
+				}
+			}
+			923 = {
+				remove_core_of = SUD
+				remove_core_of = SRF
+			}
+			add_state_core = 923
+		}
+		if = {
+			limit = {
+				923 = {
+					OR = {
+						is_claimed_by = SUD
+						is_claimed_by = SRF
+					}
+				}
+			}
+			923 = {
+				remove_claim_by = SUD
+				remove_claim_by = SRF
+			}
+			add_state_claim = 923
+		}
+		#Abyei (held by Sudan, core of South Sudan)
+		if = {
+			limit = {
+				927 = {
+					OR = {
+						is_core_of = SUD
+						is_core_of = SRF
+					}
+				}
+			}
+			927 = {
+				remove_core_of = SUD
+				remove_core_of = SRF
+			}
+			add_state_core = 927
+		}
+		if = {
+			limit = {
+				927 = {
+					OR = {
+						is_claimed_by = SUD
+						is_claimed_by = SRF
+					}
+				}
+			}
+			927 = {
+				remove_claim_by = SUD
+				remove_claim_by = SRF
+			}
+			add_state_claim = 927
+		}
+		#Darfur (claim by Sudan, core of Darfur)
+		if = {
+			limit = {
+				224 = {
+					OR = {
+						is_core_of = SUD
+						is_core_of = SRF
+					}
+				}
+			}
+			224 = {
+				remove_core_of = SUD
+				remove_core_of = SRF
+			}
+			add_state_core = 224
+		}
+		if = {
+			limit = {
+				224 = {
+					OR = {
+						is_claimed_by = SUD
+						is_claimed_by = SRF
+					}
+				}
+			}
+			224 = {
+				remove_claim_by = SUD
+				remove_claim_by = SRF
+			}
+			add_state_claim = 224
+		}
+		#Northern Darfur (claim by Sudan, core of Darfur)
+		if = {
+			limit = {
+				614 = {
+					OR = {
+						is_core_of = SUD
+						is_core_of = SRF
+					}
+				}
+			}
+			614 = {
+				remove_core_of = SUD
+				remove_core_of = SRF
+			}
+			add_state_core = 614
+		}
+		if = {
+			limit = {
+				614 = {
+					OR = {
+						is_claimed_by = SUD
+						is_claimed_by = SRF
+					}
+				}
+			}
+			614 = {
+				remove_claim_by = SUD
+				remove_claim_by = SRF
+			}
+			add_state_claim = 614
+		}
+	}
+
+	option = {
+		name = SouthSudan.0.a
+		hidden_effect = { news_event = { id = SudanNews.1 hours = 6 } }
+		log = "[GetDateText]: [This.GetName]: SouthSudan.0.a executed"
+	}
+}
+
+#Recreate Sudan in case it has been annexed
+country_event = {
+	id = Sudan.1
+
+	hidden = yes
+
+	trigger = {
+		NOT = {
+			country_exists = SUD
+			country_exists = SRF
+		}
+		NOT = { 324 = { is_core_of = SUD } }
+	}
+
+	mean_time_to_happen = {
+		days = 2
+	}
+
+	immediate = {
+		#Clear core status
+		220 = {
+			remove_core_of = SUD
+			remove_core_of = SRF
+		}
+		221 = {
+			remove_core_of = SUD
+			remove_core_of = SRF
+		}
+		222 = {
+			remove_core_of = SUD
+			remove_core_of = SRF
+		}
+		223 = {
+			remove_core_of = SUD
+			remove_core_of = SRF
+		}
+		224 = {
+			remove_core_of = SUD
+			remove_core_of = SRF
+		}
+		224 = {
+			remove_claim_by = SUD
+			remove_claim_by = SRF
+		}
+		923 = {
+			remove_core_of = SUD
+			remove_core_of = SRF
+		}
+		923 = {
+			remove_claim_by = SUD
+			remove_claim_by = SRF
+		}
+		927 = {
+			remove_core_of = SUD
+			remove_core_of = SRF
+		}
+		927 = {
+			remove_claim_by = SUD
+			remove_claim_by = SRF
+		}
+		614 = {
+			remove_core_of = SUD
+			remove_core_of = SRF
+		}
+		614 = {
+			remove_claim_by = SUD
+			remove_claim_by = SRF
+		}
+		SUD = {
+			add_state_core = 220
+			add_state_core = 221
+			add_state_core = 222
+			add_state_core = 223
+			add_state_core = 576
+			set_capital = { state = 221 }
+		}
+	}
+
+	option = {
+		name = Sudan.1.a
+		log = "[GetDateText]: [This.GetName]: Sudan.1.a executed"
+	}
+}
+
+news_event = {
+
+	id = SudanNews.1
+	title = SudanNews.1.t
+	desc = {
+		text = SudanNews.1.SUD.d
+		trigger = { FROM = { original_tag = SUD } }
+	}
+	desc = {
+		text = SudanNews.1.SRF.d
+		trigger = { FROM = { original_tag = SRF } }
+	}
+	picture = GFX_news_sudan_civil_war
+
+	major = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = SudanNews.1.a
+		log = "[GetDateText]: [This.GetName]: SudanNews.1.a executed"
+	}
+
+}

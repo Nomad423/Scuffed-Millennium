@@ -1,0 +1,50 @@
+
+state = {
+	id = 167
+	name = "STATE_167"
+
+	history = {
+		owner = IRQ
+		victory_points = {
+			3795 5 
+		}
+		victory_points = {
+			1600 2 
+		}
+		victory_points = {
+			3219 2 
+		}
+		buildings = {
+			infrastructure = 1
+			internet_station = 1
+			arms_factory = 1
+			industrial_complex = 1
+		}
+		add_core_of = IRQ
+		add_core_of = KUR
+		2017.1.1 = {
+			buildings = {
+				internet_station = 2
+				industrial_complex = 0
+				offices = 1
+			}
+			add_core_of = ISI
+			ISI = {
+				set_province_controller = 11292
+				set_province_controller = 11295
+				set_province_controller = 11364
+
+			}
+			add_manpower = 727482
+
+		}
+
+	}
+
+	provinces = {
+		1600 3219 3795 8123 11277 11289 11292 
+	}
+	manpower = 1103936
+	buildings_max_level_factor = 1.000
+	state_category = state_02
+}

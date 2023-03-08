@@ -1,0 +1,36 @@
+state = {
+	id = 686
+	name = "STATE_686"
+	manpower = 979840
+	state_category = state_03
+
+	resources = {
+		tungsten = 10
+	}
+
+	history = {
+		owner = SOV
+
+		victory_points = { 7816 5 } #Ulan-Ude
+		victory_points = { 10524 3 } #Severobaykalsk
+		victory_points = { 4837 1 } #Gusinoozyorsk
+	
+		buildings = {
+			infrastructure = 1
+			internet_station = 1
+			air_base = 2
+		}
+		add_core_of = SOV
+		2017.1.1 = {
+			buildings = {
+				internet_station = 2
+				arms_factory = 1
+			}
+			#add_manpower = -40571
+		}
+	}
+
+	provinces = {
+		1761 1762 1810 4716 4766 4835 4837 7736 7816 7835 7854 10524 10528 10543 10658 12506 12575 12644 14218 14231 14232 14233
+	}
+}

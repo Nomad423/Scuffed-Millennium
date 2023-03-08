@@ -1,0 +1,17 @@
+defined_text = {
+	name = 38th_parallel
+
+	text = {
+		trigger = {
+			original_tag = KOR
+		}
+		localization_key = 38th_parallel_KOR
+	}
+
+	text = {
+		trigger = {
+			original_tag = NKO
+		}
+		localization_key = 38th_parallel_NKO
+	}
+}

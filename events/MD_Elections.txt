@@ -1,0 +1,2969 @@
+﻿add_namespace = MD4_election
+add_namespace = western_win
+add_namespace = emerging_win
+add_namespace = salafist_win
+add_namespace = non_alligned_win
+add_namespace = nationalist_win
+add_namespace = MD4_election_campaign
+add_namespace = News_MD4_election
+add_namespace = coalition
+add_namespace = coalition_complete
+add_namespace = coalition_pass
+add_namespace = election_single_party
+add_namespace = election_coalition_won
+add_namespace = election_inconclusive
+
+#### finished forming ###
+news_event = {
+	id = coalition_complete.0
+	immediate = { log = "[GetDateText]: [Root.GetName]: event coalition_complete.0" }
+	title = coalition_complete.0.t
+	desc = coalition_complete.0.d
+	picture = GFX_news_press_conference
+
+	is_triggered_only = yes
+
+	option = {
+		name = coalition_complete.0.a #add to coalition
+		log = "[GetDateText]: [This.GetName]: coalition_complete.0.a executed"
+
+		add_political_power = 25
+
+		add_to_variable = { current_term = 1 }
+		if = {
+			limit = {
+				check_variable = { term_limit > 0 } #make sure term limits are a thing
+				check_variable = { current_term > term_limit }
+			}
+			hidden_effect = {
+				set_ruling_leader = yes
+				set_leader = yes
+			}
+		}
+
+		if = {
+			limit = {
+				is_North_America = yes
+				is_major = no
+			}
+			every_country = {
+				limit = { is_North_America = yes is_ai = no }
+				news_event = {  days = 1 id = News_MD4_election.1 }
+			}
+		}
+		if = {
+			limit = {
+				is_South_America = yes
+				is_major = no
+			}
+			every_country = {
+				limit = { is_South_America = yes is_ai = no }
+				news_event = {  days = 1 id = News_MD4_election.1 }
+			}
+		}
+		if = {
+			limit = {
+				is_middle_eastern_nation = yes
+				is_major = no
+			}
+			every_country = {
+				limit = { is_middle_eastern_nation = yes is_ai = no }
+				news_event = {  days = 1 id = News_MD4_election.1 }
+			}
+		}
+		if = {
+			limit = {
+				is_african_nation = yes
+				is_major = no
+			}
+			every_country = {
+				limit = { is_african_nation = yes is_ai = no }
+				news_event = {  days = 1 id = News_MD4_election.1 }
+			}
+		}
+		if = {
+			limit = {
+				 is_european_nation = yes
+				is_major = no
+			}
+			every_country = {
+				limit = { is_european_nation = yes is_ai = no }
+				news_event = {  days = 1 id = News_MD4_election.1 }
+			}
+		}
+		if = {
+			limit = {
+				is_asian_nation = yes
+				is_major = no
+			}
+			every_country = {
+				limit = { is_asian_nation = yes is_ai = no }
+				news_event = {  days = 1 id = News_MD4_election.1 }
+			}
+		}
+		if = {
+			limit = {
+				is_oceania_nation = yes
+				is_major = no
+			}
+			every_country = {
+				limit = { is_oceania_nation = yes is_ai = no }
+				news_event = {  days = 1 id = News_MD4_election.1 }
+			}
+		}
+		if = {
+			limit = {
+				is_major = yes
+			}
+			every_country = {
+				limit = { is_ai = no }
+				news_event = {  days = 1 id = News_MD4_election.1 }
+			}
+		}
+		if = { #changes the drift caused by reform expectance from the old ruling party to the new one
+			limit = {
+				tag = ITA
+			}
+			reforme_expectance_government_change_update = yes
+			calculate_abandon_coalition_threshold = yes
+			remove_gov_crisis_ai_flags	= yes
+		}
+	}
+}
+
+
+#### Pass to biggest party to form coalition ###
+country_event = {
+	id = coalition_pass.0
+	immediate = { log = "[GetDateText]: [Root.GetName]: event coalition_pass.0" }
+	title = coalition_pass.0.t
+	desc = coalition_pass.0.d
+	picture = GFX_election_hyperthink
+
+	is_triggered_only = yes
+
+	#pass to biggest
+	option = {
+		name = coalition_pass.0.a
+		log = "[GetDateText]: [This.GetName]: coalition_pass.0.a executed"
+
+		add_political_power = -150
+		custom_effect_tooltip = coalition_pass_refund_tt
+		hidden_effect = {
+			refund_government_coalition = yes #give 75% of invested PP back
+			clear_array = gov_coalition_array
+			clear_array = ruling_party
+			add_to_array = { ruling_party = max_index_1 }
+		}
+		custom_effect_tooltip = coalition_pass_dismantle_tt
+		custom_effect_tooltip = coalition_pass_pol_change_0_tt
+		set_leader = yes #set in decision which party is selected
+		set_variable = { current_term = 0 }
+		update_government_coalition_strength = yes
+		clear_coalition_count_ideas = yes
+	}
+
+	option = {
+		name = coalition_pass.0.b
+		log = "[GetDateText]: [This.GetName]: coalition_pass.0.b executed"
+		clear_max_index_1 = yes
+	}
+}
+
+#### Pass to second biggest party to form coalition ###
+country_event = {
+	id = coalition_pass.1
+	immediate = { log = "[GetDateText]: [Root.GetName]: event coalition_pass.1" }
+	title = coalition_pass.1.t
+	desc = coalition_pass.1.d
+	picture = GFX_election_hyperthink
+	is_triggered_only = yes
+
+	#pass to biggest
+	option = {
+		name = coalition_pass.1.a
+		log = "[GetDateText]: [This.GetName]: coalition_pass.1.a executed"
+
+		add_political_power = -150
+		custom_effect_tooltip = coalition_pass_refund_tt
+		hidden_effect = {
+				refund_government_coalition = yes #give 75% of invested PP back
+				clear_array = gov_coalition_array
+				clear_array = ruling_party
+				add_to_array = { ruling_party = max_index_2 }
+		}
+		custom_effect_tooltip = coalition_pass_dismantle_tt
+		custom_effect_tooltip = coalition_pass_pol_change_1_tt
+		set_leader = yes #set in desicion which party is selected
+		set_variable = { current_term = 0 }
+		update_government_coalition_strength = yes
+		clear_coalition_count_ideas = yes
+	}
+
+	option = {
+		name = coalition_pass.1.b
+		log = "[GetDateText]: [This.GetName]: coalition_pass.1.b executed"
+		clear_max_index_2 = yes
+	}
+}
+
+#### invite conservatism event ####
+#Western_Autocracy - 0
+country_event = {
+	id = coalition.0
+	immediate = { log = "[GetDateText]: [Root.GetName]: event coalition.0" }
+	title = coalition.0.t
+	desc = coalition.0.d
+	picture = GFX_politics_speak
+	is_triggered_only = yes
+
+	option = {
+		name = coalition.0.a #add to coalition
+		trigger = { has_country_flag = coalition_forming }
+		log = "[GetDateText]: [This.GetName]: coalition.0.a executed"
+
+		add_political_power = pp_cost_to_invite
+		add_to_array = { gov_coalition_array = 0 }
+		update_government_coalition_strength = yes
+		if = {
+			limit = {
+				NOT = { has_government = democratic }
+			}
+			clear_coalition_western_count_ideas = yes
+			reset_democratic_coalition_ideas = yes
+		}
+		if = { limit = { check_variable = { var = government_coalition_strength_elect value = majority_threshold compare = greater_than_or_equals } }
+			clr_country_flag = coalition_forming
+			ROOT = { news_event = { id = coalition_complete.0 } }
+		}
+	}
+	option = {
+		name = coalition.0.b #
+		log = "[GetDateText]: [This.GetName]: coalition.0.b executed"
+
+		if = {
+			limit = {
+				NOT = { has_government = democratic }
+			}
+			subtract_from_variable = { coalition_democratic = party_pop_elect_array^0 }
+		}
+	}
+}
+
+#conservatism - 1
+country_event = {
+	id = coalition.1
+	immediate = { log = "[GetDateText]: [Root.GetName]: event coalition.1" }
+	title = coalition.1.t
+	desc = coalition.1.d
+	picture = GFX_politics_talks
+
+	is_triggered_only = yes
+
+	immediate = {
+
+	}
+
+	option = {
+		name = coalition.1.a #add to coalition
+		trigger = { has_country_flag = coalition_forming }
+		log = "[GetDateText]: [This.GetName]: coalition.1.a executed"
+
+		add_political_power = pp_cost_to_invite
+		add_to_array = { gov_coalition_array = 1 }
+		update_government_coalition_strength = yes
+		if = {
+			limit = {
+				NOT = {
+					has_government = democratic
+				}
+			}
+			clear_coalition_western_count_ideas = yes
+			reset_democratic_coalition_ideas = yes
+		}
+		if = { limit = { check_variable = { var = government_coalition_strength_elect value = majority_threshold compare = greater_than_or_equals } }
+			clr_country_flag = coalition_forming
+			ROOT = { news_event = { id = coalition_complete.0 } }
+		}
+	}
+	option = {
+		name = coalition.1.b #
+		log = "[GetDateText]: [This.GetName]: coalition.1.b executed"
+
+		if = {
+			limit = {
+				NOT = {
+					has_government = democratic
+				}
+			}
+			subtract_from_variable = { coalition_democratic = party_pop_elect_array^1 }
+		}
+	}
+}
+
+#liberalism - 2
+country_event = {
+	id = coalition.2
+	immediate = { log = "[GetDateText]: [Root.GetName]: event coalition.2" }
+	title = coalition.2.t
+	desc = coalition.2.d
+	picture = GFX_politics_negotiations
+
+	is_triggered_only = yes
+
+	immediate = {
+
+	}
+
+	option = {
+		name = coalition.2.a #add to coalition
+		trigger = { has_country_flag = coalition_forming }
+		log = "[GetDateText]: [This.GetName]: coalition.2.a executed"
+
+		add_political_power = pp_cost_to_invite
+		add_to_array = { gov_coalition_array = 2 }
+		update_government_coalition_strength = yes
+		if = {
+			limit = {
+				NOT = {
+					has_government = democratic
+				}
+			}
+			clear_coalition_western_count_ideas = yes
+			reset_democratic_coalition_ideas = yes
+		}
+		if = { limit = { check_variable = { var = government_coalition_strength_elect value = majority_threshold compare = greater_than_or_equals } }
+			clr_country_flag = coalition_forming
+			ROOT = { news_event = { id = coalition_complete.0 } }
+		}
+	}
+	option = {
+		name = coalition.2.b
+		log = "[GetDateText]: [This.GetName]: coalition.2.b executed"
+
+		if = {
+			limit = {
+				NOT = {
+					has_government = democratic
+				}
+			}
+			subtract_from_variable = { coalition_democratic = party_pop_elect_array^2 }
+		}
+	}
+}
+
+#socialism - 3
+country_event = {
+	id = coalition.3
+	immediate = { log = "[GetDateText]: [Root.GetName]: event coalition.3" }
+	title = coalition.3.t
+	desc = coalition.3.d
+	picture = GFX_election_day
+
+	is_triggered_only = yes
+
+	option = {
+		name = coalition.3.a #add to coalition
+		trigger = { has_country_flag = coalition_forming }
+		log = "[GetDateText]: [This.GetName]: coalition.3.a executed"
+
+		add_political_power = pp_cost_to_invite
+		add_to_array = { gov_coalition_array = 3 }
+		update_government_coalition_strength = yes
+		if = {
+			limit = {
+				NOT = {
+					has_government = democratic
+				}
+			}
+			clear_coalition_western_count_ideas = yes
+			reset_democratic_coalition_ideas = yes
+		}
+		if = { limit = { check_variable = { var = government_coalition_strength_elect value = majority_threshold compare = greater_than_or_equals } }
+			clr_country_flag = coalition_forming
+			ROOT = { news_event = { id = coalition_complete.0 } }
+		}
+	}
+	option = {
+		name = coalition.3.b #
+		log = "[GetDateText]: [This.GetName]: coalition.3.b executed"
+
+		if = {
+			limit = {
+				NOT = {
+					has_government = democratic
+				}
+			}
+			subtract_from_variable = { coalition_democratic = party_pop_elect_array^3 }
+		}
+	}
+}
+
+#Communist-State - 4
+country_event = {
+	id = coalition.4
+	immediate = { log = "[GetDateText]: [Root.GetName]: event coalition.4" }
+	title = coalition.4.t
+	desc = coalition.4.d
+	picture = GFX_politics_communism_lenin
+
+	is_triggered_only = yes
+
+	immediate = {
+
+	}
+
+	option = {
+		name = coalition.4.a #add to coalition
+		trigger = { has_country_flag = coalition_forming }
+		log = "[GetDateText]: [This.GetName]: coalition.4.a executed"
+
+		add_political_power = pp_cost_to_invite
+		add_to_array = { gov_coalition_array = 4 }
+		update_government_coalition_strength = yes
+		if = {
+			limit = {
+				NOT = {
+					has_government = communism
+				}
+			}
+			clear_coalition_emerging_count_ideas = yes
+			reset_communism_coalition_ideas = yes
+		}
+		if = { limit = { check_variable = { var = government_coalition_strength_elect value = majority_threshold compare = greater_than_or_equals } }
+			clr_country_flag = coalition_forming
+			ROOT = { news_event = { id = coalition_complete.0 } }
+		}
+	}
+	option = {
+		name = coalition.4.b #
+		log = "[GetDateText]: [This.GetName]: coalition.4.b executed"
+
+		if = {
+			limit = {
+				NOT = {
+					has_government = communism
+				}
+			}
+			subtract_from_variable = { coalition_communism = party_pop_elect_array^4 }
+		}
+	}
+}
+
+#anarchist_communism - 5
+country_event = {
+	id = coalition.5
+	immediate = { log = "[GetDateText]: [Root.GetName]: event coalition.5" }
+	title = coalition.5.t
+	desc = coalition.5.d
+	picture = GFX_politics_communist_dream
+
+	is_triggered_only = yes
+
+	immediate = {
+
+	}
+
+	option = {
+		name = coalition.5.a #add to coalition
+		trigger = { has_country_flag = coalition_forming }
+		log = "[GetDateText]: [This.GetName]: coalition.5.a executed"
+
+		add_political_power = pp_cost_to_invite
+		add_to_array = { gov_coalition_array = 5 }
+		update_government_coalition_strength = yes
+		if = {
+			limit = {
+				NOT = {
+					has_government = communism
+				}
+			}
+			clear_coalition_emerging_count_ideas = yes
+			reset_communism_coalition_ideas = yes
+		}
+		if = { limit = { check_variable = { var = government_coalition_strength_elect value = majority_threshold compare = greater_than_or_equals } }
+			clr_country_flag = coalition_forming
+			ROOT = { news_event = { id = coalition_complete.0 } }
+		}
+	}
+	option = {
+		name = coalition.5.b #
+		log = "[GetDateText]: [This.GetName]: coalition.5.b executed"
+
+		if = {
+			limit = {
+				NOT = {
+					has_government = communism
+				}
+			}
+			subtract_from_variable = { coalition_communism = party_pop_elect_array^5 }
+		}
+	}
+}
+
+#Conservative - 6
+country_event = {
+	id = coalition.6
+	immediate = { log = "[GetDateText]: [Root.GetName]: event coalition.6" }
+	title = coalition.6.t
+	desc = coalition.6.d
+	picture = GFX_politics_surveillence
+
+	is_triggered_only = yes
+
+	immediate = {
+
+	}
+
+	option = {
+		name = coalition.6.a #add to coalition
+		trigger = { has_country_flag = coalition_forming }
+		log = "[GetDateText]: [This.GetName]: coalition.6.a executed"
+
+		add_political_power = pp_cost_to_invite
+		add_to_array = { gov_coalition_array = 6 }
+		update_government_coalition_strength = yes
+		if = {
+			limit = {
+				NOT = {
+					has_government = communism
+				}
+			}
+			clear_coalition_emerging_count_ideas = yes
+			reset_communism_coalition_ideas = yes
+		}
+		if = { limit = { check_variable = { var = government_coalition_strength_elect value = majority_threshold compare = greater_than_or_equals } }
+			clr_country_flag = coalition_forming
+			ROOT = { news_event = { id = coalition_complete.0 } }
+		}
+	}
+	option = {
+		name = coalition.6.b #
+		log = "[GetDateText]: [This.GetName]: coalition.6.b executed"
+
+		if = {
+			limit = {
+				NOT = {
+					has_government = communism
+				}
+			}
+			subtract_from_variable = { coalition_communism = party_pop_elect_array^6 }
+		}
+	}
+}
+
+#Autocracy - 7
+country_event = {
+	id = coalition.7
+	immediate = { log = "[GetDateText]: [Root.GetName]: event coalition.7" }
+	title = coalition.7.t
+	desc = coalition.7.d
+	picture = GFX_politics_dictatorship
+
+	is_triggered_only = yes
+
+	immediate = {
+
+	}
+
+	option = {
+		name = coalition.7.a #add to coalition
+		trigger = { has_country_flag = coalition_forming }
+		log = "[GetDateText]: [This.GetName]: coalition.7.a executed"
+
+		add_political_power = pp_cost_to_invite
+		add_to_array = { gov_coalition_array = 7 }
+		update_government_coalition_strength = yes
+		if = {
+			limit = {
+				NOT = {
+					has_government = communism
+				}
+			}
+			clear_coalition_emerging_count_ideas = yes
+			reset_communism_coalition_ideas = yes
+		}
+		if = { limit = { check_variable = { var = government_coalition_strength_elect value = majority_threshold compare = greater_than_or_equals } }
+			clr_country_flag = coalition_forming
+			ROOT = { news_event = { id = coalition_complete.0 } }
+		}
+	}
+	option = {
+		name = coalition.7.b #
+		log = "[GetDateText]: [This.GetName]: coalition.7.b executed"
+
+		if = {
+			limit = {
+				NOT = {
+					has_government = communism
+				}
+			}
+			subtract_from_variable = { coalition_communism = party_pop_elect_array^7 }
+		}
+	}
+}
+
+#Mod_Vilayat_e_Faqih - 8
+country_event = {
+	id = coalition.8
+	immediate = { log = "[GetDateText]: [Root.GetName]: event coalition.8" }
+	title = coalition.8.t
+	desc = coalition.8.d
+	picture = GFX_politics_shiite2
+
+	is_triggered_only = yes
+
+	immediate = {
+
+	}
+
+	option = {
+		name = coalition.8.a #add to coalition
+		trigger = { has_country_flag = coalition_forming }
+		log = "[GetDateText]: [This.GetName]: coalition.8.a executed"
+
+		add_political_power = pp_cost_to_invite
+		add_to_array = { gov_coalition_array = 8 }
+		update_government_coalition_strength = yes
+		if = {
+			limit = {
+				NOT = {
+					has_government = communism
+				}
+			}
+			clear_coalition_emerging_count_ideas = yes
+			reset_communism_coalition_ideas = yes
+		}
+		if = { limit = { check_variable = { var = government_coalition_strength_elect value = majority_threshold compare = greater_than_or_equals } }
+			clr_country_flag = coalition_forming
+			ROOT = { news_event = { id = coalition_complete.0 } }
+		}
+	}
+	option = {
+		name = coalition.8.b #
+		log = "[GetDateText]: [This.GetName]: coalition.8.b executed"
+
+		if = {
+			limit = {
+				NOT = {
+					has_government = communism
+				}
+			}
+			subtract_from_variable = { coalition_communism = party_pop_elect_array^8 }
+		}
+	}
+}
+
+#Vilayat_e_Faqih - 9
+country_event = {
+	id = coalition.9
+	immediate = { log = "[GetDateText]: [Root.GetName]: event coalition.9" }
+	title = coalition.9.t
+	desc = coalition.9.d
+	picture = GFX_politics_shiite
+
+	is_triggered_only = yes
+
+	immediate = {
+
+	}
+
+	option = {
+		name = coalition.9.a #add to coalition
+		trigger = { has_country_flag = coalition_forming }
+		log = "[GetDateText]: [This.GetName]: coalition.9.a executed"
+
+		add_political_power = pp_cost_to_invite
+		add_to_array = { gov_coalition_array = 9 }
+		update_government_coalition_strength = yes
+		if = {
+			limit = {
+				NOT = {
+					has_government = communism
+				}
+			}
+			clear_coalition_emerging_count_ideas = yes
+			reset_communism_coalition_ideas = yes
+		}
+		if = { limit = { check_variable = { var = government_coalition_strength_elect value = majority_threshold compare = greater_than_or_equals } }
+			clr_country_flag = coalition_forming
+			ROOT = { news_event = { id = coalition_complete.0 } }
+		}
+	}
+	option = {
+		name = coalition.9.b #
+		log = "[GetDateText]: [This.GetName]: coalition.9.b executed"
+
+		if = {
+			limit = {
+				NOT = {
+					has_government = communism
+				}
+			}
+			subtract_from_variable = { coalition_communism = party_pop_elect_array^9 }
+		}
+	}
+}
+
+#Kingdom - 10
+country_event = {
+	id = coalition.10
+	immediate = { log = "[GetDateText]: [Root.GetName]: event coalition.10" }
+	title = coalition.10.t
+	desc = coalition.10.d
+	picture = GFX_politics_wahabi
+
+	is_triggered_only = yes
+
+	immediate = {
+
+	}
+
+	option = {
+		name = coalition.10.a #add to coalition
+		trigger = { has_country_flag = coalition_forming }
+		log = "[GetDateText]: [This.GetName]: coalition.10.a executed"
+
+		add_political_power = pp_cost_to_invite
+		add_to_array = { gov_coalition_array = 10 }
+		update_government_coalition_strength = yes
+		if = {
+			limit = {
+				NOT = {
+					has_government = fascism
+				}
+			}
+			clear_coalition_salafist_count_ideas = yes
+			reset_fascism_coalition_ideas = yes
+		}
+		if = { limit = { check_variable = { var = government_coalition_strength_elect value = majority_threshold compare = greater_than_or_equals } }
+			clr_country_flag = coalition_forming
+			ROOT = { news_event = { id = coalition_complete.0 } }
+		}
+	}
+	option = {
+		name = coalition.10.b #
+		log = "[GetDateText]: [This.GetName]: coalition.10.b executed"
+
+		if = {
+			limit = {
+				NOT = {
+					has_government = fascism
+				}
+			}
+			subtract_from_variable = { coalition_fascism = party_pop_elect_array^10 }
+		}
+	}
+}
+
+#Caliphate - 11
+country_event = {
+	id = coalition.11
+	immediate = { log = "[GetDateText]: [Root.GetName]: event coalition.11" }
+	title = coalition.11.t
+	desc = coalition.11.d
+	picture = GFX_politics_salafism
+
+	is_triggered_only = yes
+
+
+	option = {
+		name = coalition.11.a #add to coalition
+		trigger = { has_country_flag = coalition_forming }
+		log = "[GetDateText]: [This.GetName]: coalition.11.a executed"
+
+		add_political_power = pp_cost_to_invite
+		add_to_array = { gov_coalition_array = 11 }
+		update_government_coalition_strength = yes
+		if = {
+			limit = {
+				NOT = {
+					has_government = fascism
+				}
+			}
+			clear_coalition_salafist_count_ideas = yes
+			reset_fascism_coalition_ideas = yes
+		}
+		if = { limit = { check_variable = { var = government_coalition_strength_elect value = majority_threshold compare = greater_than_or_equals } }
+			clr_country_flag = coalition_forming
+			ROOT = { news_event = { id = coalition_complete.0 } }
+		}
+	}
+	option = {
+		name = coalition.11.b #
+		log = "[GetDateText]: [This.GetName]: coalition.11.b executed"
+
+		if = {
+			limit = {
+				NOT = {
+					has_government = fascism
+				}
+			}
+			subtract_from_variable = { coalition_fascism = party_pop_elect_array^11 }
+		}
+	}
+}
+
+#Neutral_Muslim_Brotherhood - 12
+country_event = {
+	id = coalition.12
+	immediate = { log = "[GetDateText]: [Root.GetName]: event coalition.12" }
+	title = coalition.12.t
+	desc = coalition.12.d
+	picture = GFX_politics_muslim_brotherhood
+
+	is_triggered_only = yes
+
+	immediate = {
+
+	}
+
+	option = {
+		name = coalition.12.a #add to coalition
+		trigger = { has_country_flag = coalition_forming }
+		log = "[GetDateText]: [This.GetName]: coalition.12.a executed"
+
+		add_political_power = pp_cost_to_invite
+		add_to_array = { gov_coalition_array = 12 }
+		update_government_coalition_strength = yes
+		if = {
+			limit = {
+				NOT = {
+					has_government = neutrality
+				}
+			}
+			clear_coalition_non_alligned_count_ideas = yes
+			reset_neutrality_coalition_ideas = yes
+		}
+		if = { limit = { check_variable = { var = government_coalition_strength_elect value = majority_threshold compare = greater_than_or_equals } }
+			clr_country_flag = coalition_forming
+			ROOT = { news_event = { id = coalition_complete.0 } }
+		}
+	}
+	option = {
+		name = coalition.12.b #
+		log = "[GetDateText]: [This.GetName]: coalition.12.b executed"
+
+		if = {
+			limit = {
+				NOT = {
+					has_government = neutrality
+				}
+			}
+			subtract_from_variable = { coalition_neutrality = party_pop_elect_array^12 }
+		}
+	}
+}
+
+#Neutral_Autocracy - 13
+country_event = {
+	id = coalition.13
+	immediate = { log = "[GetDateText]: [Root.GetName]: event coalition.13" }
+	title = coalition.13.t
+	desc = coalition.13.d
+	picture = GFX_politics_censorship
+
+	is_triggered_only = yes
+
+	immediate = {
+
+	}
+
+	option = {
+		name = coalition.13.a #add to coalition
+		trigger = { has_country_flag = coalition_forming }
+		log = "[GetDateText]: [This.GetName]: coalition.13.a executed"
+
+		add_political_power = pp_cost_to_invite
+		add_to_array = { gov_coalition_array = 13 }
+		update_government_coalition_strength = yes
+		if = {
+			limit = {
+				NOT = {
+					has_government = neutrality
+				}
+			}
+			clear_coalition_non_alligned_count_ideas = yes
+			reset_neutrality_coalition_ideas = yes
+		}
+		if = { limit = { check_variable = { var = government_coalition_strength_elect value = majority_threshold compare = greater_than_or_equals } }
+			clr_country_flag = coalition_forming
+			ROOT = { news_event = { id = coalition_complete.0 } }
+		}
+	}
+	option = {
+		name = coalition.13.b #
+		log = "[GetDateText]: [This.GetName]: coalition.13.b executed"
+
+		if = {
+			limit = {
+				NOT = {
+					has_government = neutrality
+				}
+			}
+			subtract_from_variable = { coalition_neutrality = party_pop_elect_array^13 }
+		}
+	}
+}
+
+#Neutral_conservatism - 14
+country_event = {
+	id = coalition.14
+	immediate = { log = "[GetDateText]: [Root.GetName]: event coalition.14" }
+	title = coalition.14.t
+	desc = coalition.14.d
+	picture = GFX_politics_cut_taxes
+
+	is_triggered_only = yes
+
+	immediate = {
+
+	}
+
+	option = {
+		name = coalition.14.a #add to coalition
+		trigger = { has_country_flag = coalition_forming }
+		log = "[GetDateText]: [This.GetName]: coalition.14.a executed"
+
+		add_political_power = pp_cost_to_invite
+		add_to_array = { gov_coalition_array = 14 }
+		update_government_coalition_strength = yes
+		if = {
+			limit = {
+				NOT = {
+					has_government = neutrality
+				}
+			}
+			clear_coalition_non_alligned_count_ideas = yes
+			reset_neutrality_coalition_ideas = yes
+		}
+		if = { limit = { check_variable = { var = government_coalition_strength_elect value = majority_threshold compare = greater_than_or_equals } }
+			clr_country_flag = coalition_forming
+			ROOT = { news_event = { id = coalition_complete.0 } }
+		}
+	}
+	option = {
+		name = coalition.14.b #
+		log = "[GetDateText]: [This.GetName]: coalition.14.b executed"
+
+		if = {
+			limit = {
+				NOT = {
+					has_government = neutrality
+				}
+			}
+			subtract_from_variable = { coalition_neutrality = party_pop_elect_array^14 }
+		}
+	}
+}
+
+#oligarchism - 15
+country_event = {
+	id = coalition.15
+	immediate = { log = "[GetDateText]: [Root.GetName]: event coalition.15" }
+	title = coalition.15.t
+	desc = coalition.15.d
+	picture = GFX_politics_negotiations
+
+	is_triggered_only = yes
+
+	immediate = {
+
+	}
+
+	option = {
+		name = coalition.15.a #add to coalition
+		trigger = { has_country_flag = coalition_forming }
+		log = "[GetDateText]: [This.GetName]: coalition.15.a executed"
+
+		add_political_power = pp_cost_to_invite
+		add_to_array = { gov_coalition_array = 15 }
+		update_government_coalition_strength = yes
+		if = {
+			limit = {
+				NOT = {
+					has_government = neutrality
+				}
+			}
+			clear_coalition_non_alligned_count_ideas = yes
+			reset_neutrality_coalition_ideas = yes
+		}
+		if = { limit = { check_variable = { var = government_coalition_strength_elect value = majority_threshold compare = greater_than_or_equals } }
+			clr_country_flag = coalition_forming
+			ROOT = { news_event = { id = coalition_complete.0 } }
+		}
+	}
+	option = {
+		name = coalition.15.b #
+		log = "[GetDateText]: [This.GetName]: coalition.15.b executed"
+
+		if = {
+			limit = {
+				NOT = {
+					has_government = neutrality
+				}
+			}
+			subtract_from_variable = { coalition_neutrality = party_pop_elect_array^15 }
+		}
+	}
+}
+
+#Neutral_Libertarian - 16
+country_event = {
+	id = coalition.16
+	immediate = { log = "[GetDateText]: [Root.GetName]: event coalition.16" }
+	title = coalition.16.t
+	desc = coalition.16.d
+	picture = GFX_politics_libertarian
+
+	is_triggered_only = yes
+
+	immediate = {
+
+	}
+
+	option = {
+		name = coalition.16.a #add to coalition
+		trigger = { has_country_flag = coalition_forming }
+		log = "[GetDateText]: [This.GetName]: coalition.16.a executed"
+
+		add_political_power = pp_cost_to_invite
+		add_to_array = { gov_coalition_array = 16 }
+		update_government_coalition_strength = yes
+		if = {
+			limit = {
+				NOT = {
+					has_government = neutrality
+				}
+			}
+			clear_coalition_non_alligned_count_ideas = yes
+			reset_neutrality_coalition_ideas = yes
+		}
+		if = { limit = { check_variable = { var = government_coalition_strength_elect value = majority_threshold compare = greater_than_or_equals } }
+			clr_country_flag = coalition_forming
+			ROOT = { news_event = { id = coalition_complete.0 } }
+		}
+	}
+	option = {
+		name = coalition.16.b #
+		log = "[GetDateText]: [This.GetName]: coalition.16.b executed"
+
+		if = {
+			limit = {
+				NOT = {
+					has_government = neutrality
+				}
+			}
+			subtract_from_variable = { coalition_neutrality = party_pop_elect_array^16 }
+		}
+	}
+}
+
+#Neutral_green - 17
+country_event = {
+	id = coalition.17
+	immediate = { log = "[GetDateText]: [Root.GetName]: event coalition.17" }
+	title = coalition.17.t
+	desc = coalition.17.d
+	picture = GFX_politics_green
+
+	is_triggered_only = yes
+
+	immediate = {
+
+	}
+
+	option = {
+		name = coalition.17.a #add to coalition
+		trigger = { has_country_flag = coalition_forming }
+		log = "[GetDateText]: [This.GetName]: coalition.17.a executed"
+
+		add_political_power = pp_cost_to_invite
+		add_to_array = { gov_coalition_array = 17 }
+		update_government_coalition_strength = yes
+		if = {
+			limit = {
+				NOT = {
+					has_government = neutrality
+				}
+			}
+			clear_coalition_non_alligned_count_ideas = yes
+			reset_neutrality_coalition_ideas = yes
+		}
+		if = { limit = { check_variable = { var = government_coalition_strength_elect value = majority_threshold compare = greater_than_or_equals } }
+			clr_country_flag = coalition_forming
+			ROOT = { news_event = { id = coalition_complete.0 } }
+		}
+	}
+	option = {
+		name = coalition.17.b #
+		log = "[GetDateText]: [This.GetName]: coalition.17.b executed"
+
+		if = {
+			limit = {
+				NOT = {
+					has_government = neutrality
+				}
+			}
+			subtract_from_variable = { coalition_neutrality = party_pop_elect_array^17 }
+		}
+	}
+}
+
+#neutral_Social - 18
+country_event = {
+	id = coalition.18
+	immediate = { log = "[GetDateText]: [Root.GetName]: event coalition.18" }
+	title = coalition.18.t
+	desc = coalition.18.d
+	picture = GFX_politics_dem_socialist
+
+	is_triggered_only = yes
+
+	immediate = {
+
+	}
+
+	option = {
+		name = coalition.18.a #add to coalition
+		trigger = { has_country_flag = coalition_forming }
+		log = "[GetDateText]: [This.GetName]: coalition.18.a executed"
+
+		add_political_power = pp_cost_to_invite
+		add_to_array = { gov_coalition_array = 18 }
+		update_government_coalition_strength = yes
+		if = {
+			limit = {
+				NOT = {
+					has_government = neutrality
+				}
+			}
+			clear_coalition_non_alligned_count_ideas = yes
+			reset_neutrality_coalition_ideas = yes
+		}
+		if = { limit = { check_variable = { var = government_coalition_strength_elect value = majority_threshold compare = greater_than_or_equals } }
+			clr_country_flag = coalition_forming
+			ROOT = { news_event = { id = coalition_complete.0 } }
+		}
+	}
+	option = {
+		name = coalition.18.b #
+		log = "[GetDateText]: [This.GetName]: coalition.18.b executed"
+
+		if = {
+			limit = {
+				NOT = {
+					has_government = neutrality
+				}
+			}
+			subtract_from_variable = { coalition_neutrality = party_pop_elect_array^18 }
+		}
+	}
+}
+
+#Neutral_Communism - 19
+country_event = {
+	id = coalition.19
+	immediate = { log = "[GetDateText]: [Root.GetName]: event coalition.19" }
+	title = coalition.19.t
+	desc = coalition.19.d
+	picture = GFX_politics_communism
+
+	is_triggered_only = yes
+
+	immediate = {
+
+	}
+
+	option = {
+		name = coalition.19.a #add to coalition
+		trigger = { has_country_flag = coalition_forming }
+		log = "[GetDateText]: [This.GetName]: coalition.19.a executed"
+
+		add_political_power = pp_cost_to_invite
+		add_to_array = { gov_coalition_array = 19 }
+		update_government_coalition_strength = yes
+		if = {
+			limit = {
+				NOT = {
+					has_government = neutrality
+				}
+			}
+			clear_coalition_non_alligned_count_ideas = yes
+			reset_neutrality_coalition_ideas = yes
+		}
+		if = { limit = { check_variable = { var = government_coalition_strength_elect value = majority_threshold compare = greater_than_or_equals } }
+			clr_country_flag = coalition_forming
+			ROOT = { news_event = { id = coalition_complete.0 } }
+		}
+	}
+	option = {
+		name = coalition.19.b #
+		log = "[GetDateText]: [This.GetName]: coalition.19.b executed"
+
+		if = {
+			limit = {
+				NOT = {
+					has_government = neutrality
+				}
+			}
+			subtract_from_variable = { coalition_neutrality = party_pop_elect_array^19 }
+		}
+	}
+}
+
+#Nat_Populism - 20
+country_event = {
+	id = coalition.20
+	immediate = { log = "[GetDateText]: [Root.GetName]: event coalition.20" }
+	title = coalition.20.t
+	desc = coalition.20.d
+	picture = GFX_politics_far_right
+
+	is_triggered_only = yes
+
+	immediate = {
+
+	}
+
+	option = {
+		name = coalition.20.a #add to coalition
+		trigger = { has_country_flag = coalition_forming }
+		log = "[GetDateText]: [This.GetName]: coalition.20.a executed"
+
+		add_political_power = pp_cost_to_invite
+		add_to_array = { gov_coalition_array = 20 }
+		update_government_coalition_strength = yes
+		if = {
+			limit = {
+				NOT = {
+					has_government = nationalist
+				}
+			}
+			clear_coalition_nationalist_count_ideas = yes
+			reset_nationalist_coalition_ideas = yes
+		}
+		if = { limit = { check_variable = { var = government_coalition_strength_elect value = majority_threshold compare = greater_than_or_equals } }
+			clr_country_flag = coalition_forming
+			ROOT = { news_event = { id = coalition_complete.0 } }
+		}
+	}
+	option = {
+		name = coalition.20.b #
+		log = "[GetDateText]: [This.GetName]: coalition.20.b executed"
+
+		if = {
+			limit = {
+				NOT = {
+					has_government = nationalist
+				}
+			}
+			subtract_from_variable = { coalition_nationalist = party_pop_elect_array^20 }
+		}
+	}
+}
+
+#Nat_Fascism - 21
+country_event = {
+	id = coalition.21
+	immediate = { log = "[GetDateText]: [Root.GetName]: event coalition.21" }
+	title = coalition.21.t
+	desc = coalition.21.d
+	picture = GFX_politics_nazi
+
+	is_triggered_only = yes
+
+	immediate = {
+
+	}
+
+	option = {
+		name = coalition.21.a #add to coalition
+		trigger = { has_country_flag = coalition_forming }
+		log = "[GetDateText]: [This.GetName]: coalition.21.a executed"
+
+		add_political_power = pp_cost_to_invite
+		add_to_array = { gov_coalition_array = 21 }
+		update_government_coalition_strength = yes
+		if = {
+			limit = {
+				NOT = {
+					has_government = nationalist
+				}
+			}
+			clear_coalition_nationalist_count_ideas = yes
+			reset_nationalist_coalition_ideas = yes
+		}
+		if = { limit = { check_variable = { var = government_coalition_strength_elect value = majority_threshold compare = greater_than_or_equals } }
+			clr_country_flag = coalition_forming
+			ROOT = { news_event = { id = coalition_complete.0 } }
+		}
+	}
+	option = {
+		name = coalition.21.b #
+		log = "[GetDateText]: [This.GetName]: coalition.21.b executed"
+
+		if = {
+			limit = {
+				NOT = {
+					has_government = nationalist
+				}
+			}
+			subtract_from_variable = { coalition_nationalist = party_pop_elect_array^21 }
+		}
+	}
+}
+
+#Nat_Autocracy - 22
+country_event = {
+	id = coalition.22
+	immediate = { log = "[GetDateText]: [Root.GetName]: event coalition.22" }
+	title = coalition.22.t
+	desc = coalition.22.d
+	picture = GFX_politics_demands
+
+	is_triggered_only = yes
+
+	immediate = {
+
+	}
+
+	option = {
+		name = coalition.22.a #add to coalition
+		trigger = { has_country_flag = coalition_forming }
+		log = "[GetDateText]: [This.GetName]: coalition.22.a executed"
+
+		add_political_power = pp_cost_to_invite
+		add_to_array = { gov_coalition_array = 22 }
+		update_government_coalition_strength = yes
+		if = {
+			limit = {
+				NOT = {
+					has_government = nationalist
+				}
+			}
+			clear_coalition_nationalist_count_ideas = yes
+			reset_nationalist_coalition_ideas = yes
+		}
+		if = { limit = { check_variable = { var = government_coalition_strength_elect value = majority_threshold compare = greater_than_or_equals } }
+			clr_country_flag = coalition_forming
+			ROOT = { news_event = { id = coalition_complete.0 } }
+		}
+	}
+	option = {
+		name = coalition.22.b #
+		log = "[GetDateText]: [This.GetName]: coalition.22.b executed"
+
+		if = {
+			limit = {
+				NOT = {
+					has_government = nationalist
+				}
+			}
+			subtract_from_variable = { coalition_nationalist = party_pop_elect_array^22 }
+		}
+	}
+}
+
+#Monarchist - 23
+country_event = {
+	id = coalition.23
+	immediate = { log = "[GetDateText]: [Root.GetName]: event coalition.23" }
+	title = coalition.23.t
+	desc = coalition.23.d
+	picture = GFX_politics_autocracy
+
+	is_triggered_only = yes
+
+	immediate = {
+
+	}
+
+	option = {
+		name = coalition.23.a #add to coalition
+		trigger = { has_country_flag = coalition_forming }
+		log = "[GetDateText]: [This.GetName]: coalition.23.a executed"
+
+		add_political_power = pp_cost_to_invite
+		add_to_array = { gov_coalition_array = 23 }
+		update_government_coalition_strength = yes
+		if = {
+			limit = {
+				NOT = {
+					has_government = nationalist
+				}
+			}
+			clear_coalition_nationalist_count_ideas = yes
+			reset_nationalist_coalition_ideas = yes
+		}
+		if = { limit = { check_variable = { var = government_coalition_strength_elect value = majority_threshold compare = greater_than_or_equals } }
+			clr_country_flag = coalition_forming
+			ROOT = { news_event = { id = coalition_complete.0 } }
+		}
+	}
+	option = {
+		name = coalition.23.b #
+		log = "[GetDateText]: [This.GetName]: coalition.23.b executed"
+
+		if = {
+			limit = {
+				NOT = {
+					has_government = nationalist
+				}
+			}
+			subtract_from_variable = { coalition_nationalist = party_pop_elect_array^23 }
+		}
+	}
+}
+
+########## Elections ################
+## Simplified - no display of changes for now
+
+### Initial event, launches everything else
+country_event = {
+	id = MD4_election_campaign.0
+	immediate = { log = "[GetDateText]: [Root.GetName]: event MD4_election_campaign.0" }
+	title = MD4_election_campaign.0.t
+	desc = MD4_election_campaign.0.d
+	picture = GFX_election_day
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = { has_country_flag = generic_election_killswitch }
+	}
+
+	immediate = {
+		display_election_campaign_status = yes
+		campaign_spending_initial = yes
+	}
+
+	option = {
+		name = MD4_election_campaign.0.a
+		log = "[GetDateText]: [This.GetName]: MD4_election_campaign.0.a executed"
+		set_country_flag = { flag = elections_in_progress value = 1 days = 15 }
+		country_event = { id = MD4_election_campaign.1 days = 2 }
+		hidden_effect = {
+			country_event = { id = MD4_election.0 days = 14 }
+			#controversial speaker event
+			if = {
+				limit = {
+					check_variable = { government_coalition_strength < majority_threshold }
+					NOT = {
+						has_country_leader_with_trait = western_technocrat
+					}
+				}
+				random_list = {
+					35 = { }
+					65 = { country_event = { id = MD4_election_campaign.8 days = 8 } }
+				}
+			}
+		}
+		for_each_loop = {
+			array = gov_coalition_array
+			value = v
+			multiply_variable = { party_pop_array^v = ads_budget_effect?1 }
+		}
+		for_each_loop = {
+			array = ruling_party
+			value = v
+			multiply_variable = { party_pop_array^v = ads_budget_effect?1 }
+		}
+
+		hidden_effect = {
+			recalculate_party = yes
+			clear_variable = ads_budget_effect
+		}
+	}
+}
+
+# Negative campaign against others
+country_event = {
+	id = MD4_election_campaign.1
+	immediate = { log = "[GetDateText]: [Root.GetName]: event MD4_election_campaign.1" }
+	title = MD4_election_campaign.1.t
+	desc = MD4_election_campaign.1.d
+	picture = GFX_election_day
+
+	is_triggered_only = yes
+
+
+	# Attack the Salafists in the Nation
+	option = {
+		name = MD4_election_campaign.1.a
+		log = "[GetDateText]: [This.GetName]: MD4_election_campaign.1.a executed"
+		ai_chance = { factor = 30 }
+		trigger = {
+			NOT = {
+				has_government = fascism
+				is_in_array = { gov_coalition_array = 10 }
+				is_in_array = { gov_coalition_array = 11 }
+			}
+			fascism > 0.05
+		}
+		# Check on Funding Costs
+		if = {
+			limit = {
+				check_variable = { campaign_funding_count < 5 }
+			}
+			add_popularity = { ideology = fascism popularity = -0.01 }
+		}
+		else_if = {
+			limit = {
+				check_variable = { campaign_funding_count > 4 }
+				check_variable = { campaign_funding_count < 8 }
+			}
+			add_popularity = { ideology = fascism popularity = -0.02 }
+		}
+		else_if = {
+			limit = {
+				check_variable = { campaign_funding_count > 7 }
+				check_variable = { campaign_funding_count < 11 }
+			}
+			add_popularity = { ideology = fascism popularity = -0.04 }
+		}
+		else_if = {
+			limit = {
+				check_variable = { campaign_funding_count > 10 }
+				check_variable = { campaign_funding_count < 15 }
+			}
+			add_popularity = { ideology = fascism popularity = -0.06 }
+		}
+		else_if = {
+			limit = {
+				check_variable = { campaign_funding_count > 14 }
+				check_variable = { campaign_funding_count < 17 }
+			}
+			add_popularity = { ideology = fascism popularity = -0.08 }
+		}
+		else = {
+			add_popularity = { ideology = fascism popularity = -0.10 }
+		}
+		recalculate_party = yes
+		random_list = {
+			75 = { custom_effect_tooltip = MD_election_campaign_no_tt }
+			25 = { country_event = { id = MD4_election_campaign.3 days = 8 } }
+		}
+	}
+
+	# Attack the Nationalists
+	option = {
+		name = MD4_election_campaign.1.b
+		log = "[GetDateText]: [This.GetName]: MD4_election_campaign.1.b executed"
+		ai_chance = { factor = 30 }
+		trigger = {
+			NOT = {
+				has_government = nationalist
+				is_in_array = { gov_coalition_array = 20 }
+				is_in_array = { gov_coalition_array = 21 }
+				is_in_array = { gov_coalition_array = 22 }
+				is_in_array = { gov_coalition_array = 23 }
+			}
+			nationalist > 0.10
+		}
+		# Check on Funding Costs
+		if = {
+			limit = {
+				check_variable = { campaign_funding_count < 5 }
+			}
+			add_popularity = { ideology = nationalist popularity = -0.01 }
+		}
+		else_if = {
+			limit = {
+				check_variable = { campaign_funding_count > 4 }
+				check_variable = { campaign_funding_count < 8 }
+			}
+			add_popularity = { ideology = nationalist popularity = -0.02 }
+		}
+		else_if = {
+			limit = {
+				check_variable = { campaign_funding_count > 7 }
+				check_variable = { campaign_funding_count < 11 }
+			}
+			add_popularity = { ideology = nationalist popularity = -0.04 }
+		}
+		else_if = {
+			limit = {
+				check_variable = { campaign_funding_count > 10 }
+				check_variable = { campaign_funding_count < 15 }
+			}
+			add_popularity = { ideology = nationalist popularity = -0.06 }
+		}
+		else_if = {
+			limit = {
+				check_variable = { campaign_funding_count > 14 }
+				check_variable = { campaign_funding_count < 17 }
+			}
+			add_popularity = { ideology = nationalist popularity = -0.08 }
+		}
+		else = {
+			add_popularity = { ideology = nationalist popularity = -0.10 }
+		}
+
+		recalculate_party = yes
+		random_list = {
+			75 = { custom_effect_tooltip = MD_election_campaign_no_tt }
+			25 = { country_event = { id = MD4_election_campaign.4 days = 8 } }
+		}
+	}
+
+	# Attack the Non Aligned
+	option = {
+		name = MD4_election_campaign.1.c
+		log = "[GetDateText]: [This.GetName]: MD4_election_campaign.1.c executed"
+		ai_chance = { factor = 30 }
+		trigger = {
+			NOT = {
+				has_government = neutrality
+				is_in_array = { gov_coalition_array = 12 }
+				is_in_array = { gov_coalition_array = 13 }
+				is_in_array = { gov_coalition_array = 14 }
+				is_in_array = { gov_coalition_array = 15 }
+				is_in_array = { gov_coalition_array = 16 }
+				is_in_array = { gov_coalition_array = 17 }
+				is_in_array = { gov_coalition_array = 18 }
+				is_in_array = { gov_coalition_array = 19 }
+			}
+			neutrality > 0.12
+		}
+		# Check on Funding Costs
+		if = {
+			limit = {
+				check_variable = { campaign_funding_count < 5 }
+			}
+			add_popularity = { ideology = neutrality popularity = -0.01 }
+		}
+		else_if = {
+			limit = {
+				check_variable = { campaign_funding_count > 4 }
+				check_variable = { campaign_funding_count < 8 }
+			}
+			add_popularity = { ideology = neutrality popularity = -0.02 }
+		}
+		else_if = {
+			limit = {
+				check_variable = { campaign_funding_count > 7 }
+				check_variable = { campaign_funding_count < 11 }
+			}
+			add_popularity = { ideology = neutrality popularity = -0.04 }
+		}
+		else_if = {
+			limit = {
+				check_variable = { campaign_funding_count > 10 }
+				check_variable = { campaign_funding_count < 15 }
+			}
+			add_popularity = { ideology = neutrality popularity = -0.06 }
+		}
+		else_if = {
+			limit = {
+				check_variable = { campaign_funding_count > 14 }
+				check_variable = { campaign_funding_count < 17 }
+			}
+			add_popularity = { ideology = neutrality popularity = -0.08 }
+		}
+		else = {
+			add_popularity = { ideology = neutrality popularity = -0.10 }
+		}
+
+		recalculate_party = yes
+		random_list = {
+			75 = { custom_effect_tooltip = MD_election_campaign_no_tt }
+			25 = { country_event = { id = MD4_election_campaign.5 days = 8 } }
+		}
+	}
+
+	### Attack the Emerging ###
+	option = {
+		name = MD4_election_campaign.1.e
+		log = "[GetDateText]: [This.GetName]: MD4_election_campaign.1.e executed"
+		ai_chance = { factor = 30 }
+		trigger = {
+			NOT = {
+				has_government = communism
+				is_in_array = { gov_coalition_array = 4 }
+				is_in_array = { gov_coalition_array = 5 }
+				is_in_array = { gov_coalition_array = 6 }
+				is_in_array = { gov_coalition_array = 7 }
+				is_in_array = { gov_coalition_array = 8 }
+				is_in_array = { gov_coalition_array = 9 }
+			}
+			communism > 0.12
+		}
+		# Check on Funding Costs
+		if = {
+			limit = {
+				check_variable = { campaign_funding_count < 5 }
+			}
+			add_popularity = { ideology = communism popularity = -0.01 }
+		}
+		else_if = {
+			limit = {
+				check_variable = { campaign_funding_count > 4 }
+				check_variable = { campaign_funding_count < 8 }
+			}
+			add_popularity = { ideology = communism popularity = -0.02 }
+		}
+		else_if = {
+			limit = {
+				check_variable = { campaign_funding_count > 7 }
+				check_variable = { campaign_funding_count < 11 }
+			}
+			add_popularity = { ideology = communism popularity = -0.04 }
+		}
+		else_if = {
+			limit = {
+				check_variable = { campaign_funding_count > 10 }
+				check_variable = { campaign_funding_count < 15 }
+			}
+			add_popularity = { ideology = communism popularity = -0.06 }
+		}
+		else_if = {
+			limit = {
+				check_variable = { campaign_funding_count > 14 }
+				check_variable = { campaign_funding_count < 17 }
+			}
+			add_popularity = { ideology = communism popularity = -0.08 }
+		}
+		else = {
+			add_popularity = { ideology = communism popularity = -0.10 }
+		}
+		recalculate_party = yes
+		random_list = {
+			75 = { custom_effect_tooltip = MD_election_campaign_no_tt }
+			25 = { country_event = { id = MD4_election_campaign.6 days = 8 } }
+		}
+	}
+	### Attack the Western ###
+	option = {
+		name = MD4_election_campaign.1.f
+		log = "[GetDateText]: [This.GetName]: MD4_election_campaign.1.f executed"
+		ai_chance = { factor = 30 }
+		trigger = {
+			NOT = {
+				has_government = democratic
+				is_in_array = { gov_coalition_array = 0 }
+				is_in_array = { gov_coalition_array = 1 }
+				is_in_array = { gov_coalition_array = 2 }
+				is_in_array = { gov_coalition_array = 3 }
+			}
+			democratic > 0.12
+		}
+		# Check on Funding Costs
+		if = {
+			limit = {
+				check_variable = { campaign_funding_count < 5 }
+			}
+			add_popularity = { ideology = democratic popularity = -0.01 }
+		}
+		else_if = {
+			limit = {
+				check_variable = { campaign_funding_count > 4 }
+				check_variable = { campaign_funding_count < 8 }
+			}
+			add_popularity = { ideology = democratic popularity = -0.02 }
+		}
+		else_if = {
+			limit = {
+				check_variable = { campaign_funding_count > 7 }
+				check_variable = { campaign_funding_count < 11 }
+			}
+			add_popularity = { ideology = democratic popularity = -0.04 }
+		}
+		else_if = {
+			limit = {
+				check_variable = { campaign_funding_count > 10 }
+				check_variable = { campaign_funding_count < 15 }
+			}
+			add_popularity = { ideology = democratic popularity = -0.06 }
+		}
+		else_if = {
+			limit = {
+				check_variable = { campaign_funding_count > 14 }
+				check_variable = { campaign_funding_count < 17 }
+			}
+			add_popularity = { ideology = democratic popularity = -0.08 }
+		}
+		else = {
+			add_popularity = { ideology = democratic popularity = -0.10 }
+		}
+		recalculate_party = yes
+		random_list = {
+			75 = { custom_effect_tooltip = MD_election_campaign_no_tt }
+			25 = { country_event = { id = MD4_election_campaign.7 days = 8 } }
+		}
+	}
+	option = {
+		name = MD4_election_campaign.1.g
+		log = "[GetDateText]: [This.GetName]: MD4_election_campaign.1.g executed"
+		ai_chance = { factor = 30 }
+	}
+}
+###negative campaigning backfires###
+country_event = {
+	id = MD4_election_campaign.3
+	immediate = { log = "[GetDateText]: [Root.GetName]: event MD4_election_campaign.3" }
+	title = MD4_election_campaign.3.t
+	desc = MD4_election_campaign.3.d
+	picture = GFX_election_rally
+
+	is_triggered_only = yes
+
+	option = {
+		name = MD4_election_campaign.3.a
+		log = "[GetDateText]: [This.GetName]: MD4_election_campaign.3.a executed"
+		if = {
+			limit = {
+				check_variable = { campaign_funding_count < 5 }
+			}
+			add_popularity = { ideology = fascism popularity = 0.02 }
+			for_each_loop = {
+				array = ruling_party
+				value = v
+				multiply_variable = { party_pop_array^v = 0.96 }
+			}
+			recalculate_party = yes
+		}
+		else_if = {
+			limit = {
+				check_variable = { campaign_funding_count > 4 }
+				check_variable = { campaign_funding_count < 8 }
+			}
+			add_popularity = { ideology = fascism popularity = 0.04 }
+			for_each_loop = {
+				array = ruling_party
+				value = v
+				multiply_variable = { party_pop_array^v = 0.92 }
+			}
+			recalculate_party = yes
+		}
+		else_if = {
+			limit = {
+				check_variable = { campaign_funding_count > 7 }
+				check_variable = { campaign_funding_count < 11 }
+			}
+			add_popularity = { ideology = fascism popularity = 0.08 }
+			for_each_loop = {
+				array = ruling_party
+				value = v
+				multiply_variable = { party_pop_array^v = 0.88 }
+			}
+			recalculate_party = yes
+		}
+		else_if = {
+			limit = {
+				check_variable = { campaign_funding_count > 10 }
+				check_variable = { campaign_funding_count < 15 }
+			}
+			add_popularity = { ideology = fascism popularity = 0.12 }
+			for_each_loop = {
+				array = ruling_party
+				value = v
+				multiply_variable = { party_pop_array^v = 0.8 }
+			}
+			recalculate_party = yes
+		}
+		else_if = {
+			limit = {
+				check_variable = { campaign_funding_count > 14 }
+				check_variable = { campaign_funding_count < 17 }
+			}
+			add_popularity = { ideology = fascism popularity = 0.16 }
+			for_each_loop = {
+				array = ruling_party
+				value = v
+				multiply_variable = { party_pop_array^v = 0.7 }
+			}
+			recalculate_party = yes
+		}
+	}
+}
+
+###negative campaigning backfires###
+country_event = {
+	id = MD4_election_campaign.4
+	immediate = { log = "[GetDateText]: [Root.GetName]: event MD4_election_campaign.4" }
+	title = MD4_election_campaign.4.t
+	desc = MD4_election_campaign.4.d
+	picture = GFX_election_rally
+
+	is_triggered_only = yes
+
+	option = {
+		name = MD4_election_campaign.4.a
+		log = "[GetDateText]: [This.GetName]: MD4_election_campaign.4.a executed"
+		if = {
+			limit = {
+				check_variable = { campaign_funding_count < 5 }
+			}
+			add_popularity = { ideology = nationalist popularity = 0.02 }
+			for_each_loop = {
+				array = ruling_party
+				value = v
+				multiply_variable = { party_pop_array^v = 0.96 }
+			}
+			recalculate_party = yes
+		}
+		else_if = {
+			limit = {
+				check_variable = { campaign_funding_count > 4 }
+				check_variable = { campaign_funding_count < 8 }
+			}
+			add_popularity = { ideology = nationalist popularity = 0.04 }
+			for_each_loop = {
+				array = ruling_party
+				value = v
+				multiply_variable = { party_pop_array^v = 0.92 }
+			}
+			recalculate_party = yes
+		}
+		else_if = {
+			limit = {
+				check_variable = { campaign_funding_count > 7 }
+				check_variable = { campaign_funding_count < 11 }
+			}
+			add_popularity = { ideology = nationalist popularity = 0.08 }
+			for_each_loop = {
+				array = ruling_party
+				value = v
+				multiply_variable = { party_pop_array^v = 0.88 }
+			}
+			recalculate_party = yes
+		}
+		else_if = {
+			limit = {
+				check_variable = { campaign_funding_count > 10 }
+				check_variable = { campaign_funding_count < 15 }
+			}
+			add_popularity = { ideology = nationalist popularity = 0.12 }
+			for_each_loop = {
+				array = ruling_party
+				value = v
+				multiply_variable = { party_pop_array^v = 0.8 }
+			}
+			recalculate_party = yes
+		}
+		else_if = {
+			limit = {
+				check_variable = { campaign_funding_count > 14 }
+				check_variable = { campaign_funding_count < 17 }
+			}
+			add_popularity = { ideology = nationalist popularity = 0.16 }
+			for_each_loop = {
+				array = ruling_party
+				value = v
+				multiply_variable = { party_pop_array^v = 0.7 }
+			}
+			recalculate_party = yes
+		}
+	}
+}
+
+###negative campaigning backfires###
+country_event = {
+	id = MD4_election_campaign.5
+	immediate = { log = "[GetDateText]: [Root.GetName]: event MD4_election_campaign.5" }
+	title = MD4_election_campaign.5.t
+	desc = MD4_election_campaign.5.d
+	picture = GFX_election_rally
+
+	is_triggered_only = yes
+
+	option = {
+		name = MD4_election_campaign.5.a
+		log = "[GetDateText]: [This.GetName]: MD4_election_campaign.5.a executed"
+		if = {
+			limit = {
+				check_variable = { campaign_funding_count < 5 }
+			}
+			add_popularity = { ideology = neutrality popularity = 0.02 }
+			for_each_loop = {
+				array = ruling_party
+				value = v
+				multiply_variable = { party_pop_array^v = 0.96 }
+			}
+			recalculate_party = yes
+		}
+		else_if = {
+			limit = {
+				check_variable = { campaign_funding_count > 4 }
+				check_variable = { campaign_funding_count < 8 }
+			}
+			add_popularity = { ideology = neutrality popularity = 0.04 }
+			for_each_loop = {
+				array = ruling_party
+				value = v
+				multiply_variable = { party_pop_array^v = 0.92 }
+			}
+			recalculate_party = yes
+		}
+		else_if = {
+			limit = {
+				check_variable = { campaign_funding_count > 7 }
+				check_variable = { campaign_funding_count < 11 }
+			}
+			add_popularity = { ideology = neutrality popularity = 0.08 }
+			for_each_loop = {
+				array = ruling_party
+				value = v
+				multiply_variable = { party_pop_array^v = 0.88 }
+			}
+			recalculate_party = yes
+		}
+		else_if = {
+			limit = {
+				check_variable = { campaign_funding_count > 10 }
+				check_variable = { campaign_funding_count < 15 }
+			}
+			add_popularity = { ideology = neutrality popularity = 0.12 }
+			for_each_loop = {
+				array = ruling_party
+				value = v
+				multiply_variable = { party_pop_array^v = 0.8 }
+			}
+			recalculate_party = yes
+		}
+		else_if = {
+			limit = {
+				check_variable = { campaign_funding_count > 14 }
+				check_variable = { campaign_funding_count < 17 }
+			}
+			add_popularity = { ideology = neutrality popularity = 0.16 }
+			for_each_loop = {
+				array = ruling_party
+				value = v
+				multiply_variable = { party_pop_array^v = 0.7 }
+			}
+			recalculate_party = yes
+		}
+	}
+}
+
+###Negative campaigning Backfires###
+country_event = {
+	id = MD4_election_campaign.6
+	immediate = { log = "[GetDateText]: [Root.GetName]: event MD4_election_campaign.6" }
+	title = MD4_election_campaign.6.t
+	desc = MD4_election_campaign.6.d
+	picture = GFX_election_rally
+
+	is_triggered_only = yes
+
+	option = {
+		name = MD4_election_campaign.6.a
+		log = "[GetDateText]: [This.GetName]: MD4_election_campaign.6.a executed"
+		if = {
+			limit = {
+				check_variable = { campaign_funding_count < 5 }
+			}
+			add_popularity = { ideology = communism popularity = 0.02 }
+			for_each_loop = {
+				array = ruling_party
+				value = v
+				multiply_variable = { party_pop_array^v = 0.96 }
+			}
+			recalculate_party = yes
+		}
+		else_if = {
+			limit = {
+				check_variable = { campaign_funding_count > 4 }
+				check_variable = { campaign_funding_count < 8 }
+			}
+			add_popularity = { ideology = communism popularity = 0.04 }
+			for_each_loop = {
+				array = ruling_party
+				value = v
+				multiply_variable = { party_pop_array^v = 0.92 }
+			}
+			recalculate_party = yes
+		}
+		else_if = {
+			limit = {
+				check_variable = { campaign_funding_count > 7 }
+				check_variable = { campaign_funding_count < 11 }
+			}
+			add_popularity = { ideology = communism popularity = 0.08 }
+			for_each_loop = {
+				array = ruling_party
+				value = v
+				multiply_variable = { party_pop_array^v = 0.88 }
+			}
+			recalculate_party = yes
+		}
+		else_if = {
+			limit = {
+				check_variable = { campaign_funding_count > 10 }
+				check_variable = { campaign_funding_count < 15 }
+			}
+			add_popularity = { ideology = communism popularity = 0.12 }
+			for_each_loop = {
+				array = ruling_party
+				value = v
+				multiply_variable = { party_pop_array^v = 0.8 }
+			}
+			recalculate_party = yes
+		}
+		else_if = {
+			limit = {
+				check_variable = { campaign_funding_count > 14 }
+				check_variable = { campaign_funding_count < 17 }
+			}
+			add_popularity = { ideology = communism popularity = 0.16 }
+			for_each_loop = {
+				array = ruling_party
+				value = v
+				multiply_variable = { party_pop_array^v = 0.7 }
+			}
+			recalculate_party = yes
+		}
+	}
+}
+
+###Negative campaigning Backfires###
+country_event = {
+	id = MD4_election_campaign.7
+	immediate = { log = "[GetDateText]: [Root.GetName]: event MD4_election_campaign.7" }
+	title = MD4_election_campaign.7.t
+	desc = MD4_election_campaign.7.d
+	picture = GFX_election_rally
+
+	is_triggered_only = yes
+
+	option = {
+		name = MD4_election_campaign.7.a
+		log = "[GetDateText]: [This.GetName]: MD4_election_campaign.7.a executed"
+		if = {
+			limit = {
+				check_variable = { campaign_funding_count < 5 }
+			}
+			add_popularity = { ideology = democratic popularity = 0.02 }
+			for_each_loop = {
+				array = ruling_party
+				value = v
+				multiply_variable = { party_pop_array^v = 0.96 }
+			}
+			recalculate_party = yes
+		}
+		else_if = {
+			limit = {
+				check_variable = { campaign_funding_count > 4 }
+				check_variable = { campaign_funding_count < 8 }
+			}
+			add_popularity = { ideology = democratic popularity = 0.04 }
+			for_each_loop = {
+				array = ruling_party
+				value = v
+				multiply_variable = { party_pop_array^v = 0.92 }
+			}
+			recalculate_party = yes
+		}
+		else_if = {
+			limit = {
+				check_variable = { campaign_funding_count > 7 }
+				check_variable = { campaign_funding_count < 11 }
+			}
+			add_popularity = { ideology = democratic popularity = 0.08 }
+			for_each_loop = {
+				array = ruling_party
+				value = v
+				multiply_variable = { party_pop_array^v = 0.88 }
+			}
+			recalculate_party = yes
+		}
+		else_if = {
+			limit = {
+				check_variable = { campaign_funding_count > 10 }
+				check_variable = { campaign_funding_count < 15 }
+			}
+			add_popularity = { ideology = democratic popularity = 0.12 }
+			for_each_loop = {
+				array = ruling_party
+				value = v
+				multiply_variable = { party_pop_array^v = 0.8 }
+			}
+			recalculate_party = yes
+		}
+		else_if = {
+			limit = {
+				check_variable = { campaign_funding_count > 14 }
+				check_variable = { campaign_funding_count < 17 }
+			}
+			add_popularity = { ideology = democratic popularity = 0.16 }
+			for_each_loop = {
+				array = ruling_party
+				value = v
+				multiply_variable = { party_pop_array^v = 0.7 }
+			}
+			recalculate_party = yes
+		}
+	}
+}
+
+###Invite controversial speaker on the campaign trail###
+country_event = {
+	id = MD4_election_campaign.8
+	immediate = { log = "[GetDateText]: [Root.GetName]: event MD4_election_campaign.8" }
+	title = MD4_election_campaign.8.t
+	desc = MD4_election_campaign.8.d
+	picture = GFX_election_rally
+
+	is_triggered_only = yes
+
+	option = {
+		name = MD4_election_campaign.8.a
+		log = "[GetDateText]: [This.GetName]: MD4_election_campaign.8.a executed"
+		random_list = {
+			50 = { news_event = { id = MD4_election_campaign.9 days = 2 } }
+			50 = { news_event = { id = MD4_election_campaign.10 days = 2 } }
+		}
+	}
+	option = {
+		name = MD4_election_campaign.8.b
+		log = "[GetDateText]: [This.GetName]: MD4_election_campaign.8.b executed"
+	}
+}
+
+###Invite controversial speaker on the campaign trail### Success!!!
+news_event = {
+	id = MD4_election_campaign.9
+	immediate = { log = "[GetDateText]: [Root.GetName]: event MD4_election_campaign.9" }
+	title = MD4_election_campaign.9.t
+	desc = MD4_election_campaign.9.d
+	picture = GFX_news_election_rally
+	is_triggered_only = yes
+
+	immediate = { }
+
+	option = {
+		name = MD4_election_campaign.9.a
+		log = "[GetDateText]: [This.GetName]: MD4_election_campaign.9.a executed"
+		for_each_loop = {
+				array = ruling_party
+				value = v
+				multiply_variable = { party_pop_array^v = 1.2 }
+			}
+			recalculate_party = yes
+	}
+}
+
+###Invite controversial speaker on the campaign trail### Catastrophe!!!
+news_event = {
+	id = MD4_election_campaign.10
+	immediate = { log = "[GetDateText]: [Root.GetName]: event MD4_election_campaign.10" }
+	title = MD4_election_campaign.10.t
+	desc = MD4_election_campaign.10.d
+	picture = GFX_news_election_rally
+	is_triggered_only = yes
+
+	option = {
+		name = MD4_election_campaign.10.a
+		log = "[GetDateText]: [This.GetName]: MD4_election_campaign.10.a executed"
+		for_each_loop = {
+			array = ruling_party
+			value = v
+			multiply_variable = { party_pop_array^v = 0.8 }
+		}
+		hidden_effect = {
+			recalculate_party = yes
+		}
+	}
+}
+
+### Main election event ###
+country_event = {
+	id = MD4_election.0
+	immediate = { log = "[GetDateText]: [Root.GetName]: event MD4_election.0" }
+	title = MD4_election.0.t
+	desc = MD4_election.0.d
+	hidden = yes
+	is_triggered_only = yes
+
+	immediate = {
+		clear_variable = campaign_funding_count
+		hold_elections = yes
+		#any single party is over election threshold - set them to rule immediately
+		if = {
+			limit = {
+				tag = ITA
+				has_completed_focus = ITA_let_the_plebs_vote
+				NOT = {
+					has_completed_focus = ITA_repeal_former_government_measures_6
+				}
+			}
+			country_event = { id = MD4_election.2 }
+		}
+		else_if = {
+			limit = {
+				check_variable = { party_pop_array^max_index_1 > majority_threshold }
+				is_in_array = { ruling_party = max_index_1 }
+			}
+			country_event = { id = MD4_election.1 } #re-elected alone
+		}
+		else_if = {
+			limit = {
+				check_variable = { party_pop_array^max_index_1 > majority_threshold }
+				NOT = { is_in_array = { ruling_party = max_index_1 } }
+			}
+			country_event = { id = MD4_election.3 } #different party elected alone
+		}
+		else_if = {
+			limit = {
+				check_variable = { var = government_coalition_strength_elect value = majority_threshold compare = greater_than_or_equals }
+			}
+			country_event = { id = MD4_election.2 } #current gov coalition triumphs
+		}
+		else_if = {
+			limit = {
+				is_ai = yes
+			}
+			AI_setup_government = yes
+
+			if = {
+				limit = {
+					is_North_America = yes
+					is_major = no
+				}
+				every_country = {
+					limit = { is_North_America = yes is_ai = no }
+					news_event = {  days = 1 id = News_MD4_election.1 }
+				}
+			}
+			if = {
+				limit = {
+					is_South_America = yes
+					is_major = no
+				}
+				every_country = {
+					limit = { is_South_America = yes is_ai = no }
+					news_event = {  days = 1 id = News_MD4_election.1 }
+				}
+			}
+			if = {
+				limit = {
+					is_middle_eastern_nation = yes
+					is_major = no
+				}
+				every_country = {
+					limit = { is_middle_eastern_nation = yes is_ai = no }
+					news_event = {  days = 1 id = News_MD4_election.1 }
+				}
+			}
+			if = {
+				limit = {
+					is_african_nation = yes
+					is_major = no
+				}
+				every_country = {
+					limit = { is_african_nation = yes is_ai = no }
+					news_event = {  days = 1 id = News_MD4_election.1 }
+				}
+			}
+			if = {
+				limit = {
+					 is_european_nation = yes
+					is_major = no
+				}
+				every_country = {
+					limit = { is_european_nation = yes is_ai = no }
+					news_event = {  days = 1 id = News_MD4_election.1 }
+				}
+			}
+			if = {
+				limit = {
+					is_asian_nation = yes
+					is_major = no
+				}
+				every_country = {
+					limit = { is_asian_nation = yes is_ai = no }
+					news_event = {  days = 1 id = News_MD4_election.1 }
+				}
+			}
+			if = {
+				limit = {
+					is_oceania_nation = yes
+					is_major = no
+				}
+				every_country = {
+					limit = { is_oceania_nation = yes is_ai = no }
+					news_event = {  days = 1 id = News_MD4_election.1 }
+				}
+			}
+			if = {
+				limit = {
+					is_major = yes
+				}
+				every_country = {
+					limit = { is_ai = no }
+					news_event = {  days = 1 id = News_MD4_election.1 }
+				}
+			}
+		}
+
+		else_if = {
+			limit = {
+				is_ai = no
+			}
+			set_temp_variable = { ruling_party_strength = 0 }
+			for_each_loop = {
+				array = ruling_party
+				value = v
+				add_to_temp_variable = { ruling_party_strength = party_pop_elect_array^v }
+			}
+			if = {
+				limit = {
+					check_variable = { ruling_party_strength < election_threshold }
+				}
+				country_event = { id = MD4_election.5 }
+			}
+			else = {
+				country_event = { id = MD4_election.4 }
+			}
+		}
+	}
+
+	option = {
+	name = MD4_election.0.a
+	log = "[GetDateText]: [This.GetName]: MD4_election.0.a executed"
+	}
+}
+
+### Single Party wins election ###
+### Winning! ###
+country_event = {
+	id = MD4_election.1
+	immediate = { log = "[GetDateText]: [Root.GetName]: event MD4_election.1" }
+	title = MD4_election.1.t
+	desc = {
+		text = MD4_election.1.d
+		trigger = {
+			OR = {
+				check_variable = {
+					var = current_term
+					value = term_limit
+					compare = not_equals
+				}
+				check_variable = { term_limits = 0 }
+			}
+		}
+	}
+	desc = {
+		text = MD4_election.1.d_term_ended
+		trigger = {
+			check_variable = { term_limit > 0 } #make sure term limits are a thing
+			check_variable = {
+				var = current_term
+				value = term_limit
+				compare = equals
+			}
+		}
+	}
+	picture = GFX_election_rally
+
+	is_triggered_only = yes
+
+	immediate = {
+		clear_array = gov_coalition_array
+	}
+
+	option = {
+		name = MD4_election.1.a
+		log = "[GetDateText]: [This.GetName]: MD4_election.1.a executed"
+		add_political_power = 150
+		hidden_effect = { ROOT = { news_event = { days = 1 id = News_MD4_election.0 } } }
+		add_to_variable = { current_term = 1 }
+		if = {
+			limit = {
+				check_variable = { term_limit > 0 } #make sure term limits are a thing
+				check_variable = { current_term > term_limit }
+			}
+			hidden_effect = {
+				set_ruling_leader = yes
+				set_leader = yes
+			}
+		}
+		if = {
+			limit = {
+				is_North_America = yes
+				is_major = no
+			}
+			every_country = {
+				limit = { is_North_America = yes is_ai = no }
+				news_event = {  days = 1 id = News_MD4_election.0 }
+			}
+		}
+		if = {
+			limit = {
+				is_South_America = yes
+				is_major = no
+			}
+			every_country = {
+				limit = { is_South_America = yes is_ai = no }
+				news_event = {  days = 1 id = News_MD4_election.0 }
+			}
+		}
+		if = {
+			limit = {
+				is_middle_eastern_nation = yes
+				is_major = no
+			}
+			every_country = {
+				limit = { is_middle_eastern_nation = yes is_ai = no }
+				news_event = {  days = 1 id = News_MD4_election.0 }
+			}
+		}
+		if = {
+			limit = {
+				is_african_nation = yes
+				is_major = no
+			}
+			every_country = {
+				limit = { is_african_nation = yes is_ai = no }
+				news_event = {  days = 1 id = News_MD4_election.0 }
+			}
+		}
+		if = {
+			limit = {
+				 is_european_nation = yes
+				is_major = no
+			}
+			every_country = {
+				limit = { is_european_nation = yes is_ai = no }
+				news_event = {  days = 1 id = News_MD4_election.0 }
+			}
+		}
+		if = {
+			limit = {
+				is_asian_nation = yes
+				is_major = no
+			}
+			every_country = {
+				limit = { is_asian_nation = yes is_ai = no }
+				news_event = {  days = 1 id = News_MD4_election.0 }
+			}
+		}
+		if = {
+			limit = {
+				is_oceania_nation = yes
+				is_major = no
+			}
+			every_country = {
+				limit = { is_oceania_nation = yes is_ai = no }
+				news_event = {  days = 1 id = News_MD4_election.0 }
+			}
+		}
+		if = {
+			limit = {
+				is_major = yes
+			}
+			every_country = {
+				limit = { is_ai = no }
+				news_event = {  days = 1 id = News_MD4_election.0 }
+			}
+		}
+
+	}
+}
+#### Coalition Victory #####
+country_event = {
+	id = MD4_election.2
+	immediate = { log = "[GetDateText]: [Root.GetName]: event MD4_election.2" }
+	title = MD4_election.2.t
+	desc = {
+		text = MD4_election.2.d
+		trigger = {
+			check_variable = {
+				var = current_term
+				value = term_limit
+				compare = not_equals
+			}
+		}
+	}
+	desc = {
+		text = MD4_election.2.d_term_ended
+		trigger = {
+			check_variable = { term_limit > 0 } #make sure term limits are a thing
+			check_variable = {
+				var = current_term
+				value = term_limit
+				compare = equals
+			}
+		}
+	}
+	picture = GFX_election_rally
+	is_triggered_only = yes
+
+	option = {
+		name = MD4_election.2.a
+		log = "[GetDateText]: [This.GetName]: MD4_election.2.a executed"
+		hidden_effect = { ROOT = { news_event = { days = 1 id = News_MD4_election.0 } } }
+		add_to_variable = { current_term = 1 }
+		if = {
+			limit = {
+				check_variable = { term_limit > 0 } #make sure term limits are a thing
+				check_variable = { current_term > term_limit }
+			}
+			hidden_effect = {
+				set_ruling_leader = yes
+				set_leader = yes
+			}
+		}
+		if = {
+			limit = {
+				is_North_America = yes
+				is_major = no
+			}
+			every_country = {
+				limit = { is_North_America = yes is_ai = no }
+				news_event = {  days = 1 id = News_MD4_election.0 }
+			}
+		}
+		if = {
+			limit = {
+				is_South_America = yes
+				is_major = no
+			}
+			every_country = {
+				limit = { is_South_America = yes is_ai = no }
+				news_event = {  days = 1 id = News_MD4_election.0 }
+			}
+		}
+		if = {
+			limit = {
+				is_middle_eastern_nation = yes
+				is_major = no
+			}
+			every_country = {
+				limit = { is_middle_eastern_nation = yes is_ai = no }
+				news_event = {  days = 1 id = News_MD4_election.0 }
+			}
+		}
+		if = {
+			limit = {
+				is_african_nation = yes
+				is_major = no
+			}
+			every_country = {
+				limit = { is_african_nation = yes is_ai = no }
+				news_event = {  days = 1 id = News_MD4_election.0 }
+			}
+		}
+		if = {
+			limit = {
+				 is_european_nation = yes
+				is_major = no
+			}
+			every_country = {
+				limit = { is_european_nation = yes is_ai = no }
+				news_event = {  days = 1 id = News_MD4_election.0 }
+			}
+		}
+		if = {
+			limit = {
+				is_asian_nation = yes
+				is_major = no
+			}
+			every_country = {
+				limit = { is_asian_nation = yes is_ai = no }
+				news_event = {  days = 1 id = News_MD4_election.0 }
+			}
+		}
+		if = {
+			limit = {
+				is_oceania_nation = yes
+				is_major = no
+			}
+			every_country = {
+				limit = { is_oceania_nation = yes is_ai = no }
+				news_event = {  days = 1 id = News_MD4_election.0 }
+			}
+		}
+		if = {
+			limit = {
+				is_major = yes
+			}
+			every_country = {
+				limit = { is_ai = no }
+				news_event = {  days = 1 id = News_MD4_election.0 }
+			}
+		}
+
+	}
+	option = {
+		name = MD4_election.2.b
+		log = "[GetDateText]: [This.GetName]: MD4_election.2.b executed"
+		ai_chance = { factor = 0 }
+		clear_array = gov_coalition_array
+		hidden_effect = { recalculate_party = yes }
+		#trigger mission desicion
+		set_country_flag = coalition_forming
+		activate_mission = coalition_countdown
+	}
+}
+
+#is different from existing
+country_event = {
+	id = MD4_election.3
+	immediate = { log = "[GetDateText]: [Root.GetName]: event MD4_election.3" }
+	title = MD4_election.3.t
+	desc = MD4_election.3.d
+	picture = GFX_election_day
+
+	is_triggered_only = yes
+
+	immediate = {
+	}
+
+	option = {
+		name = MD4_election.3.a
+		log = "[GetDateText]: [This.GetName]: MD4_election.3.a executed"
+		ai_chance = { factor = 100 }
+
+		clear_array = ruling_party
+		clear_array = gov_coalition_array
+		add_to_array = { ruling_party = max_index_1 }
+		hidden_effect = { recalculate_party = yes }
+		#switch to ruling
+		hidden_effect = {
+			set_ruling_leader = yes
+			set_leader = yes
+		}
+		hidden_effect = { ROOT = { news_event = { days = 1 id = News_MD4_election.2 } } }
+		if = {
+			limit = {
+				is_North_America = yes
+				is_major = no
+			}
+			every_country = {
+				limit = { is_North_America = yes is_ai = no }
+				news_event = {  days = 1 id = News_MD4_election.2 }
+			}
+		}
+		if = {
+			limit = {
+				is_South_America = yes
+				is_major = no
+			}
+			every_country = {
+				limit = { is_South_America = yes is_ai = no }
+				news_event = {  days = 1 id = News_MD4_election.2 }
+			}
+		}
+		if = {
+			limit = {
+				is_middle_eastern_nation = yes
+				is_major = no
+			}
+			every_country = {
+				limit = { is_middle_eastern_nation = yes is_ai = no }
+				news_event = {  days = 1 id = News_MD4_election.2 }
+			}
+		}
+		if = {
+			limit = {
+				is_african_nation = yes
+				is_major = no
+			}
+			every_country = {
+				limit = { is_african_nation = yes is_ai = no }
+				news_event = {  days = 1 id = News_MD4_election.2 }
+			}
+		}
+		if = {
+			limit = {
+				 is_european_nation = yes
+				is_major = no
+			}
+			every_country = {
+				limit = { is_european_nation = yes is_ai = no }
+				news_event = {  days = 1 id = News_MD4_election.2 }
+			}
+		}
+		if = {
+			limit = {
+				is_asian_nation = yes
+				is_major = no
+			}
+			every_country = {
+				limit = { is_asian_nation = yes is_ai = no }
+				news_event = {  days = 1 id = News_MD4_election.2 }
+			}
+		}
+		if = {
+			limit = {
+				is_oceania_nation = yes
+				is_major = no
+			}
+			every_country = {
+				limit = { is_oceania_nation = yes is_ai = no }
+				news_event = {  days = 1 id = News_MD4_election.2 }
+			}
+		}
+		if = {
+			limit = {
+				is_major = yes
+			}
+			every_country = {
+				limit = { is_ai = no }
+				news_event = {  days = 1 id = News_MD4_election.2 }
+			}
+		}
+	}
+}
+
+country_event = {
+	id = MD4_election.4
+	immediate = { log = "[GetDateText]: [Root.GetName]: event MD4_election.4" }
+	title = MD4_election.4.t
+	desc = MD4_election.4.d
+	picture = GFX_election_day
+
+	is_triggered_only = yes
+
+	#disband it and form a new one
+	option = {
+		name = MD4_election.4.a
+		log = "[GetDateText]: [This.GetName]: MD4_election.4.a executed"
+		ai_chance = { factor = 0 }
+		hidden_effect = { recalculate_party = yes }
+		#trigger mission decision
+		set_country_flag = coalition_forming
+		activate_mission = coalition_countdown
+	}
+}
+
+country_event = {
+	id = MD4_election.5
+	immediate = { log = "[GetDateText]: [Root.GetName]: event MD4_election.5" }
+	title = MD4_election.5.t
+	desc = MD4_election.5.d
+	picture = GFX_election_day
+
+	is_triggered_only = yes
+
+	#disband it and form a new one
+	option = {
+		name = MD4_election.5.a
+		log = "[GetDateText]: [This.GetName]: MD4_election.5.a executed"
+		ai_chance = { factor = 0 }
+
+		set_max_index_1 = yes
+		hidden_effect = {
+			clear_array = gov_coalition_array
+			clear_array = ruling_party
+			add_to_array = { ruling_party = max_index_1 }
+		}
+		custom_effect_tooltip = coalition_pass_dismantle_tt
+		custom_effect_tooltip = coalition_pass_pol_change_0_tt
+		set_leader = yes #set in desicion which party is selected
+		update_government_coalition_strength = yes
+		clear_coalition_count_ideas = yes
+
+		#trigger mission desicion
+		set_country_flag = coalition_forming
+		activate_mission = coalition_countdown
+	}
+
+	option = {
+		name = MD4_election.5.b
+		log = "[GetDateText]: [This.GetName]: MD4_election.5.b executed"
+		ai_chance = { factor = 0 }
+
+		set_max_index_2 = yes
+		hidden_effect = {
+				refund_government_coalition = yes #give 75% of invested PP back
+				clear_array = gov_coalition_array
+				clear_array = ruling_party
+				add_to_array = { ruling_party = max_index_2 }
+		}
+		custom_effect_tooltip = coalition_pass_dismantle_tt
+		custom_effect_tooltip = coalition_pass_pol_change_1_tt
+		set_leader = yes #set in desicion which party is selected
+		update_government_coalition_strength = yes
+		clear_coalition_count_ideas = yes
+
+		#trigger mission desicion
+		set_country_flag = coalition_forming
+		activate_mission = coalition_countdown
+	}
+}
+
+news_event = {
+
+	id = News_MD4_election.0
+	immediate = { log = "[GetDateText]: [Root.GetName]: event News_MD4_election.0" }
+	title = News_MD4_election.0.t
+	desc = {
+		text = News_MD4_election.0.d
+		trigger = {
+			FROM = {
+				check_variable = { current_term > 1 } #not their first term
+			}
+		}
+	}
+	desc = {
+		text = News_MD4_election.0.d_first_term
+		trigger = {
+			FROM = {
+				check_variable = { current_term = 1 } #first term
+			}
+		}
+	}
+	picture = GFX_news_election_rally
+
+	#major = yes
+	is_triggered_only = yes
+
+	option = {
+		name = News_MD4_election.0.a
+		log = "[GetDateText]: [This.GetName]: News_MD4_election.0.a executed"
+	}
+}
+
+news_event = {
+
+	id = News_MD4_election.1
+	immediate = { log = "[GetDateText]: [Root.GetName]: event News_MD4_election.1" }
+	title = News_MD4_election.1.t
+	desc = News_MD4_election.1.d
+	picture = GFX_news_election_rally
+
+	#major = yes
+	is_triggered_only = yes
+
+	option = {
+		name = News_MD4_election.1.a
+		log = "[GetDateText]: [This.GetName]: News_MD4_election.1.a executed"
+	}
+}
+
+news_event = {
+
+	id = News_MD4_election.2
+	immediate = { log = "[GetDateText]: [Root.GetName]: event News_MD4_election.2" }
+	title = News_MD4_election.2.t
+	desc = News_MD4_election.2.d
+	picture = GFX_news_election_rally
+
+	#major = yes
+	is_triggered_only = yes
+
+	option = {
+		name = News_MD4_election.2.a
+		log = "[GetDateText]: [This.GetName]: News_MD4_election.2.a executed"
+	}
+}
+
+##Controversial Elections Leader Reelected
+news_event = {
+	id = News_MD4_election.3
+	immediate = { log = "[GetDateText]: [Root.GetName]: event News_MD4_election.3" }
+	title = News_MD4_election.3.t
+	desc = News_MD4_election.3.d
+	picture = GFX_news_election_rally
+
+	#major = yes
+	is_triggered_only = yes
+
+	option = {
+		name = News_MD4_election.3.a
+		log = "[GetDateText]: [This.GetName]: News_MD4_election.3.a executed"
+	}
+}

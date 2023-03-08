@@ -1,0 +1,38 @@
+
+state = {
+	id = 472
+	name = "STATE_472"
+	
+	resources = {
+		steel = 1
+	}
+
+	history = {
+		owner = CHL
+		victory_points = {
+			11000 3 
+		}
+		victory_points = {
+			5228 1 
+		}
+		buildings = {
+			infrastructure = 2
+			internet_station = 1
+			air_base = 2
+		}
+		add_core_of = CHL
+		2017.1.1 = {
+			add_manpower = 142917
+			buildings = {
+				internet_station = 3
+			}
+		}
+	}
+
+	provinces = {
+		5171 5192 5228 11000 12914 4658 4701 4779
+	}
+	manpower = 1293492
+	buildings_max_level_factor = 1.000
+	state_category = state_02
+}

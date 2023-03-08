@@ -1,0 +1,42 @@
+state = {
+	id = 682
+	name = "STATE_682"
+	manpower = 2581677
+	state_category = state_02
+
+	resources = {
+		tungsten = 4
+	}
+
+	history = {
+		owner = SOV
+
+		victory_points = { 4724 5 } #Krasnoyarsk
+		victory_points = { 7815 3 } #Achinsk
+		victory_points = { 12691 3 } #Zheleznogorsk
+		victory_points = { 12621 1 } #Kansk
+		victory_points = { 12563 3 } #Minusinsk
+
+		buildings = {
+			infrastructure = 2
+			internet_station = 2
+			arms_factory = 1
+			air_base = 2
+		}
+
+		add_core_of = SOV
+		2017.1.1 = {
+			#add_manpower = -110647
+			buildings = {
+				internet_station = 4
+				offices = 1
+			}
+		}
+	}
+
+	provinces = {
+		1777 1850 4690 4724 4782 4818 4853 7744 7815 7886 10639 12563 12621 12628 12691 14109 14114 14152 14363
+	}
+}
+
+#2 - Southern Krasnoyarsk

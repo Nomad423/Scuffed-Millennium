@@ -1,0 +1,47 @@
+state = {
+	id = 59
+	name = "STATE_59"
+
+	resources = {
+		aluminium = 9
+	}
+	history = {
+		owner = FRA
+		victory_points = {
+			3671 5
+		}
+		victory_points = {
+			512 5
+		}
+		victory_points = {
+			6688 1
+		}
+		victory_points = {
+			651 1
+		}
+		buildings = {
+			infrastructure = 3
+			internet_station = 2
+			offices = 2
+			air_base = 2
+			synthetic_refinery = 1
+			industrial_complex = 1
+			nuclear_reactor = 2
+
+		}
+		add_core_of = FRA
+		2017.1.1 = {
+			add_manpower = 126000
+			buildings = {
+				internet_station = 4
+			}
+		}
+	}
+
+	provinces = {
+		512 651 3655 3671 6518 6533 6547 6688 9492 9629 11631
+	}
+	manpower = 2450000
+	buildings_max_level_factor = 1.000
+	state_category = state_03
+}

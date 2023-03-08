@@ -1,0 +1,46 @@
+
+state = {
+	id = 360
+	name = "STATE_360"
+	resources = {
+		aluminium = 4.000
+	}
+
+	history = {
+		owner = GUI
+		victory_points = {
+			1909 5 
+		}
+		victory_points = {
+			12858 1 
+		}
+		buildings = {
+			infrastructure = 0
+			internet_station = 0
+			industrial_complex = 1
+			air_base = 1
+			1909 = {
+				naval_base = 2
+
+			}
+
+		}
+		add_core_of = GUI
+		2017.1.1 = {
+			buildings = {
+				internet_station = 0
+			}
+			add_manpower = 2000000
+			add_manpower = 1295257
+
+		}
+
+	}
+
+	provinces = {
+		1909 7239 10725 12802 12858 
+	}
+	manpower = 5185365
+	buildings_max_level_factor = 1.000
+	state_category = state_05
+}

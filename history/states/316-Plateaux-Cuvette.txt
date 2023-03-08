@@ -1,0 +1,37 @@
+
+state = {
+	id = 316
+	name = "STATE_316"
+
+	history = {
+		owner = CNG
+		victory_points = {
+			3360 1 
+		}
+		victory_points = {
+			3343 1 
+		}
+		victory_points = {
+			13753 1 
+		}
+		buildings = {
+			infrastructure = 0
+			internet_station = 0
+
+		}
+		add_core_of = CNG
+		2017.1.1 = {
+			buildings = {
+				internet_station = 0
+			}
+			add_manpower = 360644
+		}
+	}
+
+	provinces = {
+		2192 3109 6008 3360 3343 3349 3347 13744 13745 13746 13747 13748 13749 13750 13751 13752 13753 13754
+	}
+	manpower = 608827
+	buildings_max_level_factor = 1.000
+	state_category = state_01
+}

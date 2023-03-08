@@ -1,0 +1,9 @@
+#>65,000,000 inhabitants
+state_categories = {
+	state_18 = {
+		local_building_slots = 50
+
+		color = { 100 0 230 }
+
+	}
+}

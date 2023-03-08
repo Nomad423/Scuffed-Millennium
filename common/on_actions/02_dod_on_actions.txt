@@ -1,0 +1,352 @@
+on_actions = {
+
+	#ROOT is new controller #FROM is old controller #FROM.FROM is state ID
+	on_state_control_changed = {
+		effect = {
+			#Panama and Suez income shifted to controller
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							FROM.FROM = { state = 852 }
+							ROOT = { controls_state = 853 }
+						}
+						AND = {
+							FROM.FROM = { state = 853 }
+							ROOT = { controls_state = 852 }
+						}
+					}
+				}
+				add_ideas = full_control_of_panama
+			}
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							FROM.FROM = { state = 213 }
+							ROOT = { controls_state = 214 }
+						}
+						AND = {
+							FROM.FROM = { state = 214 }
+							ROOT = { controls_state = 213 }
+						}
+					}
+				}
+				add_ideas = full_control_of_suez
+			}
+						
+			if = { #Aleppo
+				limit = {
+					FROM.FROM = { state = 566 }
+					OR = {
+						FROM = { tag = FSA }
+						#FROM = { tag = HTS }
+						FROM = { tag = SYR }
+						FROM = { tag = ISI }
+						FROM = { tag = ROJ }
+						FROM = { tag = KUR }
+						FROM = { tag = IRQ }
+					}
+					OR = {
+						ROOT = { tag = FSA }
+						#ROOT = { tag = HTS }
+						ROOT = { tag = SYR }
+						ROOT = { tag = ISI }
+						ROOT = { tag = ROJ }
+						ROOT = { tag = KUR }
+						ROOT = { tag = IRQ }
+					}
+					not = { has_global_flag = captured_allepo_global }
+				}
+				set_global_flag = captured_allepo_global
+				ROOT = { add_timed_idea = { idea = Strategic_city_captured1 days = 60 } }
+				news_event = { id = city_captured.0 }
+			}
+			if = { #Damascus
+				limit = {
+					FROM.FROM = { state = 186 }
+					OR = {
+						FROM = { tag = FSA }
+						#FROM = { tag = HTS }
+						FROM = { tag = SYR }
+						FROM = { tag = ISI }
+						FROM = { tag = ROJ }
+						FROM = { tag = KUR }
+						FROM = { tag = IRQ }
+					}
+					OR = {
+						ROOT = { tag = FSA }
+						#ROOT = { tag = HTS }
+						ROOT = { tag = SYR }
+						ROOT = { tag = ISI }
+						ROOT = { tag = ROJ }
+						ROOT = { tag = KUR }
+						ROOT = { tag = IRQ }
+					}
+					not = { has_global_flag = captured_damascus_global }
+				}
+				set_global_flag = captured_damascus_global
+				ROOT = { add_timed_idea = { idea = Strategic_city_captured1 days = 60 } }
+				news_event = { id = city_captured.1 }
+			}
+			if = { #Idlib
+				limit = {
+					FROM.FROM = { state = 190 }
+					OR = {
+						FROM = { tag = FSA }
+						#FROM = { tag = HTS }
+						FROM = { tag = SYR }
+						FROM = { tag = ISI }
+						FROM = { tag = ROJ }
+						FROM = { tag = KUR }
+						FROM = { tag = IRQ }
+					}
+					OR = {
+						ROOT = { tag = FSA }
+						#ROOT = { tag = HTS }
+						ROOT = { tag = SYR }
+						ROOT = { tag = ISI }
+						ROOT = { tag = ROJ }
+						ROOT = { tag = KUR }
+						ROOT = { tag = IRQ }
+					}
+					not = { has_global_flag = captured_Idlib_global }
+				}
+				set_global_flag = captured_Idlib_global
+				ROOT = { add_timed_idea = { idea = Strategic_city_captured1 days = 60 } }
+				news_event = { id = city_captured.2 }
+			}
+			if = { #Dara'a
+				limit = {
+					FROM.FROM = { state = 184 }
+					OR = {
+						FROM = { tag = FSA }
+						#FROM = { tag = HTS }
+						FROM = { tag = SYR }
+						FROM = { tag = ISI }
+						FROM = { tag = ROJ }
+						FROM = { tag = KUR }
+						FROM = { tag = IRQ }
+					}
+					OR = {
+						ROOT = { tag = FSA }
+						#ROOT = { tag = HTS }
+						ROOT = { tag = SYR }
+						ROOT = { tag = ISI }
+						ROOT = { tag = ROJ }
+						ROOT = { tag = KUR }
+						ROOT = { tag = IRQ }
+					}
+					not = { has_global_flag = captured_Daraa_global }
+				}
+				set_global_flag = captured_Daraa_global
+				ROOT = { add_timed_idea = { idea = Strategic_city_captured1 days = 60 } }
+				news_event = { id = city_captured.3 }
+			}
+			if = { #Raqqa
+				limit = {
+					FROM.FROM = { state = 191 }
+					OR = {
+						FROM = { tag = FSA }
+						#FROM = { tag = HTS }
+						FROM = { tag = SYR }
+						FROM = { tag = ISI }
+						FROM = { tag = ROJ }
+						FROM = { tag = KUR }
+						FROM = { tag = IRQ }
+					}
+					OR = {
+						ROOT = { tag = FSA }
+						#ROOT = { tag = HTS }
+						ROOT = { tag = SYR }
+						ROOT = { tag = ISI }
+						ROOT = { tag = ROJ }
+						ROOT = { tag = KUR }
+						ROOT = { tag = IRQ }
+					}
+					not = { has_global_flag = captured_Raqqa_global }
+				}
+				set_global_flag = captured_Raqqa_global
+				ROOT = { add_timed_idea = { idea = Strategic_city_captured1 days = 60 } }
+				news_event = { id = city_captured.4 }
+			}
+			if = { #Mosul
+				limit = {
+					FROM.FROM = { state = 166 }
+					OR = {
+						FROM = { tag = FSA }
+						#FROM = { tag = HTS }
+						FROM = { tag = SYR }
+						FROM = { tag = ISI }
+						FROM = { tag = ROJ }
+						FROM = { tag = KUR }
+						FROM = { tag = IRQ }
+					}
+					OR = {
+						ROOT = { tag = FSA }
+						#ROOT = { tag = HTS }
+						ROOT = { tag = SYR }
+						ROOT = { tag = ISI }
+						ROOT = { tag = ROJ }
+						ROOT = { tag = KUR }
+						ROOT = { tag = IRQ }
+					}
+					not = { has_global_flag = captured_Mosul_global }
+				}
+				set_global_flag = captured_Mosul_global
+				ROOT = { add_timed_idea = { idea = Strategic_city_captured1 days = 60 } }
+				news_event = { id = city_captured.5 }
+			}
+			if = { #Fallujah
+				limit = {
+					FROM.FROM = { state = 168 }
+					OR = {
+						FROM = { tag = FSA }
+						#FROM = { tag = HTS }
+						FROM = { tag = SYR }
+						FROM = { tag = ISI }
+						FROM = { tag = ROJ }
+						FROM = { tag = KUR }
+						FROM = { tag = IRQ }
+					}
+					OR = {
+						ROOT = { tag = FSA }
+						#ROOT = { tag = HTS }
+						ROOT = { tag = SYR }
+						ROOT = { tag = ISI }
+						ROOT = { tag = ROJ }
+						ROOT = { tag = KUR }
+						ROOT = { tag = IRQ }
+					}
+					not = { has_global_flag = captured_Fallujah_global }
+				}
+				set_global_flag = captured_Fallujah_global
+				ROOT = { add_timed_idea = { idea = Strategic_city_captured1 days = 60 } }
+				news_event = { id = city_captured.6 }
+			}
+			if = { #Baghdad
+				limit = {
+					FROM.FROM = { state = 557 }
+					OR = {
+						FROM = { tag = FSA }
+						#FROM = { tag = HTS }
+						FROM = { tag = SYR }
+						FROM = { tag = ISI }
+						FROM = { tag = ROJ }
+						FROM = { tag = KUR }
+						FROM = { tag = IRQ }
+					}
+					OR = {
+						ROOT = { tag = FSA }
+						#ROOT = { tag = HTS }
+						ROOT = { tag = SYR }
+						ROOT = { tag = ISI }
+						ROOT = { tag = ROJ }
+						ROOT = { tag = KUR }
+						ROOT = { tag = IRQ }
+					}
+					not = { has_global_flag = captured_Baghdad_global }
+				}
+				set_global_flag = captured_Baghdad_global
+				ROOT = { add_timed_idea = { idea = Strategic_city_captured1 days = 60 } }
+				news_event = { id = city_captured.7 }
+			}
+			if = { #Erbil
+				limit = {
+					FROM.FROM = { state = 164 }
+					OR = {
+						FROM = { tag = FSA }
+						#FROM = { tag = HTS }
+						FROM = { tag = SYR }
+						FROM = { tag = ISI }
+						FROM = { tag = ROJ }
+						FROM = { tag = KUR }
+						FROM = { tag = IRQ }
+					}
+					OR = {
+						ROOT = { tag = FSA }
+						#ROOT = { tag = HTS }
+						ROOT = { tag = SYR }
+						ROOT = { tag = ISI }
+						ROOT = { tag = ROJ }
+						ROOT = { tag = KUR }
+						ROOT = { tag = IRQ }
+					}
+					not = { has_global_flag = captured_Erbil_global }
+				}
+				set_global_flag = captured_Erbil_global
+				ROOT = { add_timed_idea = { idea = Strategic_city_captured1 days = 60 } }
+				news_event = { id = city_captured.8 }
+			}
+			if = { #AL-Hasakah
+				limit = {
+					FROM.FROM = { state = 193 }
+					OR = {
+						FROM = { tag = FSA }
+						#FROM = { tag = HTS }
+						FROM = { tag = SYR }
+						FROM = { tag = ISI }
+						FROM = { tag = ROJ }
+						FROM = { tag = KUR }
+						FROM = { tag = IRQ }
+					}
+					OR = {
+						ROOT = { tag = FSA }
+						#ROOT = { tag = HTS }
+						ROOT = { tag = SYR }
+						ROOT = { tag = ISI }
+						ROOT = { tag = ROJ }
+						ROOT = { tag = KUR }
+						ROOT = { tag = IRQ }
+					}
+					not = { has_global_flag = Hasakah_global }
+				}
+				set_global_flag = Hasakah_global
+				ROOT = { add_timed_idea = { idea = Strategic_city_captured1 days = 60 } }
+				news_event = { id = city_captured.9 }
+			}
+			if = { #Sana'a
+				limit = {
+					FROM.FROM = { state = 195 }
+					OR = {
+						FROM = { tag = SAU }
+						FROM = { tag = HOU }
+						FROM = { tag = AQY }
+						FROM = { tag = YEM }
+					}
+					OR = {
+						ROOT = { tag = SAU }
+						ROOT = { tag = HOU }
+						ROOT = { tag = AQY }
+						ROOT = { tag = YEM }
+					}
+					not = { has_global_flag = captured_sanaa_global }
+				}
+				set_global_flag = captured_sanaa_global
+				ROOT = { add_timed_idea = { idea = Strategic_city_captured1 days = 60 } }
+				news_event = { id = city_captured.10 }
+			}
+			if = { #Aden
+				limit = {
+					FROM.FROM = { state = 198 }
+					OR = {
+						FROM = { tag = SAU }
+						FROM = { tag = HOU }
+						FROM = { tag = AQY }
+						FROM = { tag = YEM }
+					}
+					OR = {
+						ROOT = { tag = SAU }
+						ROOT = { tag = HOU }
+						ROOT = { tag = AQY }
+						ROOT = { tag = YEM }
+					}
+					not = { has_global_flag = captured_aden_global }
+				}
+				set_global_flag = captured_aden_global
+				ROOT = { add_timed_idea = { idea = Strategic_city_captured1 days = 60 } }
+				news_event = { id = city_captured.11 }
+			}
+		}
+	}
+}

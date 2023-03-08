@@ -1,0 +1,6 @@
+Anti_Bully = {
+	icon = political_actions
+
+	allowed = { is_ai = no }
+	visible = { has_war = yes }
+}

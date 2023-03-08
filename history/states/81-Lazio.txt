@@ -1,0 +1,50 @@
+
+state = {
+	id = 81
+	name = "STATE_81"
+
+	resources = {
+		steel = 24
+		aluminium = 6
+	}
+	history = {
+		owner = ITA
+		victory_points = {
+			9904 15
+		}
+		victory_points = {
+			11846 1
+		}
+		buildings = {
+			infrastructure = 3
+			internet_station = 2
+			air_base = 8
+			arms_factory = 2
+			offices = 2
+			industrial_complex = 1
+			11751 = {
+				naval_base = 5
+
+			}
+			11846 = {
+				naval_base = 2
+
+			}
+
+		}
+		add_core_of = ITA
+		2017.1.1 = {
+			add_manpower = 779000
+			buildings = {
+				internet_station = 4
+			}
+		}
+	}
+
+	provinces = {
+		923 6862 9904 11751 11846
+	}
+	manpower = 5119000
+	buildings_max_level_factor = 1.000
+	state_category = state_05
+}

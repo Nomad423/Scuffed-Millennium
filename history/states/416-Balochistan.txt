@@ -1,0 +1,57 @@
+
+state = {
+	id = 416
+	name = "STATE_416"
+	
+	resources = {
+		tungsten = 10
+	}
+
+	history = {
+		owner = PAK
+		victory_points = {
+			12774 1 
+		}
+		victory_points = {
+			8066 1 
+		}
+		victory_points = {
+			8013 1 
+		}
+		victory_points = {
+			1179 1 
+		}
+		buildings = {
+			infrastructure = 1
+			internet_station = 0
+			air_base = 2
+			missile_silo = 2
+			12774 = {
+				naval_base = 8
+
+			}
+
+		}
+		add_core_of = PAK
+		add_core_of = BLC
+		2017.1.1 = {
+			add_manpower = 1922057
+			add_core_of = TTP
+			buildings = {
+				internet_station = 1
+				industrial_complex = 1
+				dockyard = 2
+				arms_factory = 2
+				missile_silo = 3
+			}
+		}
+
+	}
+
+	provinces = {
+		1179 5043 5075 7917 8013 8066 8098 10813 12761 12774 3953 
+	}
+	manpower = 4912224
+	buildings_max_level_factor = 1.000
+	state_category = state_05
+}

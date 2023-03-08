@@ -1,0 +1,165 @@
+﻿add_namespace = norway
+
+# Åsta Train Collision
+country_event = {
+	id = norway.1
+	immediate = { log = "[GetDateText]: [Root.GetName]: event norway.1" }
+	title = norway.1.t
+	desc = norway.1.d
+	picture = GFX_train_collision
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = norway.1.o1
+		log = "[GetDateText]: [This.GetName]: norway.1.o1 executed"
+		add_political_power = -50
+		set_temp_variable = { arg_popularity = -0.01 }
+		add_ruling_outlook_popularity = yes
+
+		ai_chance = {
+			factor = 1
+		}
+	}
+
+
+	option = {
+		name = norway.1.o2
+		log = "[GetDateText]: [This.GetName]: norway.1.o2 executed"
+		add_stability = -0.03
+		set_temp_variable = { arg_popularity = -0.02 }
+		add_ruling_outlook_popularity = yes
+
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+# Marriage of Crown Prince Haakon
+country_event = {
+	id = norway.2
+	immediate = { log = "[GetDateText]: [Root.GetName]: event norway.2" }
+	title = norway.2.t
+	desc = norway.2.d
+	picture = GFX_norwegian_flag
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = norway.2.o1
+		log = "[GetDateText]: [This.GetName]: norway.2.o1 executed"
+		set_country_flag = haakons_marriage_announced
+
+		hidden_effect = {
+			news_event = { id = norway.5 days = 267 }
+			country_event = { id = norway.3 days = 267 }
+		}
+		ai_chance = {
+			factor = 1
+		}
+	}
+}
+
+# Haakon marries Mette-Marit Tjessem Høiby
+country_event = {
+	id = norway.3
+	immediate = { log = "[GetDateText]: [Root.GetName]: event norway.3" }
+	title = norway.3.t
+	desc = norway.3.d
+	picture = GFX_norwegian_flag
+	fire_only_once = yes
+	is_triggered_only = yes
+	trigger = {
+		NOT = { has_completed_focus = NOR_oppose_haakons_marriage }
+	}
+
+	option = {
+		name = norway.3.o1
+		set_country_flag = haakon_married
+		log = "[GetDateText]: [This.GetName]: norway.3.o1 executed"
+		if = {
+			limit = { NOT = { has_completed_focus = NOR_support_haakons_marriage } }
+			complete_national_focus = NOR_support_haakons_marriage
+		}
+	}
+}
+
+# Joint Oil Drills
+country_event = {
+	id = norway.4
+	immediate = { log = "[GetDateText]: [Root.GetName]: event norway.4" }
+	title = norway.4.t
+	desc = norway.4.d
+	picture = GFX_norwegian_flag
+	fire_only_once = yes
+	is_triggered_only = yes
+	trigger = {
+		if = {
+			limit = { original_tag = NOR }
+			owns_state = 32
+		}
+		if = {
+			limit = { original_tag = ENG }
+			owns_state = 14
+		}
+	}
+
+	option = {
+		name = norway.4.o1
+		log = "[GetDateText]: [This.GetName]: norway.4.o1 executed"
+		if = {
+			limit = { original_tag = NOR }
+			32 = {
+				add_resource = {
+					type = oil
+					amount = 25
+				}
+			}
+		}
+		if = {
+			limit = { original_tag = ENG }
+
+			14 = {
+				add_resource = {
+					type = oil
+					amount = 15
+				}
+			}
+
+		}
+	}
+}
+
+
+# Royal Wedding between [Root] and Norway
+news_event = {
+	id = norway.5
+	immediate = { log = "[GetDateText]: [Root.GetName]: event norway.5" }
+	title = norway.5.t
+	desc = norway.5.d
+	picture = GFX_norwegian_flag
+	fire_only_once = yes
+	is_triggered_only = yes
+	major = yes
+
+	option = {
+		name = norway.5.o1
+		log = "[GetDateText]: [This.GetName]: norway.5.o1 executed"
+		trigger = {
+			NOT = { tag = ROOT }
+			NOT = { tag = NOR }
+		}
+	}
+
+	option = {
+		name = norway.5.o2
+		log = "[GetDateText]: [This.GetName]: norway.5.o2 executed"
+		trigger = {
+			OR = {
+				tag = ROOT
+				tag = NOR
+			}
+		}
+	}
+}

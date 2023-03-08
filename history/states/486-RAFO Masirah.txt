@@ -1,0 +1,35 @@
+
+state = {
+	id = 486
+	name = "STATE_486"
+	#resources = {
+	#}
+
+	history = {
+		owner = OMA
+		victory_points = {
+			11179 1
+		}
+		buildings = {
+			infrastructure = 2
+			internet_station = 2
+			air_base = 4
+
+
+		}
+		add_core_of = OMA
+		2017.1.1 = {
+			buildings = {
+				internet_station = 4
+			}
+			add_manpower = 527
+		}
+	}
+
+	provinces = {
+		11179
+	}
+	manpower = 473
+	buildings_max_level_factor = 1.000
+	state_category = state_military_base
+}

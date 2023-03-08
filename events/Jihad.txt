@@ -1,0 +1,40 @@
+﻿add_namespace = jihadi
+
+#####Jihadis
+
+### Evaluating Saudi Aid ###
+country_event = {
+	id = jihadi.2
+	title = jihadi.2.t
+	desc = jihadi.2.d
+
+	trigger = {
+		NOT = { has_government = fascism }
+		NOT = { has_country_flag = keep_saudi_aid }
+		OR = {
+			has_idea = sunni
+			has_idea = sufi_islam
+		}
+		has_idea = saudi_aid
+		fascism > 0.35
+	}
+
+	mean_time_to_happen = {
+		days = 350
+
+	}
+
+	option = {
+		name = jihadi.2.a
+		log = "[GetDateText]: [This.GetName]: jihadi.2.a executed"
+		ai_chance = { factor = 25 }
+		set_country_flag = keep_saudi_aid
+	}
+
+	option = {
+		name = jihadi.2.b
+		log = "[GetDateText]: [This.GetName]: jihadi.2.b executed"
+		ai_chance = { factor = 75 }
+		remove_ideas = saudi_aid
+	}
+}

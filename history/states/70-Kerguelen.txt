@@ -1,0 +1,32 @@
+
+state = {
+	id = 70
+	name = "STATE_70"
+
+	history = {
+		owner = FRA
+		buildings = {
+			infrastructure = 2
+			internet_station = 1
+			2165 = {
+				naval_base = 1
+
+			}
+
+		}
+		add_core_of = FRA
+		2017.1.1 = {
+			buildings = {
+				internet_station = 3
+			}
+			add_manpower = 12
+		}
+	}
+
+	provinces = {
+		2165
+	}
+	manpower = 118
+	buildings_max_level_factor = 1.000
+	state_category = state_inhospitable
+}

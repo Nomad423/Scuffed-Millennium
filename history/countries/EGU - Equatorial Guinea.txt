@@ -1,0 +1,360 @@
+﻿capital = 319
+2000.1.1 = {
+	set_country_flag = dynamic_flag
+	set_country_flag = dynamic_rebel_flag
+	oob = "EGU_2000"
+	set_cosmetic_tag = EGU_AUTH
+	set_convoys = 20
+
+	add_ideas = {
+		#pop_050
+		crippling_corruption
+		christian
+		rentier_state
+		export_economy
+
+		depression
+		defence_01
+		AU_member
+		edu_01
+		health_02
+		social_02
+		bureau_02
+		police_05
+		draft_army
+		volunteer_women
+		fossil_fuel_industry
+		maritime_industry
+		farmers
+		#hybrid
+		#tax_cost_17
+		officer_basic_training
+	}
+	set_cosmetic_tag = EGU
+
+	#Influence system
+	init_influence = yes
+	set_variable = { domestic_influence_amount = 50 }
+	add_to_array = { influence_array = SPR.id }
+	add_to_array = { influence_array_val = 35 }
+	add_to_array = { influence_array = FRA.id }
+	add_to_array = { influence_array_val = 20 }
+	add_to_array = { influence_array = USA.id }
+	add_to_array = { influence_array_val = 5 }
+	add_to_array = { influence_array = CHI.id }
+	add_to_array = { influence_array_val = 16 }
+	add_to_array = { influence_array = NIG.id }
+	add_to_array = { influence_array_val = 9 }
+	add_to_array = { influence_array = CAM.id }
+	add_to_array = { influence_array_val = 3 }
+	add_to_array = { influence_array = ENG.id }
+	add_to_array = { influence_array_val = 8 }
+	startup_influence = yes
+
+	set_variable = { var = debt value = 2 }
+	set_variable = { var = treasury value = 3 }
+	set_variable = { var = corporate_tax_rate value = 22 }
+	set_variable = { var = population_tax_rate value = 22 }
+	set_variable = { var = int_investments value = 0.1  }
+
+
+	add_opinion_modifier = { target = MEX modifier = spanish_speaking }
+	reverse_add_opinion_modifier = { target = MEX modifier = spanish_speaking }
+	add_opinion_modifier = { target = COL modifier = spanish_speaking }
+	reverse_add_opinion_modifier = { target = COL modifier = spanish_speaking }
+	add_opinion_modifier = { target = ARG modifier = spanish_speaking }
+	reverse_add_opinion_modifier = { target = ARG modifier = spanish_speaking }
+	add_opinion_modifier = { target = PRU modifier = spanish_speaking }
+	reverse_add_opinion_modifier = { target = PRU modifier = spanish_speaking }
+	add_opinion_modifier = { target = VEN modifier = spanish_speaking }
+	reverse_add_opinion_modifier = { target = VEN modifier = spanish_speaking }
+	add_opinion_modifier = { target = CHL modifier = spanish_speaking }
+	reverse_add_opinion_modifier = { target = CHL modifier = spanish_speaking }
+	add_opinion_modifier = { target = ECU modifier = spanish_speaking }
+	reverse_add_opinion_modifier = { target = ECU modifier = spanish_speaking }
+	add_opinion_modifier = { target = GUA modifier = spanish_speaking }
+	reverse_add_opinion_modifier = { target = GUA modifier = spanish_speaking }
+	add_opinion_modifier = { target = BOL modifier = spanish_speaking }
+	reverse_add_opinion_modifier = { target = BOL modifier = spanish_speaking }
+	add_opinion_modifier = { target = DOM modifier = spanish_speaking }
+	reverse_add_opinion_modifier = { target = DOM modifier = spanish_speaking }
+	add_opinion_modifier = { target = HON modifier = spanish_speaking }
+	reverse_add_opinion_modifier = { target = HON modifier = spanish_speaking }
+	add_opinion_modifier = { target = PAR modifier = spanish_speaking }
+	reverse_add_opinion_modifier = { target = PAR modifier = spanish_speaking }
+	add_opinion_modifier = { target = ELS modifier = spanish_speaking }
+	reverse_add_opinion_modifier = { target = ELS modifier = spanish_speaking }
+	add_opinion_modifier = { target = NIC modifier = spanish_speaking }
+	reverse_add_opinion_modifier = { target = NIC modifier = spanish_speaking }
+	add_opinion_modifier = { target = COS modifier = spanish_speaking }
+	reverse_add_opinion_modifier = { target = COS modifier = spanish_speaking }
+	add_opinion_modifier = { target = CUB modifier = spanish_speaking }
+	reverse_add_opinion_modifier = { target = CUB modifier = spanish_speaking }
+	add_opinion_modifier = { target = PAN modifier = spanish_speaking }
+	reverse_add_opinion_modifier = { target = PAN modifier = spanish_speaking }
+	add_opinion_modifier = { target = URG modifier = spanish_speaking }
+	reverse_add_opinion_modifier = { target = URG modifier = spanish_speaking }
+
+	# Starting tech
+	set_technology = {
+		legacy_doctrines = 1
+		infantry_mass_assault = 1
+		#For templates
+		infantry_weapons = 1
+		command_control_equipment = 1
+		Anti_tank_0 = 1
+		Heavy_Anti_tank_0 = 1
+		Anti_Air_0 = 1
+		Early_APC = 1
+		Rec_tank_0 = 1
+
+		basic_computing = 1
+		integrated_circuit = 1
+		computing1 = 1
+		decryption1 = 1
+		encryption1 = 1
+		radar = 1
+		fuel_silos = 1
+	}
+
+	set_popularities = {
+		democratic = 43.0
+		communism = 5.0
+		fascism = 0.0
+		neutrality = 49.0
+		nationalist = 3.0
+	}
+	set_politics = {
+		ruling_party = neutrality
+		last_election = "1995.1.1"
+		election_frequency = 72
+		elections_allowed = no
+	}
+
+	start_politics_input = yes
+
+	### Party Popularities
+	set_variable = { party_pop_array^0 = 0 } #Western_Autocracy
+	set_variable = { party_pop_array^1 = 0.3 } #conservatism
+	set_variable = { party_pop_array^2 = 0.05 } #liberalism
+	set_variable = { party_pop_array^3 = 0.08 } #socialism
+	set_variable = { party_pop_array^4 = 0.01 } #Communist-State
+	set_variable = { party_pop_array^5 = 0.03 } #anarchist_communism
+	set_variable = { party_pop_array^6 = 0.01 } #Conservative
+	set_variable = { party_pop_array^7 = 0 } #Autocracy
+	set_variable = { party_pop_array^8 = 0 } #Mod_Vilayat_e_Faqih
+	set_variable = { party_pop_array^9 = 0 } #Vilayat_e_Faqih
+	set_variable = { party_pop_array^10 = 0 } #Kingdom
+	set_variable = { party_pop_array^11 = 0 } #Caliphate
+	set_variable = { party_pop_array^12 = 0 } #Neutral_Muslim_Brotherhood
+	set_variable = { party_pop_array^13 = 0.47 } #Neutral_Autocracy
+	set_variable = { party_pop_array^14 = 0.01 } #Neutral_conservatism
+	set_variable = { party_pop_array^15 = 0 } #oligarchism
+	set_variable = { party_pop_array^16 = 0 } #Neutral_Libertarian
+	set_variable = { party_pop_array^17 = 0 } #Neutral_green
+	set_variable = { party_pop_array^18 = 0 } #neutral_Social
+	set_variable = { party_pop_array^19 = 0.01 } #Neutral_Communism
+	set_variable = { party_pop_array^20 = 0.02 } #Nat_Populism
+	set_variable = { party_pop_array^21 = 0.01 } #Nat_Fascism
+	set_variable = { party_pop_array^22 = 0 } #Nat_Autocracy
+	set_variable = { party_pop_array^23 = 0 } #Monarchist
+
+	### Ruling Party
+	add_to_array = { ruling_party = 13 }
+	startup_politics = yes
+
+	create_country_leader = {
+		name = "Teodoro Obiang Nguema Mbasogo"
+		picture = "teodoro_obiango_nguema_mbasogo.dds"
+		ideology = Neutral_Autocracy
+		traits = {
+			neutrality_Neutral_Autocracy
+		}
+	}
+
+	recruit_character = EGU_ruslan_hermes_nguema_oyana
+	recruit_character = EGU_armengol_ondo_nguema
+	recruit_character = EGU_air_chief
+
+	set_variable = { literacy_rate = 0.883 }
+
+}
+
+2017.1.1 = {
+	capital = 319
+	oob = "EGU_2017"
+	if = {
+		limit = {
+			has_dlc = "Man the Guns"
+		}
+		set_naval_oob = "EGU_2017_naval_mtg"
+		else = {
+			set_naval_oob = "EGU_2017_naval_legacy"
+		}
+	}
+	set_convoys = 20
+
+	add_ideas = {
+		#pop_050
+		crippling_corruption
+		christian
+		rentier_state
+		export_economy
+
+		depression
+		defence_01
+		edu_01
+		health_02
+		social_02
+		bureau_02
+		police_05
+		draft_army
+		volunteer_women
+		fossil_fuel_industry
+		maritime_industry
+		farmers
+		#hybrid
+		#tax_cost_03
+	}
+	#set_country_flag =
+	set_variable = { fossil_fuel_industry_opinion = 80 }
+	set_variable = { maritime_industry_opinion = 40 }
+	set_variable = { farmers_opinion = 40 }
+
+	set_variable = { var = debt value = 2 }
+	set_variable = { var = treasury value = 1 }
+	set_variable = { var = int_investments value = 0.2 }
+	set_variable = { var = corporate_tax_rate value = 22 }
+	set_variable = { var = population_tax_rate value = 22 }
+
+
+	#Nat focus
+
+
+
+
+	# Starting tech
+	set_technology = {
+		IFV_1 = 1
+
+		microprocessors = 1
+		computing2 = 1
+		decryption2 = 1
+		encryption2 = 1
+		internet1 = 1 	#1G
+	}
+
+	# Naval Technology
+	if = {
+		limit = {
+			has_dlc = "Man the Guns"
+		}
+		set_technology = {
+			corvette_hull_1 = 1
+			corvette_hull_2 = 1
+
+			frigate_hull_1 = 1
+			frigate_hull_2 = 1
+
+			tech_submarine_engineering = 1
+
+			tech_naval_systems_engineering = 1
+			tech_power_systems = 1
+			tech_power_systems_1 = 1
+
+			tech_combat_support_systems = 1
+			tech_fire_control = 1
+			tech_fire_control_1 = 1
+			tech_combat_radar = 1
+			tech_combat_radar_1 = 1
+			tech_combat_sonar = 1
+			tech_combat_sonar_1 = 1
+
+			tech_early_naval_weapon_systems = 1
+			tech_naval_weapon_systems = 1
+			tech_light_guns = 1
+			tech_light_guns_1 = 1
+
+			tech_point_defense_system = 1
+
+			tech_missile_systems = 1
+
+			tech_turret_missiles_surface = 1
+			tech_turret_missiles_surface_1 = 1
+
+			tech_turret_missiles_aa = 1
+			tech_turret_missiles_aa_1 = 1
+
+			tech_vls_surface = 1
+			tech_vls_surface_1 = 1
+
+			tech_vls_aa = 1
+			tech_vls_aa_1 = 1
+
+			tech_torpedoes = 1
+			tech_torpedoes_1 = 1
+
+			tech_mtg_landing_craft = 1
+		}
+
+		else = {
+			set_technology = {
+				#Wele Nzas Class frigate
+				frigate_1 = 1
+				frigate_2 = 1
+				missile_frigate_1 = 1
+				missile_frigate_2 = 1
+				missile_frigate_3 = 1
+				landing_craft = 1
+				corvette_1 = 1
+			}
+		}
+	}
+
+	set_popularities = {
+		democratic = 0.0
+		communism = 0.0
+		fascism = 0.0
+		neutrality = 100.0
+		nationalist = 0.0
+	}
+	set_politics = {
+		ruling_party = neutrality
+		last_election = "1995.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+
+	start_politics_input = yes
+
+	### Party Popularities
+	set_variable = { party_pop_array^0 = 0 } #Western_Autocracy
+	set_variable = { party_pop_array^1 = 0 } #conservatism
+	set_variable = { party_pop_array^2 = 0 } #liberalism
+	set_variable = { party_pop_array^3 = 0 } #socialism
+	set_variable = { party_pop_array^4 = 0 } #Communist-State
+	set_variable = { party_pop_array^5 = 0 } #anarchist_communism
+	set_variable = { party_pop_array^6 = 0 } #Conservative
+	set_variable = { party_pop_array^7 = 0 } #Autocracy
+	set_variable = { party_pop_array^8 = 0 } #Mod_Vilayat_e_Faqih
+	set_variable = { party_pop_array^9 = 0 } #Vilayat_e_Faqih
+	set_variable = { party_pop_array^10 = 0 } #Kingdom
+	set_variable = { party_pop_array^11 = 0 } #Caliphate
+	set_variable = { party_pop_array^12 = 0 } #Neutral_Muslim_Brotherhood
+	set_variable = { party_pop_array^13 = 1.0 } #Neutral_Autocracy
+	set_variable = { party_pop_array^14 = 0 } #Neutral_conservatism
+	set_variable = { party_pop_array^15 = 0 } #oligarchism
+	set_variable = { party_pop_array^16 = 0 } #Neutral_Libertarian
+	set_variable = { party_pop_array^17 = 0 } #Neutral_green
+	set_variable = { party_pop_array^18 = 0 } #neutral_Social
+	set_variable = { party_pop_array^19 = 0 } #Neutral_Communism
+	set_variable = { party_pop_array^20 = 0 } #Nat_Populism
+	set_variable = { party_pop_array^21 = 0 } #Nat_Fascism
+	set_variable = { party_pop_array^22 = 0 } #Nat_Autocracy
+	set_variable = { party_pop_array^23 = 0 } #Monarchist
+
+	### Ruling Party
+	add_to_array = { ruling_party = 13 }
+
+	startup_politics = yes
+}

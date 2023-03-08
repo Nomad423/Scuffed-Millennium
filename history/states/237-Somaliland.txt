@@ -1,0 +1,44 @@
+
+state = {
+	id = 237
+	name = "STATE_237"
+
+	resources = {
+		steel = 4
+	}
+	history = {
+		owner = SML
+		victory_points = {
+			10833 7
+		}
+		victory_points = {
+			3199 5
+		}
+		buildings = {
+			infrastructure = 0
+			internet_station = 0
+			air_base = 2
+			3199 = {
+				naval_base = 5
+
+			}
+
+		}
+		add_core_of = SML
+		add_core_of = SOM
+		2017.1.1 = {
+			buildings = {
+				internet_station = 0
+			}
+			remove_core_of = SNA
+			add_manpower = 974092
+		}
+	}
+
+	provinces = {
+		3199 5068 10833 12759 13852 13853 13854 13855
+	}
+	manpower = 1752868
+	buildings_max_level_factor = 1.000
+	state_category = state_03
+}

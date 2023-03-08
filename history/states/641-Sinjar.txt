@@ -1,0 +1,33 @@
+
+state = {
+	id = 641
+	name = "STATE_641"
+
+	history = {
+		owner = IRQ
+		victory_points = {
+			10804 1 
+		}
+		buildings = {
+			infrastructure = 1
+			internet_station = 0
+
+		}
+		add_core_of = KUR
+		add_core_of = IRQ
+		2017.1.1 = {
+			buildings = {
+				internet_station = 1
+			}
+			owner = KUR
+			add_manpower = 285278
+		}
+	}
+
+	provinces = {
+		10804 
+	}
+	manpower = 432902
+	buildings_max_level_factor = 1.000
+	state_category = state_01
+}

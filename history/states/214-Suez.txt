@@ -1,0 +1,47 @@
+state = {
+	id = 214
+	name = "STATE_214"
+	manpower = 12892891
+	state_category = state_09
+
+	resources = {
+		oil = 4
+	}
+
+	history = {
+		owner = EGY
+		victory_points = { 4073 5 } #Suez
+		victory_points = { 12049 5 } #Port Said
+		victory_points = { 10005 5 } #El Mansoura
+		victory_points = { 11964 1 }
+
+		buildings = {
+			infrastructure = 1
+			internet_station = 1
+			arms_factory = 2
+			industrial_complex = 3
+			offices = 3
+			12049 = {
+				naval_base = 2
+			}
+			4073 = {
+				naval_base = 4
+			}
+		}
+		add_core_of = EGY
+		2017.1.1 = {
+			add_manpower = 2000000
+			add_manpower = 2000000
+			add_manpower = 1595497
+			buildings = {
+				internet_station = 2
+				arms_factory = 1
+				industrial_complex = 4
+			}
+		}
+	}
+
+	provinces = {
+		4073 12049 10005 11964
+	}
+}

@@ -1,0 +1,688 @@
+﻿capital = 121
+set_research_slots = 3
+2000.1.1 = {
+	set_country_flag = dynamic_flag
+	set_country_flag = dynamic_rebel_flag
+	set_country_flag = dynamic_flag_edgy
+	capital = 121
+	if = {
+		limit = { has_dlc = "No Step Back" }
+
+		set_oob = "HUN_2000_nsb"
+	}
+	if = {
+		limit = { NOT = { has_dlc = "No Step Back" } }
+
+		set_oob = "HUN_2000_nonnsb"
+	}
+
+	set_cosmetic_tag = HUN
+
+	add_ideas = {
+
+        #GDP
+
+        #Economic Cycle
+        stable_growth
+        #Corruption
+        unrestrained_corruption
+        #Faction 1
+        landowners
+        #Faction 2
+        small_medium_business_owners
+        #Faction 3
+        international_bankers
+
+        #Bureacracy
+        bureau_03
+        #Military Spending
+        defence_01
+        #Internal Security
+        police_03
+        #Education budget
+        edu_03
+        #Health budget
+        health_03
+        #Social spending
+        social_05
+
+        #Trade Law
+        export_economy
+        #Conscription Law
+        volunteer_army
+        #Women in the military
+        volunteer_women
+        #Foreign Intervention Law
+
+        #Officer Training
+        officer_international_education
+
+        #Other
+		christian
+		NATO_member
+		western_country
+		large_far_right_movement
+
+	}
+
+
+	### HUN ###
+	#Influence system
+	init_influence = yes
+	set_variable = { domestic_influence_amount = 150 }
+	add_to_array = { influence_array = SOV.id }
+	add_to_array = { influence_array_val = 30 }
+	add_to_array = { influence_array = POL.id }
+	add_to_array = { influence_array_val = 40 }
+	add_to_array = { influence_array = GER.id }
+	add_to_array = { influence_array_val = 25 }
+	add_to_array = { influence_array = USA.id }
+	add_to_array = { influence_array_val = 38 }
+	add_to_array = { influence_array = ROM.id }
+	add_to_array = { influence_array_val = 10 }
+	startup_influence = yes
+
+	set_variable = { landowners_opinion = 60 }
+	set_variable = { small_medium_business_owners = 75 }
+	set_variable = { international_bankers_opinion = 80 }
+
+	set_variable = { var = debt value = 114 }
+	set_variable = { var = treasury value = 16 }
+	set_variable = { var = corporate_tax_rate value = 9 }
+	set_variable = { var = population_tax_rate value = 15 }
+	set_variable = { var = int_investments value = 16.8 }
+
+
+	#2000 NATO Relations
+	add_opinion_modifier = { target = BEL modifier = NATO_member_modifier }
+	reverse_add_opinion_modifier = { target = BEL modifier = NATO_member_modifier }
+	add_opinion_modifier = { target = FRA modifier = NATO_member_modifier }
+	reverse_add_opinion_modifier = { target = FRA modifier = NATO_member_modifier }
+	add_opinion_modifier = { target = GER modifier = NATO_member_modifier }
+	reverse_add_opinion_modifier = { target = GER modifier = NATO_member_modifier }
+	add_opinion_modifier = { target = ITA modifier = NATO_member_modifier }
+	reverse_add_opinion_modifier = { target = ITA modifier = NATO_member_modifier }
+	add_opinion_modifier = { target = LUX modifier = NATO_member_modifier }
+	reverse_add_opinion_modifier = { target = LUX modifier = NATO_member_modifier }
+	add_opinion_modifier = { target = DEN modifier = NATO_member_modifier }
+	reverse_add_opinion_modifier = { target = DEN modifier = NATO_member_modifier }
+	add_opinion_modifier = { target = ENG modifier = NATO_member_modifier }
+	reverse_add_opinion_modifier = { target = ENG modifier = NATO_member_modifier }
+	add_opinion_modifier = { target = GRE modifier = NATO_member_modifier }
+	reverse_add_opinion_modifier = { target = GRE modifier = NATO_member_modifier }
+	add_opinion_modifier = { target = POR modifier = NATO_member_modifier }
+	reverse_add_opinion_modifier = { target = POR modifier = NATO_member_modifier }
+	add_opinion_modifier = { target = SPR modifier = NATO_member_modifier }
+	reverse_add_opinion_modifier = { target = SPR modifier = NATO_member_modifier }
+	add_opinion_modifier = { target = POL modifier = NATO_member_modifier }
+	reverse_add_opinion_modifier = { target = POL modifier = NATO_member_modifier }
+	add_opinion_modifier = { target = CZE modifier = NATO_member_modifier }
+	reverse_add_opinion_modifier = { target = CZE modifier = NATO_member_modifier }
+	add_opinion_modifier = { target = NOR modifier = NATO_member_modifier }
+	reverse_add_opinion_modifier = { target = NOR modifier = NATO_member_modifier }
+	add_opinion_modifier = { target = CAN modifier = NATO_member_modifier }
+	reverse_add_opinion_modifier = { target = CAN modifier = NATO_member_modifier }
+	add_opinion_modifier = { target = USA modifier = NATO_member_modifier }
+	reverse_add_opinion_modifier = { target = USA modifier = NATO_member_modifier }
+	add_opinion_modifier = { target = TUR modifier = NATO_member_modifier }
+	reverse_add_opinion_modifier = { target = TUR modifier = NATO_member_modifier }
+
+	#NATO military access
+	diplomatic_relation = {
+		country = BEL
+		relation = military_access
+		active = yes
+	}
+	diplomatic_relation = {
+		country = CAN
+		relation = military_access
+		active = yes
+	}
+	diplomatic_relation = {
+		country = CZE
+		relation = military_access
+		active = yes
+	}
+	diplomatic_relation = {
+		country = DEN
+		relation = military_access
+		active = yes
+	}
+	diplomatic_relation = {
+		country = FRA
+		relation = military_access
+		active = yes
+	}
+	diplomatic_relation = {
+		country = GER
+		relation = military_access
+		active = yes
+	}
+	diplomatic_relation = {
+		country = GRE
+		relation = military_access
+		active = yes
+	}
+	diplomatic_relation = {
+		country = ICE
+		relation = military_access
+		active = yes
+	}
+	diplomatic_relation = {
+		country = ITA
+		relation = military_access
+		active = yes
+	}
+	diplomatic_relation = {
+		country = LUX
+		relation = military_access
+		active = yes
+	}
+	diplomatic_relation = {
+		country = HOL
+		relation = military_access
+		active = yes
+	}
+	diplomatic_relation = {
+		country = NOR
+		relation = military_access
+		active = yes
+	}
+	diplomatic_relation = {
+		country = POL
+		relation = military_access
+		active = yes
+	}
+	diplomatic_relation = {
+		country = POR
+		relation = military_access
+		active = yes
+	}
+	diplomatic_relation = {
+		country = SPR
+		relation = military_access
+		active = yes
+	}
+	diplomatic_relation = {
+		country = TUR
+		relation = military_access
+		active = yes
+	}
+	diplomatic_relation = {
+		country = ENG
+		relation = military_access
+		active = yes
+	}
+	diplomatic_relation = {
+		country = USA
+		relation = military_access
+		active = yes
+	}
+
+	set_popularities = {
+		democratic = 45.4
+		communism = 5.6
+		fascism = 0.0
+		neutrality = 35.7
+		nationalist = 13.3
+	}
+	set_politics = {
+		ruling_party = neutrality
+		last_election = "1998.4.6"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+
+	start_politics_input = yes
+
+	### Party Popularities
+	set_variable = { party_pop_array^0 = 0 } #Western_Autocracy
+	set_variable = { party_pop_array^1 = 0 } #conservatism
+	set_variable = { party_pop_array^2 = 0.156 } #liberalism
+	set_variable = { party_pop_array^3 = 0.298 } #socialism
+	set_variable = { party_pop_array^4 = 0.056 } #Communist-State
+	set_variable = { party_pop_array^5 = 0 } #anarchist_communism
+	set_variable = { party_pop_array^6 = 0 } #Conservative
+	set_variable = { party_pop_array^7 = 0 } #Autocracy
+	set_variable = { party_pop_array^8 = 0 } #Mod_Vilayat_e_Faqih
+	set_variable = { party_pop_array^9 = 0 } #Vilayat_e_Faqih
+	set_variable = { party_pop_array^10 = 0 } #Kingdom
+	set_variable = { party_pop_array^11 = 0 } #Caliphate
+	set_variable = { party_pop_array^12 = 0 } #Neutral_Muslim_Brotherhood
+	set_variable = { party_pop_array^13 = 0 } #Neutral_Autocracy
+	set_variable = { party_pop_array^14 = 0.357 } #Neutral_conservatism
+	set_variable = { party_pop_array^15 = 0 } #oligarchism
+	set_variable = { party_pop_array^16 = 0 } #Neutral_Libertarian
+	set_variable = { party_pop_array^17 = 0 } #Neutral_green
+	set_variable = { party_pop_array^18 = 0 } #neutral_Social
+	set_variable = { party_pop_array^19 = 0 } #Neutral_Communism
+	set_variable = { party_pop_array^20 = 0.133 } #Nat_Populism
+	set_variable = { party_pop_array^21 = 0 } #Nat_Fascism
+	set_variable = { party_pop_array^22 = 0 } #Nat_Autocracy
+	set_variable = { party_pop_array^23 = 0 } #Monarchist
+
+	### Ruling Party
+	add_to_array = { ruling_party = 14 }
+
+	startup_politics = yes
+
+	create_country_leader = {
+		name = "Viktor Orban"
+		picture = "Viktor_Orban.dds"
+		ideology = Neutral_conservatism
+		traits = {
+			neutrality_Neutral_conservatism
+		}
+	}
+
+	set_technology = {
+		integrated_transportation_system = 1
+		post_conventional_rail = 1
+		early_freight_locomotive = 1
+
+		legacy_doctrines = 1
+		armoured_mass_assault = 1
+
+		#AK-63
+		infantry_weapons = 1
+		infantry_weapons1 = 1
+		infantry_weapons2 = 1
+
+		night_vision_1 = 1
+		night_vision_2 = 1
+
+		#For templates
+
+		util_vehicle_0 = 1
+		combat_eng_equipment = 1
+		command_control_equipment = 1
+		land_Drone_equipment = 1
+		Anti_tank_0 = 1
+		Heavy_Anti_tank_0 = 1
+		artillery_0 = 1
+		SP_arty_0 = 1
+		SP_R_arty_0 = 1
+		Anti_Air_0 = 1
+		SP_Anti_Air_0 = 1
+		Early_APC = 1
+		APC_1 = 1
+		IFV_1 = 1
+		early_helicopter = 1
+		transport_helicopter1 = 1
+
+		body_armor_1980 = 1
+
+		basic_computing = 1
+		integrated_circuit = 1
+		computing1 = 1
+		decryption1 = 1
+		encryption1 = 1
+
+		radar = 1
+		internet1 = 1 	#1G
+		internet2 = 1 	#2G
+		gprs = 1
+		fuel_silos = 1
+		support_weapons = 1
+		support_weapons2 = 1
+		tandem_charge_warheads = 1
+		squad_automatic_weapon = 1
+		special_forces = 1
+	}
+	if = {
+		limit = { has_dlc = "No Step Back" }
+
+		set_technology = {
+			mbt_tech = 1
+		}
+	}
+	if = {
+		limit = { NOT = { has_dlc = "No Step Back" } }
+
+		set_technology = {
+			MBT_1 = 1
+		}
+	}
+
+	recruit_character = HUN_attilla_takacs
+	recruit_character = HUN_josef_vacs
+	recruit_character = HUN_josef_horvath
+	recruit_character = HUN_ruszin_romulusz
+	recruit_character = HUN_gabor_horvath
+	recruit_character = HUN_tamas_fekete
+	recruit_character = HUN_laszlo_drot
+	recruit_character = HUN_laszlo_gangler
+
+}
+
+2017.1.1 = {
+	capital = 121
+	if = {
+		limit = { has_dlc = "No Step Back" }
+
+		set_oob = "HUN_2017_nsb"
+	}
+	if = {
+		limit = { NOT = { has_dlc = "No Step Back" } }
+
+		set_oob = "HUN_2017_nonnsb"
+	}
+
+	set_convoys = 0
+
+	add_ideas = {
+		#pop_050
+		#small_medium_business_owners
+		#Labour_Unions
+		#Mass_Media
+		unrestrained_corruption
+
+		christian
+		EU_member
+		stable_growth
+		defence_01
+		edu_03
+		health_03
+		social_05
+		bureau_03
+		police_03
+		volunteer_army
+		volunteer_women
+		NATO_member
+		western_country
+		large_far_right_movement
+		landowners
+		small_medium_business_owners
+		#civil_law
+		#tax_cost_39
+	}
+
+	set_country_flag = military_advisors_AFG
+	AFG = { add_to_variable = { foreign_advisors = 1 } }
+
+	set_variable = { landowners_opinion = 60 }
+	set_variable = { small_medium_business_owners = 75 }
+	set_variable = { international_bankers_opinion = 80 }
+
+	set_variable = { var = debt value = 149 }
+	set_variable = { var = treasury value = 26 }
+	set_variable = { var = int_investments value = 33.4 }
+	set_variable = { var = corporate_tax_rate value = 9 }
+	set_variable = { var = population_tax_rate value = 15 }
+
+
+	#2000 EU Relations
+	add_opinion_modifier = { target = BEL modifier = EU_member_opinion }
+	reverse_add_opinion_modifier = { target = BEL modifier = EU_member_opinion }
+	add_opinion_modifier = { target = FRA modifier = EU_member_opinion }
+	reverse_add_opinion_modifier = { target = FRA modifier = EU_member_opinion }
+	add_opinion_modifier = { target = GER modifier = EU_member_opinion }
+	reverse_add_opinion_modifier = { target = GER modifier = EU_member_opinion }
+	add_opinion_modifier = { target = ITA modifier = EU_member_opinion }
+	reverse_add_opinion_modifier = { target = ITA modifier = EU_member_opinion }
+	add_opinion_modifier = { target = LUX modifier = EU_member_opinion }
+	reverse_add_opinion_modifier = { target = LUX modifier = EU_member_opinion }
+	add_opinion_modifier = { target = HOL modifier = EU_member_opinion }
+	reverse_add_opinion_modifier = { target = HOL modifier = EU_member_opinion }
+	add_opinion_modifier = { target = DEN modifier = EU_member_opinion }
+	reverse_add_opinion_modifier = { target = DEN modifier = EU_member_opinion }
+	add_opinion_modifier = { target = IRE modifier = EU_member_opinion }
+	reverse_add_opinion_modifier = { target = IRE modifier = EU_member_opinion }
+	add_opinion_modifier = { target = ENG modifier = EU_member_opinion }
+	reverse_add_opinion_modifier = { target = ENG modifier = EU_member_opinion }
+	add_opinion_modifier = { target = GRE modifier = EU_member_opinion }
+	reverse_add_opinion_modifier = { target = GRE modifier = EU_member_opinion }
+	add_opinion_modifier = { target = POR modifier = EU_member_opinion }
+	reverse_add_opinion_modifier = { target = POR modifier = EU_member_opinion }
+	add_opinion_modifier = { target = SPR modifier = EU_member_opinion }
+	reverse_add_opinion_modifier = { target = SPR modifier = EU_member_opinion }
+	add_opinion_modifier = { target = AUS modifier = EU_member_opinion }
+	reverse_add_opinion_modifier = { target = AUS modifier = EU_member_opinion }
+	add_opinion_modifier = { target = SWE modifier = EU_member_opinion }
+	reverse_add_opinion_modifier = { target = SWE modifier = EU_member_opinion }
+	add_opinion_modifier = { target = FIN modifier = EU_member_opinion }
+	reverse_add_opinion_modifier = { target = FIN modifier = EU_member_opinion }
+	#2017 EU Relations
+	add_opinion_modifier = { target = LAT modifier = EU_member_opinion }
+	reverse_add_opinion_modifier = { target = LAT modifier = EU_member_opinion }
+	add_opinion_modifier = { target = LIT modifier = EU_member_opinion }
+	reverse_add_opinion_modifier = { target = LIT modifier = EU_member_opinion }
+	add_opinion_modifier = { target = MLT modifier = EU_member_opinion }
+	reverse_add_opinion_modifier = { target = MLT modifier = EU_member_opinion }
+	add_opinion_modifier = { target = POL modifier = EU_member_opinion }
+	reverse_add_opinion_modifier = { target = POL modifier = EU_member_opinion }
+	add_opinion_modifier = { target = SLO modifier = EU_member_opinion }
+	reverse_add_opinion_modifier = { target = SLO modifier = EU_member_opinion }
+	add_opinion_modifier = { target = SLV modifier = EU_member_opinion }
+	reverse_add_opinion_modifier = { target = SLV modifier = EU_member_opinion }
+	add_opinion_modifier = { target = ROM modifier = EU_member_opinion }
+	reverse_add_opinion_modifier = { target = ROM modifier = EU_member_opinion }
+
+	add_opinion_modifier = { target = SOV modifier = minor_sanctions }
+	set_country_flag = sanctions_against_SOV_flag
+
+	#NATO military access
+	diplomatic_relation = {
+		country = ALB
+		relation = military_access
+		active = yes
+	}
+	diplomatic_relation = {
+		country = BEL
+		relation = military_access
+		active = yes
+	}
+	diplomatic_relation = {
+		country = BUL
+		relation = military_access
+		active = yes
+	}
+	diplomatic_relation = {
+		country = CAN
+		relation = military_access
+		active = yes
+	}
+	diplomatic_relation = {
+		country = CRO
+		relation = military_access
+		active = yes
+	}
+	diplomatic_relation = {
+		country = CZE
+		relation = military_access
+		active = yes
+	}
+	diplomatic_relation = {
+		country = DEN
+		relation = military_access
+		active = yes
+	}
+	diplomatic_relation = {
+		country = EST
+		relation = military_access
+		active = yes
+	}
+	diplomatic_relation = {
+		country = FRA
+		relation = military_access
+		active = yes
+	}
+	diplomatic_relation = {
+		country = GER
+		relation = military_access
+		active = yes
+	}
+	diplomatic_relation = {
+		country = GRE
+		relation = military_access
+		active = yes
+	}
+	diplomatic_relation = {
+		country = ICE
+		relation = military_access
+		active = yes
+	}
+	diplomatic_relation = {
+		country = ITA
+		relation = military_access
+		active = yes
+	}
+	diplomatic_relation = {
+		country = LAT
+		relation = military_access
+		active = yes
+	}
+	diplomatic_relation = {
+		country = LIT
+		relation = military_access
+		active = yes
+	}
+	diplomatic_relation = {
+		country = LUX
+		relation = military_access
+		active = yes
+	}
+	diplomatic_relation = {
+		country = HOL
+		relation = military_access
+		active = yes
+	}
+	diplomatic_relation = {
+		country = NOR
+		relation = military_access
+		active = yes
+	}
+	diplomatic_relation = {
+		country = POL
+		relation = military_access
+		active = yes
+	}
+	diplomatic_relation = {
+		country = POR
+		relation = military_access
+		active = yes
+	}
+	diplomatic_relation = {
+		country = ROM
+		relation = military_access
+		active = yes
+	}
+	diplomatic_relation = {
+		country = SLO
+		relation = military_access
+		active = yes
+	}
+	diplomatic_relation = {
+		country = SLV
+		relation = military_access
+		active = yes
+	}
+	diplomatic_relation = {
+		country = SPR
+		relation = military_access
+		active = yes
+	}
+	diplomatic_relation = {
+		country = TUR
+		relation = military_access
+		active = yes
+	}
+	diplomatic_relation = {
+		country = ENG
+		relation = military_access
+		active = yes
+	}
+	diplomatic_relation = {
+		country = USA
+		relation = military_access
+		active = yes
+	}
+
+	#Nat focus
+
+
+
+
+
+	set_technology = {
+		Rec_tank_0 = 1
+
+		body_armor_2000 = 1
+
+		microprocessors = 1
+		computing2 = 1
+		decryption2 = 1
+		encryption2 = 1
+		computing3 = 1
+		decryption3 = 1
+		encryption3 = 1
+		computing4 = 1
+		decryption4 = 1
+		encryption4 = 1
+		neural_networks_revival = 1
+		data_mining = 1
+		industrial_electrospun_polymeric_nanofibers = 1
+		stereolitography = 1
+		DNA_fingerprinting = 1
+		modern_gmo = 1
+		gene_therapy = 1
+
+		wifi = 1
+		internet3 = 1	#3G
+		edge = 1
+		umts = 1
+		hsupa = 1
+		internet4 = 1	#4G
+		lte = 1
+		construction1 = 1
+		excavation1 = 1
+	}
+
+
+	set_popularities = {
+		democratic = 25.6
+		communism = 20.2
+		fascism = 0.0
+		neutrality = 50.2
+		nationalist = 4.0
+	}
+	set_politics = {
+		ruling_party = neutrality
+		last_election = "2014.4.6"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+
+	start_politics_input = yes
+
+	### Party Popularities
+	set_variable = { party_pop_array^0 = 0 } #Western_Autocracy
+	set_variable = { party_pop_array^1 = 0 } #conservatism
+	set_variable = { party_pop_array^2 = 0 } #liberalism
+	set_variable = { party_pop_array^3 = 0.256 } #socialism
+	set_variable = { party_pop_array^4 = 0 } #Communist-State
+	set_variable = { party_pop_array^5 = 0 } #anarchist_communism
+	set_variable = { party_pop_array^6 = 0.202 } #Conservative
+	set_variable = { party_pop_array^7 = 0 } #Autocracy
+	set_variable = { party_pop_array^8 = 0 } #Mod_Vilayat_e_Faqih
+	set_variable = { party_pop_array^9 = 0 } #Vilayat_e_Faqih
+	set_variable = { party_pop_array^10 = 0 } #Kingdom
+	set_variable = { party_pop_array^11 = 0 } #Caliphate
+	set_variable = { party_pop_array^12 = 0 } #Neutral_Muslim_Brotherhood
+	set_variable = { party_pop_array^13 = 0 } #Neutral_Autocracy
+	set_variable = { party_pop_array^14 = 0.449 } #Neutral_conservatism
+	set_variable = { party_pop_array^15 = 0 } #oligarchism
+	set_variable = { party_pop_array^16 = 0 } #Neutral_Libertarian
+	set_variable = { party_pop_array^17 = 0.053 } #Neutral_green
+	set_variable = { party_pop_array^18 = 0 } #neutral_Social
+	set_variable = { party_pop_array^19 = 0 } #Neutral_Communism
+	set_variable = { party_pop_array^20 = 0.04 } #Nat_Populism
+	set_variable = { party_pop_array^21 = 0 } #Nat_Fascism
+	set_variable = { party_pop_array^22 = 0 } #Nat_Autocracy
+	set_variable = { party_pop_array^23 = 0 } #Monarchist
+
+	### Ruling Party
+	add_to_array = { ruling_party = 14 }
+
+	startup_politics = yes
+}

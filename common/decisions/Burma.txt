@@ -1,0 +1,1904 @@
+ethnic_insurgency_category = {
+
+	BRM_propose_the_NCA = {
+
+		icon = GFX_decision_generic_political_discourse
+
+		allowed = { tag = BRM }
+
+		fire_only_once = no
+
+		visible = {
+			NOT = {
+				has_idea = Nationwide_Ceasefire_Agreement
+			}
+			NOT = {
+				any_neighbor_country = {
+					has_country_flag = NCA_participant
+				}
+			}
+		}
+
+		available = {
+			NOT = {
+				has_country_leader = {
+					name = "Than Shwe"
+				}
+				has_completed_focus = BRM_proclaim_a_permanent_end_to_ceasefire_initiatives
+			}
+		}
+
+		cost = 300
+
+		days_remove = 30
+
+		days_re_enable = 30
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove BRM_propose_the_NCA"
+			every_other_country = {
+				limit = {
+					has_idea = Ethnic_Insurgencies
+				}
+				country_event = {
+					id = Insurgency.18
+					days = 1
+				}
+			}
+			country_event = {
+				id = Insurgency.19
+				days = 7
+			}
+		}
+
+		ai_will_do = {
+			factor = 4
+		}
+	}
+
+	BRM_renegotiate_the_NCA = {
+
+		icon = GFX_decision_generic_political_discourse
+
+		allowed = { tag = BRM }
+
+		fire_only_once = no
+
+		visible = {
+			has_idea = Nationwide_Ceasefire_Agreement
+			NOT = {
+				any_neighbor_country = {
+					has_country_flag = NCA_participant
+				}
+			}
+		}
+
+		available = {
+			NOT = {
+				has_completed_focus = BRM_proclaim_a_permanent_end_to_ceasefire_initiatives
+			}
+		}
+
+		cost = 300
+
+		days_remove = 30
+
+		days_re_enable = 30
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove BRM_renegotiate_the_NCA"
+			every_other_country = {
+				limit = {
+					has_idea = Ethnic_Insurgencies
+				}
+				country_event = {
+					id = Insurgency.18
+					days = 1
+				}
+			}
+			country_event = {
+				id = Insurgency.19
+				days = 7
+			}
+
+		}
+	}
+
+	BRM_scrap_the_NCA = {
+		icon = GFX_decision_generic_break_treaty
+
+		allowed = { tag = BRM }
+
+		fire_only_once = yes
+
+		visible = {
+			has_idea = Nationwide_Ceasefire_Agreement
+			NOT = {
+				any_neighbor_country = {
+					has_country_flag = NCA_participant
+				}
+			}
+		}
+
+		available = {
+			NOT = {
+				has_completed_focus = BRM_pursue_rapprochement_with_rebel_groups
+			}
+		}
+
+		cost = 300
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision BRM_scrap_the_NCA"
+			every_country = {
+				remove_ideas = Nationwide_Ceasefire_Agreement
+			}
+			every_other_country = {
+				limit = {
+					has_idea = Ethnic_Insurgencies
+				}
+				add_opinion_modifier = {
+					target = BRM
+					modifier = scrapped_NCA
+				}
+				remove_opinion_modifier = {
+					target = BRM
+					modifier = Nationwide_Ceasefire_Agreement
+				}
+			}
+		}
+	}
+
+	BRM_ceasefire_KAC = {
+
+		icon = GFX_decision_generic_political_discourse
+
+		allowed = { tag = BRM }
+
+		visible = {
+			NOT = {
+				KAC = { has_country_flag = ceasefire }
+			}
+			country_exists = KAC
+		}
+
+		available = {
+			NOT = {
+				has_decision = BRM_operation_KAC
+				has_completed_focus = BRM_proclaim_a_permanent_end_to_ceasefire_initiatives
+			}
+		}
+
+		fire_only_once = no
+
+		days_re_enable = 30
+
+		cost = 200
+
+		days_remove = 30
+
+		highlight_states = {
+			highlight_states_trigger = {
+				state = 496
+			}
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove BRM_ceasefire_KAC"
+			KAC = {
+				country_event = {
+					id = Insurgency.11
+					days = 1
+				}
+				set_country_flag = ceasefire_offer
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	BRM_ceasefire_KAR = {
+
+		icon = GFX_decision_generic_political_discourse
+
+		allowed = { tag = BRM }
+
+		visible = {
+			NOT = {
+				KAR = { has_country_flag = ceasefire }
+			}
+			country_exists = KAR
+		}
+
+		available = {
+			NOT = {
+				has_decision = BRM_operation_KAR
+				has_completed_focus = BRM_proclaim_a_permanent_end_to_ceasefire_initiatives
+			}
+		}
+
+		fire_only_once = no
+
+		highlight_states = {
+			highlight_states_trigger = {
+				state = 501
+			}
+		}
+
+
+		days_re_enable = 30
+
+		cost = 200
+
+		days_remove = 30
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove BRM_ceasefire_KAR"
+			KAR = {
+				country_event = {
+					id = Insurgency.11
+					days = 1
+				}
+				set_country_flag = ceasefire_offer
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	BRM_ceasefire_SHN = {
+
+		icon = GFX_decision_generic_political_discourse
+
+		allowed = { tag = BRM }
+
+		visible = {
+			NOT = {
+				SHN = { has_country_flag = ceasefire }
+				has_completed_focus = BRM_proclaim_a_permanent_end_to_ceasefire_initiatives
+			}
+			country_exists = SHN
+		}
+
+		available = {
+			NOT = {
+				has_decision = BRM_operation_SHN
+			}
+		}
+
+		fire_only_once = no
+
+		days_re_enable = 30
+
+		highlight_states = {
+			highlight_states_trigger = {
+				state = 498
+			}
+		}
+
+
+		cost = 200
+
+		days_remove = 30
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove BRM_ceasefire_SHN"
+			SHN = {
+				country_event = {
+					id = Insurgency.11
+					days = 1
+				}
+				set_country_flag = ceasefire_offer
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	BRM_operation_KAC = {
+
+		icon = GFX_decision_generic_tank
+
+		allowed = { tag = BRM }
+
+		visible = {
+			NOT = {
+				KAC = { has_country_flag = ceasefire }
+				KAC = { has_country_flag = ceasefire_offer }
+			}
+			country_exists = KAC
+		}
+
+		available = {
+			has_equipment = {
+				Inf_equipment > 1499
+			}
+			divisions_in_border_state = {
+				size > 2
+				state = 505
+				border_state = 496
+			}
+			NOT = {
+				OR = {
+					has_decision = BRM_operation_KAR
+					has_decision = BRM_operation_SHN
+				}
+			}
+		}
+
+		custom_cost_trigger = {
+			command_power > 40
+		}
+
+		custom_cost_text = command_power_more_than_40
+
+		fire_only_once = no
+
+		highlight_states = {
+			highlight_states_trigger = {
+				state = 496
+			}
+		}
+
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision BRM_operation_KAC"
+			KAC = { country_event = { id = Insurgency.4 } }
+			add_command_power = -40
+		}
+
+		days_remove = 30
+		days_re_enable = 90
+
+		modifier = {
+			experience_gain_army = 0.3
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove BRM_operation_KAC"
+			start_border_war = {
+				change_state_after_war = no
+				attacker = {
+					state = 505
+					num_provinces = 3
+					on_win = Insurgency.5
+					on_lose = Insurgency.6
+					on_cancel = Insurgency.7
+				}
+				defender = {
+					state = 496
+					num_provinces = 3
+					on_win = Insurgency.6
+					on_lose = Insurgency.5
+					on_cancel = Insurgency.7
+				}
+			}
+		}
+	}
+
+	BRM_operation_KAR = {
+
+		icon = GFX_decision_generic_tank
+
+		allowed = { tag = BRM }
+
+		visible = {
+			NOT = {
+				KAR = { has_country_flag = ceasefire }
+				KAR = { has_country_flag = ceasefire_offer }
+			}
+			country_exists = KAR
+		}
+
+		available = {
+			has_equipment = {
+				Inf_equipment > 1499
+			}
+			divisions_in_border_state = {
+				size > 2
+				state = 503
+				border_state = 501
+			}
+			NOT = {
+				OR = {
+					has_decision = BRM_operation_KAC
+					has_decision = BRM_operation_SHN
+				}
+			}
+		}
+
+		custom_cost_trigger = {
+			command_power > 40
+		}
+
+		custom_cost_text = command_power_more_than_40
+
+		fire_only_once = no
+
+		highlight_states = {
+			highlight_states_trigger = {
+				state = 501
+			}
+		}
+
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision BRM_operation_KAR"
+			add_command_power = -40
+			KAR = { country_event = { id = Insurgency.4 } }
+		}
+
+		days_remove = 30
+
+		days_re_enable = 90
+
+		modifier = {
+			experience_gain_army = 0.3
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove BRM_operation_KAR"
+			start_border_war = {
+				change_state_after_war = no
+				attacker = {
+					state = 503
+					num_provinces = 3
+					on_win = Insurgency.5
+					on_lose = Insurgency.6
+					on_cancel = Insurgency.7
+				}
+				defender = {
+					state = 501
+					num_provinces = 3
+					on_win = Insurgency.6
+					on_lose = Insurgency.5
+					on_cancel = Insurgency.7
+				}
+			}
+		}
+	}
+
+	BRM_operation_SHN = {
+
+		icon = GFX_decision_generic_tank
+
+		allowed = { tag = BRM }
+
+		visible = {
+			NOT = {
+				SHN = { has_country_flag = ceasefire }
+				SHN = { has_country_flag = ceasefire_offer }
+			}
+			country_exists = SHN
+		}
+
+		available = {
+			has_equipment = {
+				Inf_equipment > 1499
+			}
+			divisions_in_border_state = {
+				size > 2
+				state = 930
+				border_state = 498
+			}
+			NOT = {
+				OR = {
+					has_decision = BRM_operation_KAC
+					has_decision = BRM_operation_KAR
+				}
+			}
+		}
+
+		custom_cost_trigger = {
+			command_power > 40
+		}
+
+		custom_cost_text = command_power_more_than_40
+
+		fire_only_once = no
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision BRM_operation_SHN"
+			add_command_power = -40
+			SHN = { country_event = { id = Insurgency.4 } }
+		}
+
+		days_remove = 30
+
+		days_re_enable = 90
+
+		highlight_states = {
+			highlight_states_trigger = {
+				state = 498
+			}
+		}
+
+
+		modifier = {
+			experience_gain_army = 0.3
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove BRM_operation_SHN"
+			start_border_war = {
+				change_state_after_war = no
+				attacker = {
+					state = 930
+					num_provinces = 3
+					on_win = Insurgency.5
+					on_lose = Insurgency.6
+					on_cancel = Insurgency.7
+				}
+				defender = {
+					state = 498
+					num_provinces = 3
+					on_win = Insurgency.6
+					on_lose = Insurgency.5
+					on_cancel = Insurgency.7
+				}
+			}
+		}
+
+	}
+
+	BRM_provoke_KAC = {
+
+		icon = GFX_decision_generic_ignite_civil_war
+
+		allowed = { tag = BRM }
+
+		visible = {
+			KAC = { has_country_flag = ceasefire }
+			country_exists = KAC
+			NOT = {
+				KAC = { has_country_flag = ceasefire_offer }
+			}
+		}
+
+		available = {
+			has_equipment = { Inf_equipment > 499 }
+			divisions_in_border_state = {
+				size > 0
+				state = 505
+				border_state = 496
+			}
+			NOT = {
+				has_completed_focus = BRM_pursue_rapprochement_with_rebel_groups
+			}
+			if = {
+				limit = {
+					KAC = {
+						has_idea = Nationwide_Ceasefire_Agreement
+					}
+				}
+				NOT = {
+					has_idea = Nationwide_Ceasefire_Agreement
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		highlight_states = {
+			highlight_states_trigger = {
+				state = 496
+			}
+		}
+
+
+		cost = 50
+
+		days_remove = 7
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove BRM_provoke_KAC"
+			add_equipment_to_stockpile = {
+				type = Inf_equipment
+				amount = -500
+			}
+			KAC = {
+				clr_country_flag = ceasefire
+				add_opinion_modifier = {
+					target = BRM
+					modifier = broke_ceasefire
+				}
+			}
+		}
+	}
+
+	BRM_provoke_KAR = {
+
+		icon = GFX_decision_generic_ignite_civil_war
+
+		allowed = { tag = BRM }
+
+		visible = {
+			KAR = { has_country_flag = ceasefire }
+			country_exists = KAR
+			NOT = {
+				KAR = { has_country_flag = ceasefire_offer }
+			}
+		}
+
+		available = {
+			has_equipment = { Inf_equipment > 499 }
+			OR = {
+				divisions_in_border_state = {
+					size > 0
+					state = 504
+					border_state = 501
+				}
+				divisions_in_border_state = {
+					size > 0
+					state = 505
+					border_state = 501
+				}
+				divisions_in_border_state = {
+					size > 0
+					state = 503
+					border_state = 501
+				}
+			}
+			NOT = {
+				has_completed_focus = BRM_pursue_rapprochement_with_rebel_groups
+			}
+			if = {
+				limit = {
+					KAR = {
+						has_idea = Nationwide_Ceasefire_Agreement
+					}
+				}
+				NOT = {
+					has_idea = Nationwide_Ceasefire_Agreement
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 50
+
+		days_remove = 7
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		highlight_states = {
+			highlight_states_trigger = {
+				state = 501
+			}
+		}
+
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove BRM_provoke_KAR"
+			add_equipment_to_stockpile = {
+				type = Inf_equipment
+				amount = -500
+			}
+			KAR = {
+				clr_country_flag = ceasefire
+				add_opinion_modifier = {
+					target = BRM
+					modifier = broke_ceasefire
+				}
+			}
+		}
+	}
+
+	BRM_provoke_SHN = {
+
+		icon = GFX_decision_generic_ignite_civil_war
+
+		allowed = { tag = BRM }
+
+		visible = {
+			SHN = { has_country_flag = ceasefire }
+			country_exists = SHN
+			NOT = {
+				SHN = { has_country_flag = ceasefire_offer }
+			}
+		}
+
+		available = {
+			has_equipment = { Inf_equipment > 499 }
+			OR = {
+				divisions_in_border_state = {
+					size > 0
+					state = 505
+					border_state = 496
+				}
+				divisions_in_border_state = {
+					size > 0
+					state = 930
+					border_state = 496
+				}
+			}
+			NOT = {
+				has_completed_focus = BRM_pursue_rapprochement_with_rebel_groups
+			}
+			if = {
+				limit = {
+					SHN = {
+						has_idea = Nationwide_Ceasefire_Agreement
+					}
+				}
+				NOT = {
+					has_idea = Nationwide_Ceasefire_Agreement
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 50
+
+		days_remove = 7
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		highlight_states = {
+			highlight_states_trigger = {
+				state = 498
+			}
+		}
+
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove BRM_provoke_SHN"
+			add_equipment_to_stockpile = {
+				type = Inf_equipment
+				amount = -500
+			}
+			SHN = {
+				clr_country_flag = ceasefire
+				add_opinion_modifier = {
+					target = BRM
+					modifier = broke_ceasefire
+				}
+			}
+		}
+
+	}
+
+	BRM_annex_KAC = {
+
+		icon = GFX_decision_oppression
+
+		allowed = { tag = BRM }
+
+		visible = {
+			country_exists = KAC
+		}
+
+		available = {
+			KAC = {
+				influence_higher_50 = yes
+			}
+		}
+
+		cost = 300
+
+		highlight_states = {
+			highlight_states_trigger = {
+				state = 496
+			}
+		}
+
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision BRM_annex_KAC"
+			annex_country = {
+				target = KAC
+				transfer_troops = yes
+			}
+		}
+
+	}
+
+	BRM_annex_KAR = {
+
+		icon = GFX_decision_oppression
+
+		allowed = { tag = BRM }
+
+		visible = {
+			country_exists = KAR
+		}
+
+		available = {
+			KAR = {
+				influence_higher_50 = yes
+			}
+		}
+
+		cost = 300
+
+		highlight_states = {
+			highlight_states_trigger = {
+				state = 501
+			}
+		}
+
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision BRM_annex_KAR"
+			annex_country = {
+				target = KAR
+				transfer_troops = yes
+			}
+		}
+
+	}
+
+	BRM_annex_SHN = {
+
+		icon = GFX_decision_oppression
+
+		allowed = { tag = BRM }
+
+		visible = {
+			country_exists = SHN
+		}
+
+		available = {
+			SHN = {
+				influence_higher_50 = yes
+			}
+		}
+
+		cost = 300
+
+		highlight_states = {
+			highlight_states_trigger = {
+				state = 498
+			}
+		}
+
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision BRM_annex_SHN"
+			annex_country = {
+				target = SHN
+				transfer_troops = yes
+			}
+		}
+
+	}
+
+	BRM_annex_WAA = {
+
+		icon = GFX_decision_oppression
+
+		allowed = { tag = BRM }
+
+		visible = {
+			country_exists = WAA
+		}
+
+		available = {
+			WAA = {
+				influence_higher_50 = yes
+			}
+		}
+
+		cost = 300
+
+		highlight_states = {
+			highlight_states_trigger = {
+				state = 497
+			}
+		}
+
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision BRM_annex_WAA"
+			annex_country = {
+				target = WAA
+				transfer_troops = yes
+			}
+		}
+
+	}
+
+	attack_drug_factories = {
+		icon = GFX_decision_generic_scorched_earth
+
+		visible = {
+			original_tag = SHN
+			WAA = {
+				has_idea = WAA_Narcotics_Producer
+			}
+		}
+
+		available = {
+			has_equipment = {
+				Inf_equipment > 1499
+			}
+			divisions_in_border_state = {
+					size > 1
+					state = 498
+					border_state = 931
+			}
+		}
+
+		custom_cost_trigger = {
+			command_power > 40
+		}
+
+		custom_cost_text = command_power_more_than_40
+
+		fire_only_once = no
+
+		highlight_states = {
+			highlight_states_trigger = {
+				state = 931
+			}
+		}
+
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision attack_drug_factories"
+			add_command_power = -40
+		}
+
+		days_remove = 30
+		days_re_enable = 30
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove attack_drug_factories"
+			add_political_power = 25
+			931 = {
+				damage_building = {
+					type = industrial_complex
+					damage = 4
+				}
+			}
+			SIA = {
+				add_opinion_modifier = {
+					target = SHN
+					modifier = destroyed_drug_factories
+				}
+			}
+			WAA = {
+				country_event = {
+					id = Insurgency.26
+				}
+				add_opinion_modifier = {
+					target = SHN
+					modifier = attacks_on_our_economy
+				}
+			}
+		}
+	}
+
+	intercept_drug_convoys = {
+		icon = GFX_decision_infiltrate_state
+
+		visible = {
+			original_tag = SHN
+			WAA = {
+				has_idea = WAA_Narcotics_Producer
+			}
+		}
+
+		available = {
+			has_equipment = {
+				Inf_equipment > 499
+			}
+			divisions_in_border_state = {
+					size > 0
+					state = 498
+					border_state = 507
+			}
+			divisions_in_border_state = {
+					size > 0
+					state = 498
+					border_state = 931
+			}
+		}
+
+		custom_cost_trigger = {
+			command_power > 20
+		}
+
+		highlight_states = {
+			highlight_states_trigger = {
+				state = 931
+			}
+		}
+
+
+		custom_cost_text = command_power_more_than_20
+
+		fire_only_once = no
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision intercept_drug_convoys"
+			add_command_power = -20
+		}
+
+		days_remove = 14
+		days_re_enable = 14
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove intercept_drug_convoys"
+			add_political_power = 20
+			931 = {
+				damage_building = {
+					type = infrastructure
+					damage = 2
+				}
+			}
+			SIA = {
+				add_opinion_modifier = {
+					target = SHN
+					modifier = confiscated_drugs
+				}
+			}
+			WAA = {
+				country_event = {
+					id = Insurgency.26
+				}
+				add_opinion_modifier = {
+					target = SHN
+					modifier = attacks_on_our_economy
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	end_opium_production = {
+		icon = GFX_decision_generic_scorched_earth
+
+		allowed = {
+			original_tag = WAA
+		}
+
+		visible = {
+			NOT = {
+				has_country_flag = banned_heroin
+			}
+		}
+
+		cost = 300
+
+		highlight_states = {
+			highlight_states_trigger = {
+				state = 497
+			}
+		}
+
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision end_opium_production"
+			set_country_flag = banned_heroin
+			CHI = {
+				remove_opinion_modifier = {
+					target = ROOT
+					modifier = opium_trade_china
+				}
+			}
+			USA = {
+				remove_opinion_modifier = {
+					target = ROOT
+					modifier = opium_trade_usa
+				}
+			}
+			if = {
+				limit = { has_country_flag = banned_meth }
+				remove_ideas = WAA_Narcotics_Producer
+			}
+			if = {
+				limit = { has_idea = economic_boom }
+				custom_effect_tooltip = econvent.from_booming_tt
+				set_country_flag = disable_cycle_costs
+				hidden_effect = { add_ideas = fast_growth }
+				clr_country_flag = disable_cycle_costs
+				calculate_tax_gain = yes
+			}
+			else_if = {
+				limit = { has_idea = fast_growth }
+				custom_effect_tooltip = econvent.from_fast_growth_tt
+				set_country_flag = disable_cycle_costs
+				hidden_effect = { add_ideas = stable_growth }
+				clr_country_flag = disable_cycle_costs
+				calculate_tax_gain = yes
+			}
+			else_if = {
+				limit = { has_idea = stable_growth }
+				custom_effect_tooltip = econvent.from_stable_growth_tt
+				set_country_flag = disable_cycle_costs
+				hidden_effect = { add_ideas = stagnation }
+				clr_country_flag = disable_cycle_costs
+				calculate_tax_gain = yes
+			}
+			else_if = {
+				limit = { has_idea = stagnation }
+				custom_effect_tooltip = econvent.from_stagnation_tt
+				set_country_flag = disable_cycle_costs
+				hidden_effect = { add_ideas = recession }
+				clr_country_flag = disable_cycle_costs
+				calculate_tax_gain = yes
+			}
+			else_if = {
+				limit = { has_idea = recession }
+				custom_effect_tooltip = econvent.from_recession_tt
+				set_country_flag = disable_cycle_costs
+				hidden_effect = { add_ideas = depression }
+				clr_country_flag = disable_cycle_costs
+				calculate_tax_gain = yes
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	end_meth_production = {
+		icon = GFX_decision_generic_scorched_earth
+
+		allowed = { original_tag = WAA }
+
+		visible = {
+			NOT = {
+				has_country_flag = banned_meth
+			}
+		}
+
+		cost = 300
+
+		highlight_states = {
+			highlight_states_trigger = {
+				state = 497
+			}
+		}
+
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision end_meth_production"
+			set_country_flag = banned_meth
+			SIA = {
+				remove_opinion_modifier = {
+					target = ROOT
+					modifier = meth_trade_thailand
+				}
+			}
+			if = {
+				limit = { has_country_flag = banned_heroin }
+				remove_ideas = WAA_Narcotics_Producer
+			}
+			if = {
+				limit = { has_idea = economic_boom }
+				custom_effect_tooltip = econvent.from_booming_tt
+				set_country_flag = disable_cycle_costs
+				hidden_effect = { add_ideas = fast_growth }
+				clr_country_flag = disable_cycle_costs
+				calculate_tax_gain = yes
+			}
+			else_if = {
+				limit = { has_idea = fast_growth }
+				custom_effect_tooltip = econvent.from_fast_growth_tt
+				set_country_flag = disable_cycle_costs
+				hidden_effect = { add_ideas = stable_growth }
+				clr_country_flag = disable_cycle_costs
+				calculate_tax_gain = yes
+			}
+			else_if = {
+				limit = { has_idea = stable_growth }
+				custom_effect_tooltip = econvent.from_stable_growth_tt
+				set_country_flag = disable_cycle_costs
+				hidden_effect = { add_ideas = stagnation }
+				clr_country_flag = disable_cycle_costs
+				calculate_tax_gain = yes
+			}
+			else_if = {
+				limit = { has_idea = stagnation }
+				custom_effect_tooltip = econvent.from_stagnation_tt
+				set_country_flag = disable_cycle_costs
+				hidden_effect = { add_ideas = recession }
+				clr_country_flag = disable_cycle_costs
+				calculate_tax_gain = yes
+			}
+			else_if = {
+				limit = { has_idea = recession }
+				custom_effect_tooltip = econvent.from_recession_tt
+				set_country_flag = disable_cycle_costs
+				hidden_effect = { add_ideas = depression }
+				clr_country_flag = disable_cycle_costs
+				calculate_tax_gain = yes
+			}
+		}
+
+	}
+
+	attack_tatmadaw = {
+
+		icon = GFX_decision_generic_prepare_civil_war
+
+		allowed = {
+			OR = {
+				tag = KAC
+				tag = KAR
+				tag = SHN
+			}
+		}
+
+		visible = {
+			NOT = { has_country_flag = ceasefire }
+		}
+
+		available = {
+			has_equipment = {
+				Inf_equipment > 499
+			}
+			if = {
+				limit = {
+					tag = KAC
+				}
+				divisions_in_border_state = {
+					size > 0
+					state = 496
+					border_state = 505
+				}
+			}
+			else_if = {
+				limit = {
+					tag = KAR
+				}
+				divisions_in_border_state = {
+					size > 0
+					state = 501
+					border_state = 503
+				}
+			}
+			if = {
+				limit = {
+					tag = SHN
+				}
+				divisions_in_border_state = {
+					size > 0
+					state = 498
+					border_state = 930
+				}
+			}
+		}
+
+		custom_cost_trigger = {
+			command_power > 40
+		}
+
+		custom_cost_text = command_power_more_than_40
+
+		fire_only_once = no
+
+		highlight_states = {
+			highlight_states_trigger = {
+				state = 505
+			}
+		}
+
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision attack_tatmadaw"
+			add_command_power = -40
+			if = {
+				limit = { original_tag = KAC }
+				BRM = { country_event = { id = Insurgency.1 } }
+			}
+			else_if = {
+				limit = { original_tag = KAR }
+				BRM = { country_event = { id = Insurgency.2 } }
+			}
+			else_if = {
+				limit = { original_tag = SHN }
+				BRM = { country_event = { id = Insurgency.3 } }
+			}
+		}
+
+		days_remove = 30
+
+		days_re_enable = 90
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		modifier = {
+			experience_gain_army = 0.3
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove attack_tatmadaw"
+			if = {
+				limit = { original_tag = KAC }
+				start_border_war = {
+				change_state_after_war = no
+					attacker = {
+						state = 496
+						num_provinces = 1
+						on_win = Insurgency.6
+						on_lose = Insurgency.5
+						on_cancel = Insurgency.7
+					}
+					defender = {
+						state = 505
+						num_provinces = 1
+						on_win = Insurgency.5
+						on_lose = Insurgency.6
+						on_cancel = Insurgency.7
+					}
+				}
+			}
+			else_if = {
+				limit = { original_tag = KAR }
+				start_border_war = {
+					change_state_after_war = no
+					attacker = {
+						state = 501
+						num_provinces = 1
+						on_win = Insurgency.6
+						on_lose = Insurgency.5
+						on_cancel = Insurgency.7
+					}
+					defender = {
+						state = 503
+						num_provinces = 1
+						on_win = Insurgency.5
+						on_lose = Insurgency.6
+						on_cancel = Insurgency.7
+					}
+				}
+			}
+			else_if = {
+				limit = { original_tag = SHN }
+				start_border_war = {
+					change_state_after_war = no
+					attacker = {
+						state = 498
+						num_provinces = 1
+						on_win = Insurgency.6
+						on_lose = Insurgency.5
+						on_cancel = Insurgency.7
+					}
+					defender = {
+						state = 930
+						num_provinces = 1
+						on_win = Insurgency.5
+						on_lose = Insurgency.6
+						on_cancel = Insurgency.7
+					}
+				}
+			}
+		}
+
+	}
+
+	boost_national_sentiment = {
+
+		icon = GFX_decision_generic_nationalism
+
+		visible = {
+			OR = {
+				has_idea = Non_State_Actor
+				has_idea = Lacks_International_Recognition
+			}
+		}
+
+		fire_only_once = no
+
+		cost = 50
+
+		days_remove = 14
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove boost_national_sentiment"
+			set_temp_variable = { percent_change = 2 }
+			change_domestic_influence_percentage = yes
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+	}
+
+	declare_independence = {
+
+		icon = GFX_decision_generic_nationalism
+
+		allowed = {
+			OR = {
+				tag = KAC
+				tag = KAR
+				tag = SHN
+				tag = WAA
+			}
+		}
+
+		available = {
+			OR = {
+				custom_trigger_tooltip = {
+					tooltip = 11_BRM_influence_0_tt
+					NOT = { is_in_array = { array = influence_array value = BRM } }
+				}
+				BRM = { is_subject = yes }
+				BRM = { exists = no }
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 300
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision declare_independence"
+			if = {
+				limit = {
+					original_tag = KAR
+				}
+				set_cosmetic_tag = KAR_independent
+				clr_country_flag = dynamic_flag
+			}
+			else_if = {
+				limit = {
+					original_tag = KAC
+				}
+				set_cosmetic_tag = KAC_independent
+				clr_country_flag = dynamic_flag
+			}
+			else_if = {
+				limit = {
+					original_tag = SHN
+				}
+				set_cosmetic_tag = SHN_independent
+				clr_country_flag = dynamic_flag
+			}
+			else = {
+				set_cosmetic_tag = WAA_independent
+				clr_country_flag = dynamic_flag
+			}
+			swap_ideas = {
+				remove_idea = Non_State_Actor
+				add_idea = Lacks_International_Recognition
+			}
+			add_to_array = {
+				global.Unrecognised_States = THIS
+			}
+			set_variable = {
+				var = Granted_Recognition
+				value = 0
+			}
+			BRM = {
+				add_opinion_modifier = {
+					modifier = declared_independence
+					target = ROOT
+				}
+				set_country_flag = original_owner_@FROM
+			}
+			CHI = { set_country_flag = original_owner_@FROM }
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+}
+
+BRM_sangha_category = {
+
+	BRM_impose_state_religion = {
+
+		icon = GFX_decision_generic_civil_support
+
+		allowed = { tag = BRM }
+
+		visible = {
+			NOT = { has_idea = Buddhism_Official }
+		}
+
+		cost = 500
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision BRM_impose_state_religion"
+			add_ideas = Buddhism_Official
+			set_temp_variable = { temp_opinion = 5 }
+						change_the_priesthood_opinion = yes
+		}
+	}
+
+	BRM_remove_state_religion = {
+
+		icon = GFX_decision_generic_civil_support
+
+		allowed = { tag = BRM }
+
+		visible = {
+			has_idea = Buddhism_Official
+		}
+
+		cost = 800
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision BRM_remove_state_religion"
+			remove_ideas = Buddhism_Official
+			set_temp_variable = { temp_opinion = -10 }
+			change_the_priesthood_opinion = yes
+		}
+
+		days_remove = 30
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove BRM_remove_state_religion"
+		}
+
+	}
+
+	BRM_minor_funding = {
+
+		icon = GFX_decision_ger_mefo_bills
+
+		allowed = { tag = BRM }
+
+		custom_cost_trigger = {
+			check_variable = { treasury > 0.5 }
+		}
+		custom_cost_text = cost_0_5
+
+		available = {
+		}
+
+		visible = {
+			has_idea = the_priesthood
+		}
+
+
+		days_remove = 30
+
+		fixed_random_seed = no
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision BRM_minor_funding"
+			set_temp_variable = { treasury_change = -0.5 }
+			modify_treasury_effect = yes
+			if = { limit = { indifferent_the_priesthood = yes }
+				random_list = {
+					25 = {
+						set_temp_variable = { temp_opinion = 5 }
+						change_the_priesthood_opinion = yes
+					}
+					75 = {
+						add_political_power = -100
+					}
+				}
+			}
+			else_if = { limit = { negative_the_priesthood = yes }
+				random_list = {
+					20 = {
+						set_temp_variable = { temp_opinion = 5 }
+						change_the_priesthood_opinion = yes
+					}
+					80 = {
+						add_political_power = -100
+					}
+				}
+			}
+			else_if = { limit = { hostile_the_priesthood = yes }
+				random_list = {
+					10 = {
+						set_temp_variable = { temp_opinion = 5 }
+						change_the_priesthood_opinion = yes
+					}
+					90 = {
+						add_political_power = -100
+					}
+				}
+			}
+			else_if = { limit = { positive_the_priesthood = yes }
+				random_list = {
+					30 = {
+						set_temp_variable = { temp_opinion = 5 }
+						change_the_priesthood_opinion = yes
+					}
+					70 = {
+						add_political_power = -100
+					}
+				}
+			}
+			else_if = { limit = { enthusiastic_the_priesthood = yes }
+				add_political_power = 50
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	BRM_moderate_funding = {
+
+		icon = GFX_decision_ger_mefo_bills
+
+		allowed = { tag = BRM }
+
+		custom_cost_trigger = {
+			check_variable = { treasury > 1.75 }
+		}
+
+		custom_cost_text = cost_2_0
+
+		available = {
+		}
+
+		visible = {
+			has_idea = the_priesthood
+		}
+
+
+		days_remove = 30
+
+		fixed_random_seed = no
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision BRM_moderate_funding"
+			set_temp_variable = { treasury_change = -2 }
+			modify_treasury_effect = yes
+			if = { limit = { indifferent_the_priesthood = yes }
+				random_list = {
+					25 = {
+						set_temp_variable = { temp_opinion = 10 }
+						change_the_priesthood_opinion = yes
+					}
+					75 = {
+						add_political_power = -100
+					}
+				}
+			}
+			else_if = { limit = { negative_the_priesthood = yes }
+				random_list = {
+					20 = {
+						set_temp_variable = { temp_opinion = 10 }
+						change_the_priesthood_opinion = yes
+					}
+					80 = {
+						add_political_power = -100
+					}
+				}
+			}
+			else_if = { limit = { hostile_the_priesthood = yes }
+				random_list = {
+					10 = {
+						set_temp_variable = { temp_opinion = 10 }
+						change_the_priesthood_opinion = yes
+					}
+					90 = {
+						add_political_power = -100
+					}
+				}
+			}
+			else_if = { limit = { positive_the_priesthood = yes }
+				random_list = {
+					30 = {
+						set_temp_variable = { temp_opinion = 10 }
+						change_the_priesthood_opinion = yes
+					}
+					70 = {
+						add_political_power = -100
+					}
+				}
+			}
+			else_if = { limit = { enthusiastic_the_priesthood = yes }
+				add_political_power = 50
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	BRM_major_funding = {
+
+		icon = GFX_decision_ger_mefo_bills
+
+		allowed = { tag = BRM }
+
+		custom_cost_trigger = {
+			check_variable = { treasury > 4.75 }
+		}
+
+		custom_cost_text = cost_5_0
+
+		available = {
+		}
+
+		visible = {
+			has_idea = the_priesthood
+		}
+
+
+		days_remove = 30
+
+		fixed_random_seed = no
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision BRM_major_funding"
+			set_temp_variable = { treasury_change = -5 }
+			modify_treasury_effect = yes
+			if = { limit = { indifferent_the_priesthood = yes }
+				random_list = {
+					25 = {
+						set_temp_variable = { temp_opinion = 15 }
+						change_the_priesthood_opinion = yes
+					}
+					75 = {
+						add_political_power = -100
+					}
+				}
+			}
+			else_if = { limit = { negative_the_priesthood = yes }
+				random_list = {
+					20 = {
+						set_temp_variable = { temp_opinion = 15 }
+						change_the_priesthood_opinion = yes
+					}
+					80 = {
+						add_political_power = -100
+					}
+				}
+			}
+			else_if = { limit = { hostile_the_priesthood = yes }
+				random_list = {
+					10 = {
+						set_temp_variable = { temp_opinion = 15 }
+						change_the_priesthood_opinion = yes
+					}
+					90 = {
+						add_political_power = -100
+					}
+				}
+			}
+			else_if = { limit = { positive_the_priesthood = yes }
+				random_list = {
+					30 = {
+						set_temp_variable = { temp_opinion = 15 }
+						change_the_priesthood_opinion = yes
+					}
+					70 = {
+						add_political_power = -100
+					}
+				}
+			}
+			else_if = { limit = { enthusiastic_the_priesthood = yes }
+				add_political_power = 50
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}
+
+BRM_Administrative_Decisions = {
+
+	BRM_plans_for_new_capital = {
+
+		icon = GFX_decision_generic_operation
+
+		available = { tag = BRM }
+
+		fire_only_once = yes
+
+		visible = {
+			has_start_date > 2000.01.01
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove BRM_plans_for_new_capital"
+			set_country_flag = planning_a_new_capital
+		}
+
+		days_remove = 30
+
+		cost = 100
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	BRM_begin_construction_capital = {
+
+		icon = GFX_decision_generic_construction
+
+		available = {
+			tag = BRM
+		}
+
+		visible = {
+			has_start_date > 2000.01.01
+			has_country_flag = planning_a_new_capital
+		}
+
+		fire_only_once = yes
+
+		custom_cost_trigger = {
+			check_variable = { treasury > 3.75 }
+		}
+
+		custom_cost_text = cost_4_0
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision BRM_begin_construction_capital"
+			set_temp_variable = { treasury_change = -4 }
+			modify_treasury_effect = yes
+		}
+
+		days_remove = 100
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove BRM_begin_construction_capital"
+			set_capital = { state = 505 }
+			add_ideas = Strategic_Capital
+		}
+
+		modifier = {
+			civilian_factory_use = 2
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}

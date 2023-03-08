@@ -1,0 +1,219 @@
+technology_sharing_group = {
+
+	id = continuous_tech_share
+	name = continuous_tech_share_group_name
+	desc = continuous_tech_share_group_desc
+	picture = GFX_technology_sharing_default
+
+	research_sharing_per_country_bonus = 0.1
+	is_faction_sharing = yes
+
+	available = {
+		is_in_faction = yes
+	}
+}
+technology_sharing_group = {
+
+	id = NATO_Tech_Share
+	name = NATO_Tech_Share_name
+	desc = NATO_Tech_Share_desc
+	picture = GFX_technology_sharing_default
+
+	research_sharing_per_country_bonus = 0.01
+
+	available = {
+		or = {
+			has_idea = NATO_member
+			tag = USA
+		}
+	}
+}
+technology_sharing_group = {
+
+	id = Major_Non_NATO_Ally_Share
+	name = Major_Non_NATO_Ally_name
+	desc = Major_Non_NATO_Ally_desc
+	picture = GFX_Major_Non_NATO_Ally_sharing
+
+	research_sharing_per_country_bonus = 0.01
+
+	available = {
+		has_country_flag = Major_Non_NATO_Ally
+	}
+}
+technology_sharing_group = {
+
+	id = CSTO_Tech_Share
+	name = CSTO_Tech_Share_name
+	desc = CSTO_Tech_Share_desc
+	picture = GFX_technology_sharing_default
+
+	research_sharing_per_country_bonus = 0.01
+	is_faction_sharing = yes
+
+	available = {
+		is_in_faction = yes
+		or = {
+			is_in_faction_with = SOV
+			tag = SOV
+		}
+	}
+
+}
+technology_sharing_group = {
+
+	id = SHANGHAI_PACT_research
+	name = SHANGHAI_PACT_Share_name
+	desc = SHANGHAI_PACT_Share_desc
+	picture = GFX_technology_sharing_default
+
+	research_sharing_per_country_bonus = 0.02
+	is_faction_sharing = yes
+
+	available = {
+		or = {
+			is_in_faction_with = CHI
+			tag = CHI
+		}
+	}
+}
+technology_sharing_group = {
+
+	id = GCC_Tech_Share
+	name = GCC_Share_name
+	desc = GCC_Share_desc
+	picture = GFX_technology_sharing_default
+
+	research_sharing_per_country_bonus = 0.02
+	is_faction_sharing = yes
+
+	available = {
+		is_in_faction = yes
+		or = {
+			is_in_faction_with = SAU
+			tag = SAU
+		}
+	}
+}
+technology_sharing_group = {
+
+	id = Greater_China_Tech_Share
+	name = Greater_China_Share_name
+	desc = Greater_China_Share_desc
+	picture = GFX_technology_sharing_default
+
+	research_sharing_per_country_bonus = 0.025
+	is_faction_sharing = yes
+
+	available = {
+	}
+
+}
+technology_sharing_group = {
+
+	id = Iron_Brothers_Tech_Share
+	name = Iron_Brothers_Share_name
+	desc = Iron_Brothers_Share_desc
+	picture = GFX_technology_sharing_default
+
+	research_sharing_per_country_bonus = 0.02
+
+	available = {
+	}
+}
+
+technology_sharing_group = {
+
+	id = China_Africa_Tech_Share
+	name = China_Africa_Share_name
+	desc = China_Africa_Share_desc
+	picture = GFX_technology_sharing_default
+
+	research_sharing_per_country_bonus = 0.01
+
+	available = {
+	}
+}
+technology_sharing_group = {
+
+	id = EU_Tech_Share
+	name = EU_Tech_Share_name
+	desc = EU_Tech_Share_desc
+	picture = GFX_technology_sharing_default
+
+	research_sharing_per_country_bonus = 0.01
+
+	available = {
+		has_idea = EU_member
+	}
+}
+
+technology_sharing_group = {
+
+	id = anti_hezbollah_Tech_Share
+	name = anti_hezbollah_Tech_Share_name
+	desc = anti_hezbollah_Tech_Share_desc
+	picture = GFX_technology_sharing_default
+
+	research_sharing_per_country_bonus = 0.05
+
+	available = {
+	}
+}
+technology_sharing_group = {
+
+	id = israel_usa_Tech_Share
+	name = israel_usa_Tech_Share_Share_name
+	desc = israel_usa_Tech_Share_Share_desc
+	picture = GFX_technology_sharing_default
+
+	research_sharing_per_country_bonus = 0.05
+
+	available = {
+	}
+}
+
+technology_sharing_group = {
+
+	id = korea_europe_Tech_Share
+	name = korea_europe_Share_name
+	desc = korea_europe_Share_desc
+	picture = GFX_technology_sharing_default
+
+	research_sharing_per_country_bonus = 0.01
+
+	available = {
+	}
+}
+
+technology_sharing_group = {
+
+	id = korea_israel_Tech_Share
+	name = korea_israel_Share_name
+	desc = korea_israel_Share_desc
+	picture = GFX_technology_sharing_default
+
+	research_sharing_per_country_bonus = 0.02
+
+	available = {
+	}
+}
+
+technology_sharing_group = {
+
+	id = iran_allies_Tech_Share
+	name = iran_allies_Share_name
+	desc = iran_allies_Share_desc
+	picture = GFX_technology_sharing_default
+
+	is_faction_sharing = yes
+	research_sharing_per_country_bonus = 0.02
+
+	available = {
+		is_in_faction = yes
+		or = {
+			is_in_faction_with = PER
+			tag = PER
+		}
+	}
+}

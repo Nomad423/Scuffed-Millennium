@@ -1,0 +1,31 @@
+﻿add_namespace = Cameroon
+
+# Mount Cameroon Eruption of 2000
+country_event = {
+	id = Cameroon.1
+	title = Cameroon.1.t
+	desc = Cameroon.1.d
+	picture = GFX_volcano
+	fire_only_once = yes
+	is_triggered_only = yes
+	trigger = {
+		tag = CAM
+	}
+
+	option = {
+		name = Cameroon.1.a
+		log = "[GetDateText]: [This.GetName]: Cameroon.1.a executed"
+		add_stability = -0.03
+	}
+
+	option = {
+		name = Cameroon.1.b
+		log = "[GetDateText]: [This.GetName]: Cameroon.1.b executed"
+		add_political_power = -40
+		add_stability = 0.02
+
+		ai_chance = {
+			factor = 1
+		}
+	}
+}

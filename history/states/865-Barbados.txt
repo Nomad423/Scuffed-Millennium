@@ -1,0 +1,34 @@
+state = {
+	id = 865
+	name = "STATE_865"
+	manpower = 270000
+	state_category = state_00
+	
+	history = {
+		owner = BAR
+		victory_points = { 11350 1 } #Bridgetown
+		
+		buildings = {
+			infrastructure = 2
+			internet_station = 1
+			air_base = 2
+			
+			11350 = {
+				naval_base = 2
+			}
+
+		}
+		add_core_of = BAR
+		2017.1.1 = {
+			buildings = {
+				internet_station = 3
+			}
+			add_manpower = 8000
+		}
+	}
+
+	provinces = {
+		  11350
+		
+		}
+}

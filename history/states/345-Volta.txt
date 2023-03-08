@@ -1,0 +1,31 @@
+
+state = {
+	id = 345
+	name = "STATE_345"
+
+	history = {
+		owner = GAH
+		victory_points = {
+			12785 1 
+		}
+		buildings = {
+			infrastructure = 1
+			internet_station = 0
+
+		}
+		add_core_of = GAH
+		2017.1.1 = {
+			add_manpower = 1809059
+			buildings = {
+				internet_station = 1
+			}
+		}
+	}
+
+	provinces = {
+		9569 12785 13136
+	}
+	manpower = 3413350
+	buildings_max_level_factor = 1.000
+	state_category = state_04
+}

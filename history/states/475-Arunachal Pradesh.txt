@@ -1,0 +1,34 @@
+state = {
+	id = 475
+	name = "STATE_475"
+	manpower = 1265790
+	state_category = state_02
+
+	history = {
+		owner = RAJ
+		victory_points = {
+			10810 1 
+		}
+		victory_points = {
+			12730 1 
+		}
+		buildings = {
+			infrastructure = 1
+			internet_station = 0
+		}
+		add_core_of = RAJ
+		add_claim_by = CHI
+		add_claim_by = TAI
+		add_claim_by = TIB
+		2017.1.1 = {
+			buildings = {
+				internet_station = 1
+			}
+			add_manpower = 367488
+		}
+	}
+
+	provinces = {
+		1116 1996 10810 12730 7 26 36 44 
+	}
+}

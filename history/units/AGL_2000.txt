@@ -1,0 +1,177 @@
+﻿division_template = {
+	name = "MPLA Division"
+
+	regiments = {
+		Militia_Bat = { x = 0 y = 0 }
+		Militia_Bat = { x = 0 y = 1 }
+		Militia_Bat = { x = 0 y = 2 }
+		Militia_Bat = { x = 1 y = 0 }
+		Militia_Bat = { x = 1 y = 1 }
+		Militia_Bat = { x = 1 y = 2 }
+		Militia_Bat = { x = 2 y = 0 }
+		Militia_Bat = { x = 2 y = 1 }
+		Militia_Bat = { x = 2 y = 2 }
+	}
+}
+
+#Around 130k militia
+
+units = {
+
+	division = {
+		name = "1st MPLA Division"
+		location = 13348
+		division_template = "MPLA Division"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.01
+	}
+	division = {
+		name = "2nd MPLA Division"
+		location = 5158
+		division_template = "MPLA Division"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.01
+	}
+	division = {
+		name = "3rd MPLA Division"
+		location = 13391
+		division_template = "MPLA Division"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.01
+	}
+	division = {
+		name = "4th MPLA Division"
+		location = 13358
+		division_template = "MPLA Division"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.01
+	}
+	division = {
+		name = "5th MPLA Division"
+		location = 12958
+		division_template = "MPLA Division"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.01
+	}
+	division = {
+		name = "6th MPLA Division"
+		location = 9443
+		division_template = "MPLA Division"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.01
+	}
+	division = {
+		name = "7th MPLA Division"
+		location = 13351
+		division_template = "MPLA Division"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.01
+	}
+	division = {
+		name = "8th MPLA Division"
+		location = 9459
+		division_template = "MPLA Division"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.01
+	}
+	division = {
+		name = "9th MPLA Division"
+		location = 9459
+		division_template = "MPLA Division"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.01
+	}
+	division = {
+		name = "10th MPLA Division"
+		location = 2126
+		division_template = "MPLA Division"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.01
+	}
+	division = {
+		name = "11th MPLA Division"
+		location = 9455
+		division_template = "MPLA Division"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.01
+	}
+	division = {
+		name = "12th MPLA Division"
+		location = 12981
+		division_template = "MPLA Division"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.01
+	}
+	division = {
+		name = "13th MPLA Division"
+		location = 12981
+		division_template = "MPLA Division"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.01
+	}
+	division = {
+		name = "14th MPLA Division"
+		location = 9482
+		division_template = "MPLA Division"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.01
+	}
+	division = {
+		name = "15th MPLA Division"
+		location = 9514
+		division_template = "MPLA Division"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.01
+	}
+	division = {
+		name = "16th MPLA Division"
+		location = 13345
+		division_template = "MPLA Division"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.01
+	}
+	division = {
+		name = "17th MPLA Division"
+		location = 13384
+		division_template = "MPLA Division"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.01
+	}
+	division = {
+		name = "18th MPLA Division"
+		location = 13385
+		division_template = "MPLA Division"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.01
+	}
+	division = {
+		name = "19th MPLA Division"
+		location = 7548
+		division_template = "MPLA Division"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.01
+	}
+
+}
+instant_effect = {
+
+
+	add_equipment_to_stockpile = {
+		type = infantry_weapons			#AKs
+		amount = 29000
+		producer = SOV
+	}
+
+	add_equipment_to_stockpile = {
+		type = Anti_tank_0			#Malyutka
+		amount = 200
+		producer = SOV
+	}
+
+	add_equipment_to_stockpile = {
+		type = Anti_Air_0			#SA-7
+		amount = 200
+		producer = SOV
+	}
+
+}

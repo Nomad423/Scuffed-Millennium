@@ -1,0 +1,321 @@
+#Written by Hiddengearz
+##Balances done by Bird
+equipments = {
+	util_vehicle_equipment = {
+		is_archetype = yes
+		is_buildable = no
+
+		fuel_consumption = 1.0
+
+		type = {
+			motorized
+		}
+
+		group_by = archetype
+
+		interface_category = interface_category_land
+
+		upgrades = {
+			Util_Armor
+			Util_Mobility
+			Util_Weapons
+		}
+
+		#Misc Abilities
+		maximum_speed = 14
+		reliability = 0.9
+
+		#Offensive Abilities
+		soft_attack = 1
+		hard_attack = 0
+		ap_attack = 0
+		air_attack = 0
+
+		#Defensive Abilities
+		defense = 1
+		breakthrough = 2
+		hardness = 0.3
+		armor_value = 0
+
+		#Space taken in convoy
+		lend_lease_cost = 5
+
+		build_cost_ic = 2
+		resources = {
+			steel = 2
+			rubber = 1
+		}
+		supply_truck = yes
+	}
+
+	#1965
+	util_vehicle_0 = {
+		year = 1965
+
+		archetype = util_vehicle_equipment
+		priority = 5
+
+		#Misc Abilities
+		maximum_speed = 14.5
+		reliability = 0.8
+
+		#Offensive Abilities
+		soft_attack = 0
+		hard_attack = 1
+		ap_attack = 0
+		air_attack = 0
+
+		#Defensive Abilities
+		defense = 1
+		breakthrough = 2
+		hardness = 0.3
+		armor_value = 0
+
+		#Space taken in convoy
+		lend_lease_cost = 5
+
+		build_cost_ic = 2
+		resources = {
+			steel = 2
+			rubber = 1
+		}
+	}
+	#1975
+	util_vehicle_1 = {
+		year = 1975
+
+		archetype = util_vehicle_equipment
+		parent = util_vehicle_0
+		priority = 5
+
+		#Misc Abilities
+		maximum_speed = 15
+		reliability = 0.825
+
+		#Offensive Abilities
+		soft_attack = 0
+		hard_attack = 1.75
+		ap_attack = 0
+		air_attack = 0
+
+		#Defensive Abilities
+		defense = 1.75
+		breakthrough = 2.5
+		hardness = 0.3
+		armor_value = 0
+
+		#Space taken in convoy
+		lend_lease_cost = 5
+		fuel_consumption = 1.2
+
+		build_cost_ic = 2.5
+		resources = {
+			steel = 2
+			rubber = 1
+		}
+	}
+	#1985
+	util_vehicle_2 = {
+		year = 1985
+
+		archetype = util_vehicle_equipment
+		parent = util_vehicle_1
+		priority = 5
+
+		#Misc Abilities
+		maximum_speed = 15.5
+		reliability = 0.85
+
+		#Offensive Abilities
+		soft_attack = 0
+		hard_attack = 2.5 #+1
+		ap_attack = 0
+		air_attack = 0
+
+		#Defensive Abilities
+		defense = 2.5
+		breakthrough = 3
+		hardness = 0.3
+		armor_value = 0
+
+		#Space taken in convoy
+		lend_lease_cost = 5
+		fuel_consumption = 1.4
+
+		build_cost_ic = 3
+		resources = {
+			steel = 2
+			rubber = 1
+		}
+	}
+	#1995
+	util_vehicle_3 = {
+		year = 1995
+
+		archetype = util_vehicle_equipment
+		parent = util_vehicle_2
+		priority = 5
+
+		#Misc Abilities
+		maximum_speed = 16
+		reliability = 0.875
+
+		#Offensive Abilities
+		soft_attack = 0
+		hard_attack = 3.25 #+1
+		ap_attack = 0
+		air_attack = 0
+
+		#Defensive Abilities
+		defense = 3.25
+		breakthrough = 3.5
+		hardness = 0.3
+		armor_value = 0
+
+		#Space taken in convoy
+		lend_lease_cost = 5
+		fuel_consumption = 1.6
+
+		build_cost_ic = 3.5
+		resources = {
+			steel = 2
+			rubber = 1
+		}
+	}
+	#2005
+	util_vehicle_4 = {
+		year = 2005
+
+		archetype = util_vehicle_equipment
+		parent = util_vehicle_3
+		priority = 5
+
+		#Misc Abilities
+		maximum_speed = 16.5
+		reliability = 0.9
+
+		#Offensive Abilities
+		soft_attack = 0
+		hard_attack = 4 #+1
+		ap_attack = 0
+		air_attack = 0
+
+		#Defensive Abilities
+		defense = 4
+		breakthrough = 4
+		hardness = 0.3
+		armor_value = 0
+
+		#Space taken in convoy
+		lend_lease_cost = 5
+		fuel_consumption = 1.8
+
+		build_cost_ic = 4
+		resources = {
+			steel = 2
+			rubber = 1
+		}
+	}
+	#2015
+	util_vehicle_5 = {
+		year = 2015
+
+		archetype = util_vehicle_equipment
+		parent = util_vehicle_4
+		priority = 5
+
+		#Misc Abilities
+		maximum_speed = 17
+		reliability = 0.9
+
+		#Offensive Abilities
+		soft_attack = 0
+		hard_attack = 4.75
+		ap_attack = 0
+		air_attack = 0
+
+		#Defensive Abilities
+		defense = 4.75
+		breakthrough = 4.5
+		hardness = 0.3
+		armor_value = 0
+
+		#Space taken in convoy
+		lend_lease_cost = 5
+		fuel_consumption = 2.0
+
+		build_cost_ic = 4.5
+		resources = {
+			steel = 2
+			rubber = 1
+		}
+	}
+	#2025
+	util_vehicle_6 = {
+		year = 2025
+
+		archetype = util_vehicle_equipment
+		parent = util_vehicle_5
+		priority = 5
+
+		#Misc Abilities
+		maximum_speed = 17.5
+		reliability = 0.925
+
+		#Offensive Abilities
+		soft_attack = 0
+		hard_attack = 5.5
+		ap_attack = 0
+		air_attack = 0
+
+		#Defensive Abilities
+		defense = 5.5
+		breakthrough = 5
+		hardness = 0.3
+		armor_value = 0
+
+		#Space taken in convoy
+		lend_lease_cost = 5
+		fuel_consumption = 2.2
+
+		build_cost_ic = 4.75
+		resources = {
+			steel = 2
+			rubber = 1
+		}
+	}
+	#2035
+	util_vehicle_7 = {
+		year = 2035
+
+		archetype = util_vehicle_equipment
+		parent = util_vehicle_6
+		priority = 5
+
+		#Misc Abilities
+		maximum_speed = 18
+		reliability = 0.925
+
+		#Offensive Abilities
+		soft_attack = 0
+		hard_attack = 6.25
+		ap_attack = 0
+		air_attack = 0
+
+		#Defensive Abilities
+		defense = 6.25
+		breakthrough = 5.5
+		hardness = 0.3
+		armor_value = 0
+
+		#Space taken in convoy
+		lend_lease_cost = 5
+		fuel_consumption = 2.4
+
+		build_cost_ic = 5.25
+		resources = {
+			steel = 2
+			rubber = 1
+		}
+	}
+}

@@ -1,0 +1,45 @@
+
+state = {
+	id = 303
+	name = "STATE_303"
+
+	history = {
+		owner = DRC
+		victory_points = {
+			13413 4
+		}
+		victory_points = {
+			13404 1 
+		}
+		victory_points = {
+			3583 5
+		}
+		victory_points = {
+			3519 4 
+		}
+		buildings = {
+			infrastructure = 0
+			internet_station = 0
+
+		}
+		add_core_of = DRC
+		add_core_of = RCD
+		add_core_of = MLC
+		2017.1.1 = {
+			buildings = {
+				internet_station = 0
+			}
+			remove_core_of = RCD
+			remove_core_of = MLC
+			add_manpower = 2000000
+			add_manpower = 677813
+		}
+	}
+
+	provinces = {
+		10025 12896 12945 3475 3519 3583 13413 13414 13415 13416 13417 13418 13419 13420 13421 13422 13423 13424 13425 13426 3774 6225 6252 12775 13399 13400 13401 13402 13403 13404 13406 13407 13408 13409 13410 13411 13412 13715 13716
+	}
+	manpower = 3758479
+	buildings_max_level_factor = 1.000
+	state_category = state_04
+}

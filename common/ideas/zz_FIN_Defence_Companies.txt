@@ -1,0 +1,112 @@
+ideas = {
+
+	Vehicle_Company = {
+
+		designer = yes
+
+		FIN_patria_vehicle_company = {
+			allowed = { original_tag = FIN }
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea FIN_patria_vehicle_company" }
+
+			picture = Patria
+
+			cost = 150
+
+			removal_cost = 10
+
+			research_bonus = {
+				Cat_AFV = 0.248
+			}
+
+			traits = {
+				Cat_AFV_8
+
+			}
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}
+
+	Infantry_Weapon_Company = {
+
+		designer = yes
+
+		FIN_patria_infantry_weapon_company = {
+			allowed = { original_tag = FIN }
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea FIN_patria_infantry_weapon_company" }
+
+			picture = Patria
+
+			cost = 150
+
+			removal_cost = 10
+
+			research_bonus = {
+				Cat_L_DRONE = 0.248
+			}
+
+			traits = {
+				Cat_L_DRONE_8
+
+			}
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}
+
+	Infantry_Weapon_Company = {
+
+		designer = yes
+
+		FIN_sako_infantry_weapon_company = {
+			allowed = { original_tag = FIN }
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea FIN_sako_infantry_weapon_company" }
+
+			picture = SAKO
+
+			cost = 150
+
+			removal_cost = 10
+
+			research_bonus = {
+				Cat_INF_WEP = 0.155
+			}
+
+			traits = {
+				Cat_INF_WEP_5
+
+			}
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}
+
+	Ship_Company = {
+
+		designer = yes
+
+		FIN_meyer_turku_ship_company = {
+			allowed = { original_tag = FIN }
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea FIN_meyer_turku_ship_company" }
+
+			picture = Meyer_Turku
+			cost = 150
+
+			removal_cost = 10
+
+			research_bonus = {
+				Cat_TRANS_SHIP = 0.186
+			}
+
+			traits = {
+				Cat_TRANS_SHIP_6
+			}
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}
+}

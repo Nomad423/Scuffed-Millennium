@@ -1,0 +1,44 @@
+
+state = {
+	id = 287
+	name = "STATE_287"
+	resources = {
+		tungsten = 4.000
+		steel = 4.000
+		chromium = 32
+	}
+
+	history = {
+		owner = BOT
+		victory_points = {
+			336 5 
+		}
+		victory_points = {
+			10525 1 
+		}
+		victory_points = {
+			530 1 
+		}
+		buildings = {
+			infrastructure = 2
+			internet_station = 2
+			air_base = 4
+			industrial_complex = 1
+
+		}
+		add_core_of = BOT
+		2017.1.1 = {
+			add_manpower = 533881
+			buildings = {
+				internet_station = 4
+			}
+		}
+	}
+
+	provinces = {
+		8214 10525 336 530 432 468 
+	}
+	manpower = 1489700
+	buildings_max_level_factor = 1.000
+	state_category = state_02
+}

@@ -1,0 +1,28 @@
+state = {
+	id = 476
+	name = "STATE_476"
+	manpower = 1990036
+	state_category = state_02
+
+	history = {
+		owner = RAJ
+		victory_points = {
+			12025 2
+		}
+		buildings = {
+			infrastructure = 0
+			internet_station = 0
+		}
+		add_core_of = RAJ
+		2017.1.1 = {
+			buildings = {
+				internet_station = 0
+			}
+			add_manpower = 539928
+		}
+	}
+
+	provinces = {
+		4087 12025 247 
+	}
+}

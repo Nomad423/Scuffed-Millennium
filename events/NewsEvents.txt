@@ -1,0 +1,220 @@
+﻿###########################
+# News Events
+# 1-x by HansNery
+###########################
+
+add_namespace = news
+
+# Free Trade Agreement Signed
+news_event = {
+	id = news.1
+	immediate = { log = "[GetDateText]: [Root.GetName]: event news.1" }
+	title = news.1.t
+	desc = news.1.d
+	picture = GFX_trade_agreement
+
+	major = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = news.1.a
+		log = "[GetDateText]: [This.GetName]: news.1.a executed"
+	}
+}
+
+# Military Cooperation Treaty Signed
+news_event = {
+	id = news.2
+	immediate = { log = "[GetDateText]: [Root.GetName]: event news.2" }
+	title = news.2.t
+	desc = news.2.d
+	picture = GFX_trade_agreement
+
+	major = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = news.2.a
+		log = "[GetDateText]: [This.GetName]: news.2.a executed"
+	}
+}
+
+#USS Cole News Event
+news_event = {
+	id = news.3
+	immediate = { log = "[GetDateText]: [Root.GetName]: event news.3" }
+	title = news.3.t
+	desc = news.3.d
+	picture = GFX_cole_attack # News Event
+
+	major = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = news.3.a
+		log = "[GetDateText]: [This.GetName]: news.3.a executed"
+		trigger = {
+			original_tag = USA
+		}
+	}
+
+	option = {
+		name = news.3.b
+		log = "[GetDateText]: [This.GetName]: news.3.b executed"
+		trigger = {
+			NOT = { original_tag = USA }
+			NOT = { original_tag = NKO }
+			NOT = { original_tag = SUD }
+			NOT = { has_war_with = USA }
+		}
+	}
+
+	option = {
+		name = news.3.c
+		log = "[GetDateText]: [This.GetName]: news.3.c executed"
+		trigger = {
+			OR = {
+				original_tag = NKO
+				has_war_with = USA
+			}
+		}
+	}
+
+	option = {
+		name = news.3.e
+		log = "[GetDateText]: [This.GetName]: news.3.e executed"
+		trigger = {
+			original_tag = SUD
+		}
+	}
+}
+
+#[Country] leaves the EU!
+news_event = {
+	id = news.4
+	immediate = { log = "[GetDateText]: [Root.GetName]: event news.4" }
+	title = news.4.t
+	desc = news.4.d
+	picture = GFX_eu
+
+	major = yes
+	is_triggered_only = yes
+
+	option = {
+		name = news.4.a
+		log = "[GetDateText]: [This.GetName]: news.4.a executed"
+	}
+}
+#Preparing the EU to Unite
+news_event = {
+	id = news.5
+	immediate = { log = "[GetDateText]: [Root.GetName]: event news.5" }
+	title = news.5.t
+	desc = news.5.d
+	picture = GFX_eu
+
+	major = yes
+	is_triggered_only = yes
+
+	option = {
+		name = news.5.a
+		log = "[GetDateText]: [This.GetName]: news.5.a executed"
+	}
+}
+#Japan Retreats
+news_event = {
+	id = news.82
+	immediate = { log = "[GetDateText]: [Root.GetName]: event news.82" }
+	title = news.82.t
+	desc = news.82.desc
+	picture = GFX_news_generic_soldiers
+
+	is_triggered_only = yes
+
+	option = {
+		name = news.82.a
+		log = "[GetDateText]: [This.GetName]: news.82.a executed"
+		trigger = {
+			original_tag = JAP
+		}
+	}
+
+	option = {
+		name = news.82.b
+		log = "[GetDateText]: [This.GetName]: news.82.b executed"
+		trigger = {
+			NOT = { original_tag = JAP }
+		}
+	}
+}
+#bosnia civil war
+news_event = {
+	id = news.83
+	immediate = { log = "[GetDateText]: [Root.GetName]: event news.83" }
+	title = news.83.t
+	desc = news.83.desc
+	picture = GFX_lead_up_to_civil_war
+
+	is_triggered_only = yes
+
+	option = {
+		name = news.83.a
+		log = "[GetDateText]: [This.GetName]: news.83.a executed"
+	}
+
+	
+}
+#bosnian mujahideen joins the war
+news_event = {
+	id = news.84
+	immediate = { log = "[GetDateText]: [Root.GetName]: event news.84" }
+	title = news.84.t
+	desc = news.84.desc
+	picture = GFX_muj_bosnia_news_event
+
+	is_triggered_only = yes
+
+	option = {
+		name = news.84.a
+		log = "[GetDateText]: [This.GetName]: news.84.a executed"
+	}
+
+	
+}
+#bosnia unites yugoslavia
+news_event = {
+	id = news.85
+	immediate = { log = "[GetDateText]: [Root.GetName]: event news.85" }
+	title = news.85.t
+	desc = news.85.desc
+	picture = GFX_bosnia_news_car
+
+	is_triggered_only = yes
+
+	option = {
+		name = news.85.a
+		log = "[GetDateText]: [This.GetName]: news.85.a executed"
+	}
+
+	
+}
+#bosnian civil war ends 
+news_event = {
+	id = news.86
+	immediate = { log = "[GetDateText]: [Root.GetName]: event news.86" }
+	title = news.86.t
+	desc = news.86.desc
+	picture = GFX_bosnian_end_to_war
+
+	is_triggered_only = yes
+
+	option = {
+		name = news.86.a
+		log = "[GetDateText]: [This.GetName]: news.86.a executed"
+	}
+
+	
+}

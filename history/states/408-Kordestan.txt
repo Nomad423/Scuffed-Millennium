@@ -1,0 +1,39 @@
+
+state = {
+	id = 408
+	name = "STATE_408"
+
+	history = {
+		owner = PER
+		victory_points = {
+			5098 5
+		}
+		victory_points = {
+			829 1 
+		}
+		victory_points = {
+			4943 1
+		}
+		victory_points = {
+			12773 5
+		}
+		buildings = {
+			infrastructure = 1
+			internet_station = 0
+			arms_factory = 1
+		}
+		add_core_of = PER
+		add_core_of = KUR
+		2017.1.1 = {
+			add_manpower = 24198
+		}
+
+	}
+
+	provinces = {
+		4008 4943 5098 829 12773
+	}
+	manpower = 3452282
+	buildings_max_level_factor = 1.000
+	state_category = state_04
+}

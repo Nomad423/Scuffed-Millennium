@@ -1,0 +1,38 @@
+
+state = {
+	id = 254
+	name = "STATE_254"
+
+	history = {
+		owner = TNZ
+		victory_points = {
+			13654 1
+		}
+		victory_points = {
+			8144 1
+		}
+		victory_points = {
+			9324 1
+		}
+
+		buildings = {
+			infrastructure = 0
+			internet_station = 0
+
+		}
+		add_core_of = TNZ
+		2017.1.1 = {
+			add_manpower = 256987
+			buildings = {
+				internet_station = 0
+			}
+		}
+	}
+
+	provinces = {
+		2176 2281 5180 8144 9312 9324 9330 9339 13199 13651 13652 13653 13654 13655 13656 13657 13658 13659 13660
+	}
+	manpower = 5233973
+	buildings_max_level_factor = 1.000
+	state_category = state_06
+}

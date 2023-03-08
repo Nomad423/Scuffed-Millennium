@@ -1,0 +1,98 @@
+﻿add_namespace = Somalia
+add_namespace = SomaliaNews
+
+### Somalia civil war cleanup events ###
+#Al-Shabaab victory
+news_event = {
+
+	id = SomaliaNews.0
+	title = SomaliaNews.0.t
+	desc = SomaliaNews.0.d
+
+	picture = GFX_news_somalia_civil_war_jihadists
+
+	major = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = SomaliaNews.0.a
+		log = "[GetDateText]: [This.GetName]: SomaliaNews.0.a executed"
+		trigger = {	NOT = { has_government = fascism } }
+		ai_chance = { factor = 100 }
+	}
+	option = {
+		name = SomaliaNews.0.b
+		log = "[GetDateText]: [This.GetName]: SomaliaNews.0.b executed"
+		trigger = {	has_government = fascism }
+		ai_chance = { factor = 100 }
+	}
+
+}
+
+#Government victory
+news_event = {
+
+	id = SomaliaNews.1
+	title = SomaliaNews.1.t
+	desc = SomaliaNews.1.d
+
+	picture = GFX_news_somalia_civil_war
+
+	major = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = SomaliaNews.1.a
+		log = "[GetDateText]: [This.GetName]: SomaliaNews.1.a executed"
+		trigger = {	NOT = { has_government = fascism } }
+		ai_chance = { factor = 100 }
+	}
+	option = {
+		name = SomaliaNews.1.b
+		log = "[GetDateText]: [This.GetName]: SomaliaNews.1.b executed"
+		trigger = {	has_government = fascism }
+		ai_chance = { factor = 100 }
+	}
+
+}
+
+#Government victory
+news_event = {
+
+	id = SomaliaNews.2
+	title = SomaliaNews.2.t
+	desc = {
+		text = SomaliaNews.2.SOM.d
+		trigger = { FROM = { original_tag = SOM } }
+	}
+	desc = {
+		text = SomaliaNews.2.SNA.d
+		trigger = { FROM = { original_tag = SNA } }
+	}
+	desc = {
+		text = SomaliaNews.2.Separatist.d
+		trigger = {
+			FROM = {
+				OR = {
+					original_tag = SWS
+					original_tag = JUB
+				}
+			}
+		}
+	}
+
+	picture = GFX_news_somalia_civil_war
+
+	major = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = SomaliaNews.2.a
+		log = "[GetDateText]: [This.GetName]: SomaliaNews.2.a executed"
+		ai_chance = { factor = 100 }
+	}
+
+}

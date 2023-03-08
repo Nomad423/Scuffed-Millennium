@@ -1,0 +1,54 @@
+state = {
+	id = 39
+	name = "STATE_39"
+	manpower = 13376376
+	state_category = state_10
+
+	resources = {
+		aluminium = 25
+		steel = 80
+	}
+
+	history = {
+		owner = GER
+		victory_points = {
+			6469 5
+		}
+		victory_points = {
+			495 5
+		}
+		victory_points = {
+			6570 10
+		}
+		victory_points = {
+			6535 5
+		}
+		victory_points = {
+			405 3
+		}
+		victory_points = {
+			3355 1
+		}
+		buildings = {
+			infrastructure = 3
+			internet_station = 2
+			arms_factory = 4
+			industrial_complex = 3
+			offices = 6
+			air_base = 3
+		}
+		add_core_of = GER
+		2017.1.1 = {
+			add_manpower = 130169
+			buildings = {
+				internet_station = 4
+				industrial_complex = 4
+				offices = 7
+			}
+		}
+	}
+
+	provinces = {
+		405 495 3355 3398 3512 6469 6535 6570 6622 9509 11346 11431
+	}
+}

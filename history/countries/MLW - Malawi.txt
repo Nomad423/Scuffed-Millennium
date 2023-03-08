@@ -1,0 +1,276 @@
+﻿capital = 260
+2000.1.1 = {
+	oob = "MLW_2000"
+	set_convoys = 5
+	set_cosmetic_tag = MLW
+	set_country_flag = dynamic_flag
+	set_country_flag = dynamic_rebel_flag
+	add_ideas = {
+		#pop_050
+		unrestrained_corruption
+
+		christian
+		stable_growth
+		defence_01
+		edu_03
+		health_02
+		social_01
+		bureau_02
+		AU_member
+		police_02
+		volunteer_army
+		volunteer_women
+		farmers
+		international_bankers
+		small_medium_business_owners
+		consumption_economy
+		commonwealth_of_nations_member
+		officer_basic_training
+		rising_level_of_aids
+	}
+
+	# Starting tech
+	set_technology = {
+		integrated_transportation_system = 1
+		post_conventional_rail = 1
+		early_freight_locomotive = 1
+
+		legacy_doctrines = 1
+		infantry_mass_assault = 1
+		#For templates
+		infantry_weapons = 1
+		command_control_equipment = 1
+		Anti_tank_0 = 1
+		Anti_Air_0 = 1
+
+		basic_computing = 1
+		integrated_circuit = 1
+		computing1 = 1
+		decryption1 = 1
+		encryption1 = 1
+
+		radar = 1
+		internet1 = 1 	#1G
+		fuel_silos = 1
+	}
+
+	#Influence system
+	init_influence = yes
+	set_variable = { domestic_influence_amount = 40 }
+	add_to_array = { influence_array = SAF.id }
+	add_to_array = { influence_array_val = 30 }
+	add_to_array = { influence_array = MOZ.id }
+	add_to_array = { influence_array_val = 40 }
+	add_to_array = { influence_array = USA.id }
+	add_to_array = { influence_array_val = 65 }
+	add_to_array = { influence_array = ENG.id }
+	add_to_array = { influence_array_val = 30 }
+	add_to_array = { influence_array = CHI.id }
+	add_to_array = { influence_array_val = 40 }
+	startup_influence = yes
+
+	set_variable = { var = debt value = 12 }
+	set_variable = { var = treasury value = 5 }
+	set_variable = { var = corporate_tax_rate value = 30 }
+	set_variable = { var = population_tax_rate value = 28 }
+
+	set_popularities = {
+		democratic = 49.5
+		communism = 0.0
+		fascism = 0.0
+		neutrality = 50.5
+		nationalist = 0.0
+	}
+	set_politics = {
+		ruling_party = democratic
+		last_election = "2000.1.1"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+
+	start_politics_input = yes
+
+	### Party Popularities
+	set_variable = { party_pop_array^0 = 0 } #Western_Autocracy
+	set_variable = { party_pop_array^1 = 0 } #conservatism
+	set_variable = { party_pop_array^2 = 0.495 } #liberalism
+	set_variable = { party_pop_array^3 = 0 } #socialism
+	set_variable = { party_pop_array^4 = 0 } #Communist-State
+	set_variable = { party_pop_array^5 = 0 } #anarchist_communism
+	set_variable = { party_pop_array^6 = 0 } #Conservative
+	set_variable = { party_pop_array^7 = 0 } #Autocracy
+	set_variable = { party_pop_array^8 = 0 } #Mod_Vilayat_e_Faqih
+	set_variable = { party_pop_array^9 = 0 } #Vilayat_e_Faqih
+	set_variable = { party_pop_array^10 = 0 } #Kingdom
+	set_variable = { party_pop_array^11 = 0 } #Caliphate
+	set_variable = { party_pop_array^12 = 0 } #Neutral_Muslim_Brotherhood
+	set_variable = { party_pop_array^13 = 0 } #Neutral_Autocracy
+	set_variable = { party_pop_array^14 = 0.351 } #Neutral_conservatism
+	set_variable = { party_pop_array^15 = 0 } #oligarchism
+	set_variable = { party_pop_array^16 = 0 } #Neutral_Libertarian
+	set_variable = { party_pop_array^17 = 0 } #Neutral_green
+	set_variable = { party_pop_array^18 = 0.154 } #neutral_Social
+	set_variable = { party_pop_array^19 = 0 } #Neutral_Communism
+	set_variable = { party_pop_array^20 = 0 } #Nat_Populism
+	set_variable = { party_pop_array^21 = 0 } #Nat_Fascism
+	set_variable = { party_pop_array^22 = 0 } #Nat_Autocracy
+	set_variable = { party_pop_array^23 = 0 } #Monarchist
+
+	### Ruling Party
+	add_to_array = { ruling_party = 2 }
+
+	startup_politics = yes
+
+	create_country_leader = {
+		name = "Elson Bakili Muluzi"
+		picture = "bakili_muluzi.dds"
+		ideology = liberalism
+		traits = {
+			western_liberalism
+		}
+	}
+	set_variable = { term_limit = 2 }
+	set_variable = { current_term = 2 }
+
+	recruit_character = MLW_joseph_chimbaryo
+	recruit_character = MLW_marko_chiziko
+	recruit_character = MLW_griffin_spoon_phiri
+	recruit_character = MLW_air_chief
+
+	add_to_array = { agri_crop_allocation = 0.191 } # Basic = 0
+	add_to_array = { agri_crop_allocation = 0.809 } # Cash = 1
+
+	add_to_array = { agri_crop_price = 15 } # Basic = 0
+	add_to_array = { agri_crop_price = 25 } # Cash = 1
+
+	set_variable = { literacy_rate = 0.641 }
+
+}
+
+2017.1.1 = {
+	capital = 260
+	oob = "MLW_2017"
+	set_convoys = 5
+
+	set_variable = { var = debt value = 4 }
+	set_variable = { var = treasury value = 1 }
+	set_variable = { var = int_investments value = 0 }
+	set_variable = { var = corporate_tax_rate value = 30 }
+	set_variable = { var = population_tax_rate value = 21 }
+
+	remove_ideas = {
+		rising_level_of_aids
+	}
+
+	add_ideas = {
+		#pop_050
+		unrestrained_corruption
+
+		christian
+		stable_growth
+		defence_01
+		edu_03
+		health_04
+		social_01
+		bureau_02
+		police_02
+		volunteer_army
+		volunteer_women
+		farmers
+		international_bankers
+		small_medium_business_owners
+		#hybrid
+		#tax_cost_15
+		low_level_of_aids
+	}
+
+	set_technology = {
+		internet2 = 1 	#2G
+		gprs = 1
+		wifi = 1
+		internet3 = 1	#3G
+	}
+
+	#set_country_flag =
+	set_variable = { farmers_opinion = 40 }
+	set_variable = { international_bankers_opinion = 60 }
+	set_variable = { small_medium_business_owners_opinion = 40 }
+
+	#Nat focus
+
+
+	remove_opinion_modifier = { target = TAI modifier = recognize_taiwan }
+	remove_opinion_modifier = { target = CHI modifier = recognize_taiwan_chi }
+
+	set_popularities = {
+		democratic = 65.3
+		communism = 0.0
+		fascism = 0.0
+		neutrality = 34.7
+		nationalist = 0.0
+	}
+	set_politics = {
+
+		ruling_party = democratic
+		last_election = "2014.5.20"
+		election_frequency = 60
+		elections_allowed = yes
+	}
+
+	start_politics_input = yes
+
+	### Party Popularities
+	set_variable = { party_pop_array^0 = 0 } #Western_Autocracy
+	set_variable = { party_pop_array^1 = 0.184 } #conservatism
+	set_variable = { party_pop_array^2 = 0.468 } #liberalism
+	set_variable = { party_pop_array^3 = 0 } #socialism
+	set_variable = { party_pop_array^4 = 0 } #Communist-State
+	set_variable = { party_pop_array^5 = 0 } #anarchist_communism
+	set_variable = { party_pop_array^6 = 0 } #Conservative
+	set_variable = { party_pop_array^7 = 0 } #Autocracy
+	set_variable = { party_pop_array^8 = 0 } #Mod_Vilayat_e_Faqih
+	set_variable = { party_pop_array^9 = 0 } #Vilayat_e_Faqih
+	set_variable = { party_pop_array^10 = 0 } #Kingdom
+	set_variable = { party_pop_array^11 = 0 } #Caliphate
+	set_variable = { party_pop_array^12 = 0 } #Neutral_Muslim_Brotherhood
+	set_variable = { party_pop_array^13 = 0 } #Neutral_Autocracy
+	set_variable = { party_pop_array^14 = 0.34 } #Neutral_conservatism
+	set_variable = { party_pop_array^15 = 0 } #oligarchism
+	set_variable = { party_pop_array^16 = 0 } #Neutral_Libertarian
+	set_variable = { party_pop_array^17 = 0 } #Neutral_green
+	set_variable = { party_pop_array^18 = 0.007 } #neutral_Social
+	set_variable = { party_pop_array^19 = 0 } #Neutral_Communism
+	set_variable = { party_pop_array^20 = 0 } #Nat_Populism
+	set_variable = { party_pop_array^21 = 0 } #Nat_Fascism
+	set_variable = { party_pop_array^22 = 0 } #Nat_Autocracy
+	set_variable = { party_pop_array^23 = 0 } #Monarchist
+
+	### Ruling Party
+	add_to_array = { ruling_party = 2 }
+
+	startup_politics = yes
+
+	create_country_leader = {
+		name = "Arthur Peter Mutharika"
+		picture = "Peter_Mutharika.dds"
+		ideology = liberalism
+		traits = {
+			western_liberalism
+		}
+	}
+	set_variable = { current_term = 1 }
+
+	retire_character = MLW_joseph_chimbaryo
+	retire_character = MLW_marko_chiziko
+
+	recruit_character = MLW_henry_odillo
+	recruit_character = MLW_ignacio_maulana
+
+	add_to_array = { agri_crop_allocation = 0.283 } # Basic = 0
+	add_to_array = { agri_crop_allocation = 0.717 } # Cash = 1
+
+	add_to_array = { agri_crop_price = 15 } # Basic = 0
+	add_to_array = { agri_crop_price = 25 } # Cash = 1
+
+	set_variable = { literacy_rate = 0.621 }
+}

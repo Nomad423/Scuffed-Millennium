@@ -1,0 +1,32 @@
+
+state = {
+	id = 721
+	name = "STATE_721"
+
+	history = {
+		owner = KYR
+		victory_points = {
+			12370 5
+		}
+		
+		buildings = {
+			infrastructure = 0
+			internet_station = 0
+
+		}
+		add_core_of = KYR
+		2017.1.1 = {
+			buildings = {
+				internet_station = 0
+			}
+			add_manpower = 443390
+		}
+	}
+
+	provinces = {
+		3088 12370 12581 13214 14132 14133 14199 14200
+	}
+	manpower = 1642755
+	buildings_max_level_factor = 1.000
+	state_category = state_03
+}

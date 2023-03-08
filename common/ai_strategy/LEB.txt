@@ -1,0 +1,38 @@
+Lebanon_help_Syria = {
+	allowed = { original_tag = LEB }
+	reversed = yes
+	enable = {
+		OR = {
+			original_tag = SYR
+			original_tag = NUS
+			original_tag = FSA
+		}
+		has_country_flag = LEB_agreed_to_help_SYR
+	}
+	abort = {
+		OR = {
+			has_war_with = LEB
+			NOT = { has_country_flag = LEB_agreed_to_help_SYR }
+		}
+	}
+	targets = {
+		SYR NUS FSA
+	}
+
+	ai_strategy = { type = befriend id = "LEB" value = 50 }
+	ai_strategy = { type = support id = "LEB" value = 50 }
+	ai_strategy = { type = alliance id = "LEB" value = 50 }
+}
+
+LEB_likes_syria = {
+	allowed ={ original_tag = LEB }
+	enable = {
+		country_exists = SYR
+		NOT = { has_war_with = SYR }
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = { type = befriend id = "SYR" value = 50 }
+	ai_strategy = { type = support id = "SYR" value = 50 }
+	ai_strategy = { type = alliance id = "SYR" value = 50 }
+}
