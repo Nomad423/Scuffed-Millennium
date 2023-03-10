@@ -12,5 +12,5 @@ tags={
 	"Sound"
 }
 name="Scuffed Millennium"
-supported_version="1.12.10"
+supported_version="1.12.*"
 remote_file_id="2944186005"
