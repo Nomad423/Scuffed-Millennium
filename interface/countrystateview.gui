@@ -36,7 +36,6 @@ guiTypes = {
 			position = { x = 0 y = 0 }
 			size = { width=780 height=579 }
 
-
 			background = {
 				name = "Background"
 				quadTextureSprite = "GFX_stateview_bg"
@@ -45,7 +44,7 @@ guiTypes = {
 
 			instantTextboxType = {
 				name = "state_name"
-				position = { x = 60 y = 6 } #5
+				position = { x = 60 y = 10 } #5
 				textureFile = ""
 				font = "hoi_30header"
 				text = "STATE_NAME_TEST"
@@ -66,23 +65,22 @@ guiTypes = {
 
 			instantTextboxType = {
 				name = "shared_slot_count"
-				position = { x = 194 y = 216 } #position = { x = 274 y = 216 } ##position = { x = 254 y = 407 } #position = { x = 194 y = 156 }
+				position = { x = 160 y = 216 } #position = { x = 274 y = 216 } ##position = { x = 254 y = 407 } #position = { x = 194 y = 156 }
 				textureFile = ""
 				font = "hoi_18mbs" #font = "hoi_16mbs" #font = "hoi_18mbs"
 				text = "SLOTS"
-				maxWidth = 190 #maxWidth = 170 #maxWidth = 190
+				maxWidth = 240 #maxWidth = 170 #maxWidth = 190
 				maxHeight = 30
 				format = center
 			}
 
-
 			gridBoxType = {
-				name = "state_shared_slot_building_entries" #주 건설슬롯 갯수
+				name = "state_shared_slot_building_entries"
 				position = { x = 153 y = 245 } ##position = { x = 20 y = 245 } #position = { x = 153 y = 177 }
 				size = { width = 480 height = 90%% }
 				format = "UPPER_LEFT"
 				slotsize = { width = 34 height = 28 } ##slotsize = { width = 41 height = 32 } #slotsize = { width = 39 height = 32 }
-				max_slots_horizontal = 16 #7
+				max_slots_horizontal = 8 #7
 			}
 
 			iconType ={
@@ -272,7 +270,7 @@ guiTypes = {
 				}
 			}
 		}
-		
+
 		containerWindowType = {
 			name = "province_info_window"
 			position = { x = 5 y = 470 }
@@ -1774,67 +1772,6 @@ guiTypes = {
 					spriteType = "GFX_terrain_seoul"
 					alwaystransparent = yes
 				}
-				#MOD
-			    iconType = {
-				    name = "terrain_changwon_icon"
-				    spriteType = "GFX_terrain_changwon"
-				    alwaystransparent = yes
-			    }
-			    iconType = {
-				    name = "terrain_cheonan_icon"
-				    spriteType = "GFX_terrain_cheonan"
-				    alwaystransparent = yes
-			    }
-			    iconType = {
-				    name = "terrain_dokdo_icon"
-				    spriteType = "GFX_terrain_dokdo"
-			     	alwaystransparent = yes
-			    }
-			    iconType = {
-		  		    name = "terrain_gangneung_icon"
-				    spriteType = "GFX_terrain_gangneung"
-				    alwaystransparent = yes
-			    }
-			    iconType = {
-				    name = "terrain_jeju_icon"
-				    spriteType = "GFX_terrain_jeju"
-				    alwaystransparent = yes
-			    }
-			    iconType = {
-			     	name = "terrain_pohang_icon"
-				    spriteType = "GFX_terrain_pohang"
-				    alwaystransparent = yes
-			    }
-		    	iconType = {
-				    name = "terrain_ulleungdo_icon"
-				    spriteType = "GFX_terrain_ulleungdo"
-				    alwaystransparent = yes
-			    }
-			    iconType = {
-				    name = "terrain_sangju_icon"
-				    spriteType = "GFX_terrain_sangju"
-				    alwaystransparent = yes
-			    }
-			    iconType = {
-				    name = "terrain_jeonju_icon"
-				    spriteType = "GFX_terrain_jeonju"
-			     	alwaystransparent = yes
-			    }
-			    iconType = {
-				    name = "terrain_daejeon_icon"
-				    spriteType = "GFX_terrain_daejeon"
-				    alwaystransparent = yes
-			    }
-		    	iconType = {
-				    name = "terrain_pyeongtaek_icon"
-				    spriteType = "GFX_terrain_pyeongtaek"
-				    alwaystransparent = yes
-			    }
-			    iconType = {
-			   	    name = "terrain_sejong_icon"
-				    spriteType = "GFX_terrain_sejong"
-				    alwaystransparent = yes
-			    }
 
 				#Slovakia
 				iconType = {
@@ -3396,7 +3333,7 @@ guiTypes = {
 
 		buttonType = {
 			name = "close_button"
-			position = { x = 230 y = 11 } #position = { x = -36 y = 11 }
+			position = { x = -36 y = 11 }
 			quadTextureSprite ="GFX_closebutton_small"
 			buttonFont = "Main_14_black"
 			shortcut = "ESCAPE"
@@ -3583,7 +3520,6 @@ guiTypes = {
 			format = center
 		}
 	}
-
 
 	containerWindowType = {
 		name = "state_compliance_status_container"
